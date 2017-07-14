@@ -78,27 +78,40 @@ const products = [
 
 module.exports.bootstrap = function (cb) {
   users.forEach(user => {
-    User.findOrCreate({
-      name: user.name,
-      password: user.password
-    }).exec((error, user) => {
-      if (error) sails.log.error(new Error(error))
 
-      sails.log.info('Created fixture user', user)
-    })
+    User
+      .findOne({
+        name: user.name
+      })
+      .exec((error, potentialUser) => {
+        if (error) sails.log.error(error)
+
+        if (!potentialUser) {
+          User
+            .create({
+              name: user.name,
+              password: user.password
+            })
+            .exec((error, user) => {
+              sails.log.info('Created fixture user', user)
+            })
+        }
+      })
   })
 
   products.forEach(product => {
-    Product.findOrCreate({
-      title: product.title,
-      description: product.description,
-      price: product.price,
-      user: product.user
-    }).exec((error, product) => {
-      if (error) sails.log.error(new Error(error))
+    Product
+      .findOrCreate({
+        title: product.title,
+        description: product.description,
+        price: product.price,
+        user: product.user
+      })
+      .exec((error, product) => {
+        if (error) sails.log.error(error)
 
-      sails.log.info('Created fixture product', product)
-    })
+        sails.log.info('Created fixture product', product)
+      })
   })
 
   cb()
