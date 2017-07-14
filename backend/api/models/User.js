@@ -1,4 +1,4 @@
-var bcrypt = require('bcryptjs');
+const bcrypt = require('bcryptjs')
 
 module.exports = {
   connection: 'localDiskDb',
@@ -8,6 +8,7 @@ module.exports = {
       type: 'string',
       required: true
     },
+
     password: {
       type: 'string',
       required: true
@@ -24,29 +25,37 @@ module.exports = {
     }
   },
 
-  beforeCreate: function(values, next) {
-    bcrypt.genSalt(10, function(err, salt) {
-      if (err) return next(err);
+  /**
+   * @param user
+   * @param next
+   */
+  beforeCreate: (user, next) => {
 
-      bcrypt.hash(values.password, salt, function(err, hash) {
-        if (err) return next(err);
 
-        values.encryptedPassword = hash;
-        next();
-      });
-    });
+    bcrypt.genSalt(10, (error, salt) => {
+      if (error) return next(error)
+
+      bcrypt.hash(user.password, salt, (error, hash) => {
+        if (error) return next(error)
+
+        user.password = hash
+        next()
+      })
+    })
   },
 
-    validPassword: function(password, user, cb) {
-    bcrypt.compare(password, user.encryptedPassword, function(err, match) {
-      if (err) cb(err);
+  /**
+   * @param password
+   * @param user
+   * @param callback
+   */
+  checkIfValidPassword: (password, user, callback) => {
+    bcrypt.compare(password, user.password, (error, isMatch) => {
+      if (error) callback(error)
 
-      if (match) {
-        cb(null, true);
-      } else {
-        cb(err);
-      }
-    });
+      if (isMatch) {
+        callback(null, true)
+      } else callback(error, false)
+    })
   }
-
 }

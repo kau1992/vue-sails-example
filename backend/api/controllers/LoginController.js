@@ -4,9 +4,9 @@ module.exports = {
    * @param req
    * @param res
    */
-  
+
   post: (req, res) => {
-    let standardErrorMessage = 'The username and password that you entered did not match our records. Please double-check and try again.';
+    let standardErrorMessage = 'The username and password that you entered did not match our records.'
 
     let {
       name,
@@ -15,25 +15,18 @@ module.exports = {
 
     User
       .findOne({
-        name,
-        password
+        name
       })
       .exec((error, user) => {
         if (error) return res.serverError(error)
+        if (!user) return res.forbidden()
 
-        if(!user) return res.json(401, {err: standardErrorMessage});
+        User
+          .checkIfValidPassword(password, user, (error, isValid) => {
+            if (error) return res.serverError(error)
+            if (!isValid) return res.forbidden()
 
-        User.validPassword(password, user, function(err, valid) {
-          if (err) {
-            return res.json(401, {err: standardErrorMessage});
-          }
-
-          if (!valid) {
-            sails.log.info('Error', user)
-
-            return res.json(401, {err: standardErrorMessage});
-          } else {
-            sails.log.info('User logged in', user);
+            sails.log.info('User logged in', user)
 
             let encryptedId = CryptographyService.encrypt(user.id)
             res.cookie('user', encryptedId)
@@ -42,9 +35,8 @@ module.exports = {
               token: TokenService.issue({
                 id: user.id
               })
-            });
-          }
-        });
+            })
+          })
       })
   }
 }

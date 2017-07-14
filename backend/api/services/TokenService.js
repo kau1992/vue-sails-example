@@ -1,15 +1,13 @@
-const jwt = require('jsonwebtoken'), tokenSecret = 'secretissecret'
+const jwt = require('jsonwebtoken')
+const tokenSecret = 'secretissecret'
 
-/**
- * @type {{issue: module.exports.issue}}
- */
 module.exports = {
 
   /**
    * @param payload
-   * @return {*}
+   * @returns {*}
    */
-  issue: (payload) => {
+  issue: payload => {
     return jwt.sign(payload, tokenSecret, {
       expiresIn: 60 * 60 * 24
     })
@@ -19,7 +17,7 @@ module.exports = {
    * @param token
    * @return {*}
    */
-  verify: (token) => {
+  verify: token => {
     return jwt.verify(token, tokenSecret)
   }
 }
