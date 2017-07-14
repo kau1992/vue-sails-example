@@ -1,5 +1,5 @@
 # Vue.js with Sails.js backend example project
-This project is for those who are new to [single-page applications](https://en.wikipedia.org/wiki/Single-page_application) and want to learn through a real example.
+This project is for those who are new to [single-page applications](https://en.wikipedia.org/wiki/Single-page_application) and want to learn through a real example. This project fulfils the [JavaScript Standard Style](https://standardjs.com/).
 
 ## Getting started
 ### Prerequisites
@@ -53,4 +53,4 @@ HTTP client for Vue.js.
 Router for the frontend.
 
 ## To do
-Password en-/decryption, more tests, more multilingualism, file uploads, upgrading to Sails.js 1.0, mobile version, finalize checkout, use modules for Vuex
+More tests, more multilingualism, file uploads, upgrading to Sails.js 1.0, mobile version, finalize checkout, use modules for Vuex
