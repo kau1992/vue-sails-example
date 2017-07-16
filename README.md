@@ -53,7 +53,13 @@ HTTP client for Vue.js.
 Router for the frontend.
 
 ## To do
-More tests, more multilingualism, file uploads, upgrading to Sails.js 1.0, mobile version, finalize checkout, use modules for Vuex
+- More tests
+- more multilingualism
+- file uploads
+- upgrading to Sails.js 1.0
+- mobile version
+- finalize checkout
+- use modules for Vuex
 
 ## Code style
 This project fulfils the [JavaScript Standard Style](https://standardjs.com/).
