@@ -250,6 +250,27 @@ export default new Vuex.Store({
 
     /**
      * @param context
+     * @param user
+     */
+    loginUser (context, user) {
+      return new Promise((resolve, reject) => {
+        Vue.http
+          .post('/api/login/post', {
+            name: user.name,
+            password: user.password
+          })
+          .then(response => {
+            context.commit('SET_IS_USER_AUTHENTICATED', true)
+            resolve(response.body)
+          })
+          .catch(error => {
+            reject(error)
+          })
+      })
+    },
+
+    /**
+     * @param context
      * @param parameters
      */
     saveProduct (context, parameters) {

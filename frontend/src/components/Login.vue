@@ -96,25 +96,16 @@
 
     methods: {
       login () {
-        this.$http
-        .post('/api/login/post', {
-          name: this.name,
-          password: this.password
-        })
-        .then(response => {
-          this.$store.commit('SET_IS_USER_AUTHENTICATED', true)
-          window.localStorage.setItem('token', response.body.token)
+        this.$store.dispatch('loginUser', this.user)
+          .then(token => {
+            window.localStorage.setItem('token', token.token)
 
-          // Success message
+            // Success message
 
-          this.$router.push({
-            name: 'Products'
+            this.$router.push({
+              name: 'Products'
+            })
           })
-        }, (error) => {
-          if (error.status === 403) {
-            // Error message
-          }
-        })
       }
     }
   }

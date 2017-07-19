@@ -30,10 +30,6 @@
     "start": "node app.js"
   },
   "main": "app.js",
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/vagrant/test-project.git"
-  },
   "author": "vagrant",
   "license": "",
   "devDependencies": {}
