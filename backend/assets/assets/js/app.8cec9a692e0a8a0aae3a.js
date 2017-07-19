@@ -212,6 +212,19 @@ var getCookie = function getCookie(name) {
         console.error(error);
       });
     },
+    loginUser: function loginUser(context, user) {
+      return new __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_promise___default.a(function (resolve, reject) {
+        __WEBPACK_IMPORTED_MODULE_1_vue__["a" /* default */].http.post('/api/login/post', {
+          name: user.name,
+          password: user.password
+        }).then(function (response) {
+          context.commit('SET_IS_USER_AUTHENTICATED', true);
+          resolve(response.body);
+        }).catch(function (error) {
+          reject(error);
+        });
+      });
+    },
     saveProduct: function saveProduct(context, parameters) {
       return new __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_promise___default.a(function (resolve, reject) {
         __WEBPACK_IMPORTED_MODULE_1_vue__["a" /* default */].http.post('/api/user/product/post', {
@@ -543,4 +556,4 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
 /***/ })
 
 },[44]);
-//# sourceMappingURL=app.bc52f63dcbb062911bf7.js.map
+//# sourceMappingURL=app.8cec9a692e0a8a0aae3a.js.map

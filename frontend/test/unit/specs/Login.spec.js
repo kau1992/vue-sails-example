@@ -8,16 +8,16 @@ import VueResource from 'vue-resource'
 import BootstrapVue from 'bootstrap-vue'
 import VueI18n from 'vue-i18n'
 import store from './../../../state/index'
-import Register from '@/components/Register'
+import Login from '@/components/Login'
 
 Vue.use(BootstrapVue)
 Vue.use(VueResource)
 Vue.use(VueI18n)
 
-describe('Register', () => {
+describe('Login', () => {
   it('should accept inputs', () => {
     store.locale = 'en'
-    const wrapper = mount(Register, {
+    const wrapper = mount(Login, {
       store
     })
 
@@ -39,7 +39,7 @@ describe('Register', () => {
 
   it('should call vuex action if button is clicked', () => {
     const actions = {
-      saveUser: sinon.stub()
+      loginUser: sinon.stub()
     }
     const store = new Vuex.Store({
       state: {
@@ -52,12 +52,12 @@ describe('Register', () => {
       actions
     })
 
-    const wrapper = mount(Register, {
+    const wrapper = mount(Login, {
       store
     })
     const button = wrapper.find('button')[0]
     button.trigger('click')
 
-    expect(actions.saveUser.calledOnce).to.equal(true)
+    expect(actions.loginUser.calledOnce).to.equal(true)
   })
 })

@@ -1,6 +1,6 @@
-webpackJsonp([5],{
+webpackJsonp([4],{
 
-/***/ 111:
+/***/ 112:
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -45,27 +45,21 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "size": "sm"
     },
     on: {
-      "click": _vm.login
+      "click": _vm.create
     }
-  }, [_vm._v(_vm._s(_vm.$t('button.first')))])], 1), _vm._v(" "), _c('div', {
-    staticClass: "col-6"
-  }, [_c('figure', {
-    staticClass: "figure"
-  }, [_c('pre', [_vm._v("\n      [\n        {\n          name: 'Joe',\n          password: 'toasty'\n        }, {\n          name: 'Anna',\n          password: 'sunflower'\n        }, {\n          name: 'Tom',\n          password: 'jerry'\n        }\n      ]\n    ")]), _vm._v(" "), _c('figcaption', {
-    staticClass: "figure-caption"
-  }, [_vm._v(_vm._s(_vm.$t('figcaption.first')))])])])])
+  }, [_vm._v(_vm._s(_vm.$t('button.first')))])], 1)])
 },staticRenderFns: []}
 
 /***/ }),
 
-/***/ 85:
+/***/ 86:
 /***/ (function(module, exports, __webpack_require__) {
 
 var Component = __webpack_require__(40)(
   /* script */
-  __webpack_require__(93),
+  __webpack_require__(94),
   /* template */
-  __webpack_require__(111),
+  __webpack_require__(112),
   /* scopeId */
   null,
   /* cssModules */
@@ -77,7 +71,7 @@ module.exports = Component.exports
 
 /***/ }),
 
-/***/ 93:
+/***/ 94:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -88,20 +82,19 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   i18n: {
     messages: {
       en: {
-        'description.first': 'Enter your name',
-        'label.first': 'Name',
-        'description.second': 'Enter your password',
-        'label.second': 'Password',
-        'figcaption.first': 'You may choose one of these users to login.',
-        'button.first': 'Submit'
+        'description.first': 'Enter a name',
+        'label.first': 'Name *',
+        'description.second': 'Enter a password',
+        'label.second': 'Password *',
+        'button.first': 'Create'
       },
       de: {
-        'description.first': 'Gebe deinen Namen ein',
-        'label.first': 'Name',
-        'description.second': 'Gebe dein Passwort ein',
-        'label.second': 'Passwort',
+        'description.first': 'Gebe einen Namen ein',
+        'label.first': 'Name *',
+        'description.second': 'Gebe ein Passwort ein',
+        'label.second': 'Passwort *',
         'figcaption.first': 'Du kannst einen dieser Nutzer wählen, um dich einzuloggen.',
-        'button.first': 'Senden'
+        'button.first': 'Erstellen'
       }
     }
   },
@@ -133,22 +126,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   },
 
   methods: {
-    login: function login() {
-      var _this = this;
-
-      this.$http.post('/api/login/post', {
-        name: this.name,
-        password: this.password
-      }).then(function (response) {
-        _this.$store.commit('SET_IS_USER_AUTHENTICATED', true);
-        window.localStorage.setItem('token', response.body.token);
-
-        _this.$router.push({
-          name: 'Products'
-        });
-      }, function (error) {
-        if (error.status === 403) {}
-      });
+    create: function create() {
+      this.$store.dispatch('saveUser', this.user);
     }
   }
 });
@@ -156,4 +135,4 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /***/ })
 
 });
-//# sourceMappingURL=5.08a67d5696c00c298bbc.js.map
+//# sourceMappingURL=4.bc44abf1aa4845c9dc10.js.map
