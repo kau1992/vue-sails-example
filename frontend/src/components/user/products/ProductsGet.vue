@@ -42,7 +42,7 @@
           'field.second': 'Description',
           'field.third': 'Price',
           'field.fourth': 'Actions',
-          'button.first': 'Patch',
+          'button.first': 'Edit',
           'button.second': 'Remove'
         },
         de: {
