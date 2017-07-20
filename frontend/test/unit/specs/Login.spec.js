@@ -4,19 +4,38 @@ import {
   mount
 } from 'avoriaz'
 import sinon from 'sinon'
-import VueResource from 'vue-resource'
 import BootstrapVue from 'bootstrap-vue'
 import VueI18n from 'vue-i18n'
-import store from './../../../state/index'
 import Login from '@/components/Login'
 
 Vue.use(BootstrapVue)
-Vue.use(VueResource)
 Vue.use(VueI18n)
+Vue.use(Vuex)
 
 describe('Login', () => {
-  it('should accept inputs', () => {
-    store.locale = 'en'
+  it('should accept inputs', async () => {
+    const state = {
+      user: {
+        name: '',
+        password: ''
+      }
+    }
+
+    const mutations = {
+      SET_USER_NAME(state, name) {
+        state.user.name = name
+      },
+
+      SET_USER_PASSWORD(state, password) {
+        state.user.password = password
+      }
+    }
+
+    const store = new Vuex.Store({
+      state,
+      mutations
+    })
+
     const wrapper = mount(Login, {
       store
     })
@@ -37,27 +56,32 @@ describe('Login', () => {
     expect(wrapper.vm.$store.state.user.password).to.equal(password)
   })
 
-  it('should call vuex action if button is clicked', () => {
+  it('should call login action if button is clicked', async () => {
+    const state = {
+      user: {
+        name: 'Hans',
+        password: '123'
+      }
+    }
+
     const actions = {
       loginUser: sinon.stub()
     }
+
     const store = new Vuex.Store({
-      state: {
-        locale: 'en',
-        user: {
-          name: 'Hans',
-          password: '123'
-        }
-      },
+      state,
       actions
     })
+
+    let login = sinon.stub(Login.methods, 'login')
 
     const wrapper = mount(Login, {
       store
     })
+
     const button = wrapper.find('button')[0]
     button.trigger('click')
 
-    expect(actions.loginUser.calledOnce).to.equal(true)
+    expect(login.calledOnce).to.equal(true)
   })
 })

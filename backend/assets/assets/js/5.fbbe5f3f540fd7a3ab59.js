@@ -51,7 +51,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "col-6"
   }, [_c('figure', {
     staticClass: "figure"
-  }, [_c('pre', [_vm._v("      [\n        {\n          name: 'Joe',\n          password: 'toasty'\n        }, {\n          name: 'Anna',\n          password: 'sunflower'\n        }, {\n          name: 'Tom',\n          password: 'jerry'\n        }\n      ]\n    ")]), _vm._v(" "), _c('figcaption', {
+  }, [_c('pre', [_vm._v("        [\n          {\n            name: 'Joe',\n            password: 'toasty'\n          }, {\n            name: 'Anna',\n            password: 'sunflower'\n          }, {\n            name: 'Tom',\n            password: 'jerry'\n          }\n        ]\n      ")]), _vm._v(" "), _c('figcaption', {
     staticClass: "figure-caption"
   }, [_vm._v(_vm._s(_vm.$t('figcaption.first')))])])])])
 },staticRenderFns: []}
@@ -150,4 +150,4 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /***/ })
 
 });
-//# sourceMappingURL=5.840979667c9014c94f20.js.map
+//# sourceMappingURL=5.fbbe5f3f540fd7a3ab59.js.map
