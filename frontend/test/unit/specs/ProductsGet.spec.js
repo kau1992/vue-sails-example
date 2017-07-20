@@ -10,11 +10,12 @@ import VueI18n from 'vue-i18n'
 import ProductsGet from '@/components/user/products/ProductsGet'
 
 Vue.use(BootstrapVue)
+Vue.use(VueI18n)
 Vue.use(Vuex)
 Vue.use(VueResource)
 
 describe('ProductsGet', () => {
-  it('should call method to get all products by user at created hook', async() => {
+  it('should call method to get all products by user at created hook', async () => {
     const state = {
       product: {
         meta: sinon.stub()
@@ -33,26 +34,27 @@ describe('ProductsGet', () => {
       actions
     })
 
-    const wrapper = mount(ProductsGet, {
+    mount(ProductsGet, {
       store
     })
 
     expect(actions.getProductsByUser.calledOnce).to.equal(true)
   })
 
-  it('should show product patch modal when button is clicked', async() => {
+  it('should show product patch modal when button is clicked', () => {
     const state = {
       product: {
         meta: {
           isEditProductVisible: false
         }
       },
-      products:[{
-          id: 1
-        }]
+      products: [{
+        id: 1
+      }]
     }
 
     const actions = {
+      getProduct: sinon.stub(),
       getProductsByUser: sinon.stub()
     }
 
@@ -64,8 +66,8 @@ describe('ProductsGet', () => {
 
     const store = new Vuex.Store({
       state,
+      actions,
       mutations,
-      actions
     })
 
     const wrapper = mount(ProductsGet, {

@@ -9,6 +9,7 @@ import VueI18n from 'vue-i18n'
 import Home from '@/components/Home'
 
 Vue.use(BootstrapVue)
+Vue.use(VueI18n)
 Vue.use(Vuex)
 
 describe('Home', () => {
@@ -28,7 +29,7 @@ describe('Home', () => {
       actions
     })
 
-    const wrapper = mount(Home, {
+    mount(Home, {
       store
     })
 
@@ -54,7 +55,7 @@ describe('Home', () => {
     const wrapper = mount(Home, {
       store
     })
-    
+
     wrapper.vm.currentPage = 2
     wrapper.vm.$nextTick(() => {
       expect(actions.getProducts.secondCall.args[1]).to.equal(2)

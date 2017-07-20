@@ -1,24 +1,5 @@
 webpackJsonp([1],{
 
-/***/ 105:
-/***/ (function(module, exports, __webpack_require__) {
-
-var Component = __webpack_require__(40)(
-  /* script */
-  __webpack_require__(95),
-  /* template */
-  __webpack_require__(113),
-  /* scopeId */
-  null,
-  /* cssModules */
-  null
-)
-
-module.exports = Component.exports
-
-
-/***/ }),
-
 /***/ 106:
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -26,7 +7,7 @@ var Component = __webpack_require__(40)(
   /* script */
   __webpack_require__(96),
   /* template */
-  __webpack_require__(108),
+  __webpack_require__(114),
   /* scopeId */
   null,
   /* cssModules */
@@ -43,9 +24,9 @@ module.exports = Component.exports
 
 var Component = __webpack_require__(40)(
   /* script */
-  __webpack_require__(98),
+  __webpack_require__(97),
   /* template */
-  __webpack_require__(114),
+  __webpack_require__(109),
   /* scopeId */
   null,
   /* cssModules */
@@ -58,6 +39,25 @@ module.exports = Component.exports
 /***/ }),
 
 /***/ 108:
+/***/ (function(module, exports, __webpack_require__) {
+
+var Component = __webpack_require__(40)(
+  /* script */
+  __webpack_require__(99),
+  /* template */
+  __webpack_require__(115),
+  /* scopeId */
+  null,
+  /* cssModules */
+  null
+)
+
+module.exports = Component.exports
+
+
+/***/ }),
+
+/***/ 109:
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -125,7 +125,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
 
 /***/ }),
 
-/***/ 113:
+/***/ 114:
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -174,14 +174,15 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
 
 /***/ }),
 
-/***/ 114:
+/***/ 115:
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('b-modal', {
     attrs: {
       "size": "lg",
-      "id": "patch-product"
+      "id": "patch-product",
+      "hide-header-close": true
     }
   }, [_c('template', {
     slot: "modal-title"
@@ -259,7 +260,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
 
 /***/ }),
 
-/***/ 116:
+/***/ 117:
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -297,14 +298,14 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
 
 /***/ }),
 
-/***/ 87:
+/***/ 88:
 /***/ (function(module, exports, __webpack_require__) {
 
 var Component = __webpack_require__(40)(
   /* script */
-  __webpack_require__(97),
+  __webpack_require__(98),
   /* template */
-  __webpack_require__(116),
+  __webpack_require__(117),
   /* scopeId */
   null,
   /* cssModules */
@@ -316,12 +317,12 @@ module.exports = Component.exports
 
 /***/ }),
 
-/***/ 95:
+/***/ 96:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__product_ProductPatch__ = __webpack_require__(107);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__product_ProductPatch__ = __webpack_require__(108);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__product_ProductPatch___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__product_ProductPatch__);
 
 
@@ -349,7 +350,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         'field.second': 'Description',
         'field.third': 'Price',
         'field.fourth': 'Actions',
-        'button.first': 'Patch',
+        'button.first': 'Edit',
         'button.second': 'Remove'
       },
       de: {
@@ -412,21 +413,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     remove: function remove(id) {
       var _this = this;
 
-      this.$http.delete('/api/user/product/remove', {
-        params: {
-          id: id
-        }
-      }).then(function () {
-
+      this.$store.dispatch('removeProduct', id).then(function () {
         _this.$store.dispatch('getProductsByUser', _this.user);
-      }, function () {});
+      });
     }
   }
 });
 
 /***/ }),
 
-/***/ 96:
+/***/ 97:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -513,23 +509,21 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       }).then(function () {
 
         _this.$store.dispatch('getProductsByUser', _this.user);
-      }, function (error) {
-        console.error(error);
-      });
+      }, function () {});
     }
   }
 });
 
 /***/ }),
 
-/***/ 97:
+/***/ 98:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ProductCreate__ = __webpack_require__(106);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ProductCreate__ = __webpack_require__(107);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ProductCreate___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__ProductCreate__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ProductsGet__ = __webpack_require__(105);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ProductsGet__ = __webpack_require__(106);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ProductsGet___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__ProductsGet__);
 
 
@@ -558,7 +552,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /***/ }),
 
-/***/ 98:
+/***/ 99:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -598,15 +592,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   created: function created() {
     var _this = this;
 
-    var id = this.id;
-
-    this.$http.get('/api/user/product/get', {
-      params: {
-        id: id
-      }
-    }).then(function (response) {
+    this.$store.dispatch('getProduct', this.id).then(function (product) {
       _this.$root.$emit('show::modal', 'patch-product');
-      var product = response.body;
 
       _this.$store.commit('SET_PRODUCT_TITLE', product.title);
       _this.$store.commit('SET_PRODUCT_DESCRIPTION', product.description);
@@ -663,7 +650,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     patchProduct: function patchProduct() {
       var _this2 = this;
 
-      this.$http.patch('/api/user/product/patch', {
+      this.$store.dispatch('patchProduct', {
         id: this.id,
         title: this.title,
         price: this.price,
@@ -690,4 +677,4 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /***/ })
 
 });
-//# sourceMappingURL=1.0881c649c37f19b92e49.js.map
+//# sourceMappingURL=1.f2b8bfc6635593cd7420.js.map

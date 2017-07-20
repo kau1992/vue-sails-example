@@ -5,7 +5,7 @@ webpackJsonp([7],{
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_router__ = __webpack_require__(81);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_router__ = __webpack_require__(82);
 
 
 
@@ -23,19 +23,19 @@ __WEBPACK_IMPORTED_MODULE_0_vue__["a" /* default */].use(__WEBPACK_IMPORTED_MODU
     path: '/register',
     name: 'Register',
     component: function component(resolve) {
-      __webpack_require__.e/* require */(4).then(function() { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__(86)]; (resolve.apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__));}.bind(this)).catch(__webpack_require__.oe);
+      __webpack_require__.e/* require */(4).then(function() { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__(87)]; (resolve.apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__));}.bind(this)).catch(__webpack_require__.oe);
     }
   }, {
     path: '/login',
     name: 'Login',
     component: function component(resolve) {
-      __webpack_require__.e/* require */(5).then(function() { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__(85)]; (resolve.apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__));}.bind(this)).catch(__webpack_require__.oe);
+      __webpack_require__.e/* require */(5).then(function() { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__(86)]; (resolve.apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__));}.bind(this)).catch(__webpack_require__.oe);
     }
   }, {
     path: '/user/products/index',
     name: 'Products',
     component: function component(resolve) {
-      __webpack_require__.e/* require */(1).then(function() { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__(87)]; (resolve.apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__));}.bind(this)).catch(__webpack_require__.oe);
+      __webpack_require__.e/* require */(1).then(function() { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__(88)]; (resolve.apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__));}.bind(this)).catch(__webpack_require__.oe);
     },
     meta: {
       userOnly: true
@@ -44,7 +44,7 @@ __WEBPACK_IMPORTED_MODULE_0_vue__["a" /* default */].use(__WEBPACK_IMPORTED_MODU
     path: '/user/shop/index',
     name: 'Shop',
     component: function component(resolve) {
-      __webpack_require__.e/* require */(2).then(function() { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__(89)]; (resolve.apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__));}.bind(this)).catch(__webpack_require__.oe);
+      __webpack_require__.e/* require */(2).then(function() { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__(90)]; (resolve.apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__));}.bind(this)).catch(__webpack_require__.oe);
     },
     meta: {
       userOnly: true
@@ -53,7 +53,7 @@ __WEBPACK_IMPORTED_MODULE_0_vue__["a" /* default */].use(__WEBPACK_IMPORTED_MODU
     path: '/user/shop/basket/index',
     name: 'Basket',
     component: function component(resolve) {
-      __webpack_require__.e/* require */(3).then(function() { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__(88)]; (resolve.apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__));}.bind(this)).catch(__webpack_require__.oe);
+      __webpack_require__.e/* require */(3).then(function() { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__(89)]; (resolve.apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__));}.bind(this)).catch(__webpack_require__.oe);
     },
     meta: {
       userOnly: true
@@ -72,22 +72,25 @@ __WEBPACK_IMPORTED_MODULE_0_vue__["a" /* default */].use(__WEBPACK_IMPORTED_MODU
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_promise__ = __webpack_require__(42);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_promise___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_promise__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vuex__ = __webpack_require__(83);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_objectDestructuringEmpty__ = __webpack_require__(46);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_objectDestructuringEmpty___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_objectDestructuringEmpty__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_promise__ = __webpack_require__(42);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_promise___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_promise__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vue__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_vuex__ = __webpack_require__(84);
 
 
 
 
-__WEBPACK_IMPORTED_MODULE_1_vue__["a" /* default */].use(__WEBPACK_IMPORTED_MODULE_2_vuex__["a" /* default */]);
+
+__WEBPACK_IMPORTED_MODULE_2_vue__["a" /* default */].use(__WEBPACK_IMPORTED_MODULE_3_vuex__["a" /* default */]);
 
 var getCookie = function getCookie(name) {
   var a = ('; ' + document.cookie).match(';\\s*' + name + '=([^;]+)');
   return a ? a[1] : '';
 };
 
-/* harmony default export */ __webpack_exports__["a"] = (new __WEBPACK_IMPORTED_MODULE_2_vuex__["a" /* default */].Store({
+/* harmony default export */ __webpack_exports__["a"] = (new __WEBPACK_IMPORTED_MODULE_3_vuex__["a" /* default */].Store({
   state: {
     locale: 'en',
     user: {
@@ -167,14 +170,17 @@ var getCookie = function getCookie(name) {
 
   actions: {
     getUser: function getUser(context) {
-      __WEBPACK_IMPORTED_MODULE_1_vue__["a" /* default */].http.get('/api/user/get').then(function (response) {
-        context.commit('SET_USER', response.body);
-      }, function (error) {
-        console.error(error);
+      return new __WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_promise___default.a(function (resolve, reject) {
+        __WEBPACK_IMPORTED_MODULE_2_vue__["a" /* default */].http.get('/api/user/get').then(function (response) {
+          context.commit('SET_USER', response.body);
+          resolve();
+        }, function (error) {
+          reject(error);
+        });
       });
     },
     getProducts: function getProducts(context, page) {
-      __WEBPACK_IMPORTED_MODULE_1_vue__["a" /* default */].http.get('/api/products/get', {
+      __WEBPACK_IMPORTED_MODULE_2_vue__["a" /* default */].http.get('/api/products/get', {
         params: {
           page: page
         }
@@ -182,28 +188,61 @@ var getCookie = function getCookie(name) {
         context.commit('SET_PRODUCTS', response.body);
       }, function (error) {
         console.error(error);
+      });
+    },
+    getProduct: function getProduct(_ref, id) {
+      __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_objectDestructuringEmpty___default()(_ref);
+
+      return new __WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_promise___default.a(function (resolve, reject) {
+        __WEBPACK_IMPORTED_MODULE_2_vue__["a" /* default */].http.get('/api/user/product/get', {
+          params: {
+            id: id
+          }
+        }).then(function (response) {
+          resolve(response.body);
+        }).catch(function (error) {
+          reject(error);
+        });
+      });
+    },
+    removeProduct: function removeProduct(_ref2, id) {
+      __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_objectDestructuringEmpty___default()(_ref2);
+
+      return new __WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_promise___default.a(function (resolve, reject) {
+        __WEBPACK_IMPORTED_MODULE_2_vue__["a" /* default */].http.delete('/api/user/product/remove', {
+          params: {
+            id: id
+          }
+        }).then(function () {
+          resolve();
+        }, function (error) {
+          reject(error);
+        });
       });
     },
     getShopProducts: function getShopProducts(context, page) {
-      __WEBPACK_IMPORTED_MODULE_1_vue__["a" /* default */].http.get('/api/user/products/get', {
-        params: {
-          page: page
-        }
-      }).then(function (response) {
-        context.commit('SET_PRODUCTS', response.body);
-      }, function (error) {
-        console.error(error);
+      return new __WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_promise___default.a(function (resolve, reject) {
+        __WEBPACK_IMPORTED_MODULE_2_vue__["a" /* default */].http.get('/api/user/products/get', {
+          params: {
+            page: page
+          }
+        }).then(function (response) {
+          context.commit('SET_PRODUCTS', response.body);
+          resolve();
+        }, function (error) {
+          reject(error);
+        });
       });
     },
     getProductsByUser: function getProductsByUser(context) {
-      __WEBPACK_IMPORTED_MODULE_1_vue__["a" /* default */].http.get('/api/user/products/getByUser').then(function (response) {
+      __WEBPACK_IMPORTED_MODULE_2_vue__["a" /* default */].http.get('/api/user/products/getByUser').then(function (response) {
         context.commit('SET_PRODUCTS', response.body);
       }, function (error) {
         console.error(error);
       });
     },
     saveUser: function saveUser(context, user) {
-      __WEBPACK_IMPORTED_MODULE_1_vue__["a" /* default */].http.post('/api/register/post', {
+      __WEBPACK_IMPORTED_MODULE_2_vue__["a" /* default */].http.post('/api/register/post', {
         name: user.name,
         password: user.password
       }).then(function () {
@@ -213,8 +252,8 @@ var getCookie = function getCookie(name) {
       });
     },
     loginUser: function loginUser(context, user) {
-      return new __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_promise___default.a(function (resolve, reject) {
-        __WEBPACK_IMPORTED_MODULE_1_vue__["a" /* default */].http.post('/api/login/post', {
+      return new __WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_promise___default.a(function (resolve, reject) {
+        __WEBPACK_IMPORTED_MODULE_2_vue__["a" /* default */].http.post('/api/login/post', {
           name: user.name,
           password: user.password
         }).then(function (response) {
@@ -226,8 +265,8 @@ var getCookie = function getCookie(name) {
       });
     },
     saveProduct: function saveProduct(context, parameters) {
-      return new __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_promise___default.a(function (resolve, reject) {
-        __WEBPACK_IMPORTED_MODULE_1_vue__["a" /* default */].http.post('/api/user/product/post', {
+      return new __WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_promise___default.a(function (resolve, reject) {
+        __WEBPACK_IMPORTED_MODULE_2_vue__["a" /* default */].http.post('/api/user/product/post', {
           title: parameters.product.title,
           description: parameters.product.description,
           price: parameters.product.price
@@ -239,9 +278,25 @@ var getCookie = function getCookie(name) {
         });
       });
     },
+    patchProduct: function patchProduct(_ref3, parameters) {
+      __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_objectDestructuringEmpty___default()(_ref3);
+
+      return new __WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_promise___default.a(function (resolve, reject) {
+        __WEBPACK_IMPORTED_MODULE_2_vue__["a" /* default */].http.patch('/api/user/product/patch', {
+          id: parameters.id,
+          title: parameters.title,
+          price: parameters.price,
+          description: parameters.description
+        }).then(function () {
+          resolve();
+        }, function (error) {
+          reject(error);
+        });
+      });
+    },
     checkout: function checkout(context, basket) {
-      return new __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_promise___default.a(function (resolve, reject) {
-        __WEBPACK_IMPORTED_MODULE_1_vue__["a" /* default */].http.post('/api/user/basket/post', {
+      return new __WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_promise___default.a(function (resolve, reject) {
+        __WEBPACK_IMPORTED_MODULE_2_vue__["a" /* default */].http.post('/api/user/basket/post', {
           products: basket.products
         }).then(function () {
           context.commit('RESET_BASKET');
@@ -277,7 +332,7 @@ var Component = __webpack_require__(40)(
   /* script */
   __webpack_require__(45),
   /* template */
-  __webpack_require__(80),
+  __webpack_require__(81),
   /* scopeId */
   null,
   /* cssModules */
@@ -446,7 +501,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /***/ }),
 
-/***/ 80:
+/***/ 81:
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -548,7 +603,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
 
 /***/ }),
 
-/***/ 84:
+/***/ 85:
 /***/ (function(module, exports) {
 
 /* (ignored) */
@@ -556,4 +611,4 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
 /***/ })
 
 },[44]);
-//# sourceMappingURL=app.8cec9a692e0a8a0aae3a.js.map
+//# sourceMappingURL=app.2282e47a487a69e75d75.js.map

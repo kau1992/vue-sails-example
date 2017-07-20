@@ -6,14 +6,13 @@ import {
 import sinon from 'sinon'
 import BootstrapVue from 'bootstrap-vue'
 import VueI18n from 'vue-i18n'
-import store from './../../../state/index'
 import Register from '@/components/Register'
 
 Vue.use(BootstrapVue)
 Vue.use(VueI18n)
 
 describe('Register', () => {
-  it('should accept inputs', async() => {
+  it('should accept inputs', async () => {
     const state = {
       user: {
         name: '',
@@ -22,11 +21,11 @@ describe('Register', () => {
     }
 
     const mutations = {
-      SET_USER_NAME(state, name) {
+      SET_USER_NAME (state, name) {
         state.user.name = name
       },
 
-      SET_USER_PASSWORD(state, password) {
+      SET_USER_PASSWORD (state, password) {
         state.user.password = password
       }
     }
@@ -80,7 +79,7 @@ describe('Register', () => {
     expect(wrapper.vm.$store.state.user.password).to.equal(password)
   })
 
-  it('should call create method if button is clicked', async() => {
+  it('should call create method if button is clicked', async () => {
     const state = {
       user: {
         name: 'Hans',

@@ -1,6 +1,60 @@
 webpackJsonp([3],{
 
-/***/ 111:
+/***/ 100:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  i18n: {
+    messages: {
+      en: {
+        'button.first': 'Remove',
+        'span.first': 'Total',
+        'button.second': 'Checkout'
+      },
+      de: {
+        'button.first': 'Entfernen',
+        'span.first': 'Summe',
+        'button.second': 'Kaufen'
+      }
+    }
+  },
+
+  computed: {
+    basket: {
+      get: function get() {
+        return this.$store.state.basket;
+      }
+    },
+
+    totalPrice: {
+      get: function get() {
+        var totalPrice = 0;
+        this.basket.products.forEach(function (product) {
+          totalPrice += product.price;
+        });
+
+        return Math.round(totalPrice * 100) / 100;
+      }
+    }
+  },
+
+  methods: {
+    checkout: function checkout() {
+      this.$store.dispatch('checkout', this.basket).then(function () {}).catch(function () {});
+    },
+    removeProduct: function removeProduct(index) {
+      this.$store.commit('REMOVE_PRODUCT_FROM_BASKET', index);
+    }
+  }
+});
+
+/***/ }),
+
+/***/ 112:
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -50,14 +104,14 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
 
 /***/ }),
 
-/***/ 88:
+/***/ 89:
 /***/ (function(module, exports, __webpack_require__) {
 
 var Component = __webpack_require__(40)(
   /* script */
-  __webpack_require__(99),
+  __webpack_require__(100),
   /* template */
-  __webpack_require__(111),
+  __webpack_require__(112),
   /* scopeId */
   null,
   /* cssModules */
@@ -67,61 +121,7 @@ var Component = __webpack_require__(40)(
 module.exports = Component.exports
 
 
-/***/ }),
-
-/***/ 99:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-  i18n: {
-    messages: {
-      en: {
-        'button.first': 'Remove',
-        'span.first': 'Total',
-        'button.second': 'Checkout'
-      },
-      de: {
-        'button.first': 'Entfernen',
-        'span.first': 'Summe',
-        'button.second': 'Kaufen'
-      }
-    }
-  },
-
-  computed: {
-    basket: {
-      get: function get() {
-        return this.$store.state.basket;
-      }
-    },
-
-    totalPrice: {
-      get: function get() {
-        var totalPrice = 0;
-        this.basket.products.forEach(function (product) {
-          totalPrice += product.price;
-        });
-
-        return Math.round(totalPrice * 100) / 100;
-      }
-    }
-  },
-
-  methods: {
-    checkout: function checkout() {
-      this.$store.dispatch('checkout', this.basket).then(function () {});
-    },
-    removeProduct: function removeProduct(index) {
-      this.$store.commit('REMOVE_PRODUCT_FROM_BASKET', index);
-    }
-  }
-});
-
 /***/ })
 
 });
-//# sourceMappingURL=3.1489a47dea147269118c.js.map
+//# sourceMappingURL=3.8e594e64e8e0c8465485.js.map

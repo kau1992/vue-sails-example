@@ -1,6 +1,6 @@
-webpackJsonp([4],{
+webpackJsonp([5],{
 
-/***/ 112:
+/***/ 111:
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -45,9 +45,15 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "size": "sm"
     },
     on: {
-      "click": _vm.create
+      "click": _vm.login
     }
-  }, [_vm._v(_vm._s(_vm.$t('button.first')))])], 1)])
+  }, [_vm._v(_vm._s(_vm.$t('button.first')))])], 1), _vm._v(" "), _c('div', {
+    staticClass: "col-6"
+  }, [_c('figure', {
+    staticClass: "figure"
+  }, [_c('pre', [_vm._v("      [\n        {\n          name: 'Joe',\n          password: 'toasty'\n        }, {\n          name: 'Anna',\n          password: 'sunflower'\n        }, {\n          name: 'Tom',\n          password: 'jerry'\n        }\n      ]\n    ")]), _vm._v(" "), _c('figcaption', {
+    staticClass: "figure-caption"
+  }, [_vm._v(_vm._s(_vm.$t('figcaption.first')))])])])])
 },staticRenderFns: []}
 
 /***/ }),
@@ -59,7 +65,7 @@ var Component = __webpack_require__(40)(
   /* script */
   __webpack_require__(94),
   /* template */
-  __webpack_require__(112),
+  __webpack_require__(111),
   /* scopeId */
   null,
   /* cssModules */
@@ -82,19 +88,20 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   i18n: {
     messages: {
       en: {
-        'description.first': 'Enter a name',
-        'label.first': 'Name *',
-        'description.second': 'Enter a password',
-        'label.second': 'Password *',
-        'button.first': 'Create'
+        'description.first': 'Enter your name',
+        'label.first': 'Name',
+        'description.second': 'Enter your password',
+        'label.second': 'Password',
+        'figcaption.first': 'You may choose one of these users to login.',
+        'button.first': 'Submit'
       },
       de: {
-        'description.first': 'Gebe einen Namen ein',
-        'label.first': 'Name *',
-        'description.second': 'Gebe ein Passwort ein',
-        'label.second': 'Passwort *',
+        'description.first': 'Gebe deinen Namen ein',
+        'label.first': 'Name',
+        'description.second': 'Gebe dein Passwort ein',
+        'label.second': 'Passwort',
         'figcaption.first': 'Du kannst einen dieser Nutzer wählen, um dich einzuloggen.',
-        'button.first': 'Erstellen'
+        'button.first': 'Senden'
       }
     }
   },
@@ -126,8 +133,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   },
 
   methods: {
-    create: function create() {
-      this.$store.dispatch('saveUser', this.user);
+    login: function login() {
+      var _this = this;
+
+      this.$store.dispatch('loginUser', this.user).then(function (token) {
+        window.localStorage.setItem('token', token.token);
+
+        _this.$router.push({
+          name: 'Products'
+        });
+      }).catch(function () {});
     }
   }
 });
@@ -135,4 +150,4 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /***/ })
 
 });
-//# sourceMappingURL=4.bc44abf1aa4845c9dc10.js.map
+//# sourceMappingURL=5.6b3084c95336103f900b.js.map

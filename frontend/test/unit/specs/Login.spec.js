@@ -22,11 +22,11 @@ describe('Login', () => {
     }
 
     const mutations = {
-      SET_USER_NAME(state, name) {
+      SET_USER_NAME (state, name) {
         state.user.name = name
       },
 
-      SET_USER_PASSWORD(state, password) {
+      SET_USER_PASSWORD (state, password) {
         state.user.password = password
       }
     }
