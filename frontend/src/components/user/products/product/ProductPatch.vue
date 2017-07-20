@@ -1,5 +1,5 @@
 <template>
-  <b-modal size="lg" id="patch-product">
+  <b-modal size="lg" id="patch-product" :hide-header-close="true">
     <template slot="modal-title">{{ $t('template.first.title') }}</template>
     <div class="row">
       <div class="col-8">
