@@ -119,14 +119,13 @@
           product: this.product,
           user: this.user
         })
-        .then(() => {
-          // Success message
+          .then(() => {
+            // Success message
 
-          this.$store.dispatch('getProductsByUser', this.user)
-        }, error => {
-          // Error message
-          console.error(error)
-        })
+            this.$store.dispatch('getProductsByUser', this.user)
+          }, () => {
+            // Error message
+          })
       }
     }
   }

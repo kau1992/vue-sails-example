@@ -173,19 +173,22 @@ export default new Vuex.Store({
      * @param context
      */
     getUser (context) {
-      Vue.http
-        .get('/api/user/get')
-        .then(response => {
-          context.commit('SET_USER', response.body)
-        }, (error) => {
-          console.error(error)
-        })
+      return new Promise((resolve, reject) => {
+        Vue.http
+          .get('/api/user/get')
+          .then(response => {
+            context.commit('SET_USER', response.body)
+            resolve()
+          }, error => {
+            reject(error)
+          })
+      })
     },
 
-      /**
-       * @param context
-       * @param page
-       */
+    /**
+     * @param context
+     * @param page
+     */
     getProducts (context, page) {
       Vue.http
         .get('/api/products/get', {
@@ -195,9 +198,50 @@ export default new Vuex.Store({
         })
         .then(response => {
           context.commit('SET_PRODUCTS', response.body)
-        }, (error) => {
+        }, error => {
           console.error(error)
         })
+    },
+
+    /**
+     * @param id
+     * @returns {Promise}
+     */
+    getProduct ({}, id) {
+      return new Promise((resolve, reject) => {
+        Vue.http
+          .get('/api/user/product/get', {
+            params: {
+              id
+            }
+          })
+          .then(response => {
+            resolve(response.body)
+          })
+          .catch(error => {
+            reject(error)
+          })
+      })
+    },
+
+    /**
+     * @param id
+     * @returns {Promise}
+     */
+    removeProduct ({}, id) {
+      return new Promise((resolve, reject) => {
+        Vue.http
+          .delete('/api/user/product/remove', {
+            params: {
+              id
+            }
+          })
+          .then(() => {
+            resolve()
+          }, error => {
+            reject(error)
+          })
+      })
     },
 
     /**
@@ -205,17 +249,20 @@ export default new Vuex.Store({
      * @param page
      */
     getShopProducts (context, page) {
-      Vue.http
-        .get('/api/user/products/get', {
-          params: {
-            page
-          }
-        })
-        .then(response => {
-          context.commit('SET_PRODUCTS', response.body)
-        }, (error) => {
-          console.error(error)
-        })
+      return new Promise((resolve, reject) => {
+        Vue.http
+          .get('/api/user/products/get', {
+            params: {
+              page
+            }
+          })
+          .then(response => {
+            context.commit('SET_PRODUCTS', response.body)
+            resolve()
+          }, error => {
+            reject(error)
+          })
+      })
     },
 
     /**
@@ -236,10 +283,11 @@ export default new Vuex.Store({
      * @param user
      */
     saveUser (context, user) {
-      Vue.http.post('/api/register/post', {
-        name: user.name,
-        password: user.password
-      })
+      Vue.http
+        .post('/api/register/post', {
+          name: user.name,
+          password: user.password
+        })
         .then(() => {
           context.commit('RESET_USER')
         })
@@ -283,6 +331,27 @@ export default new Vuex.Store({
           })
           .then(() => {
             context.commit('RESET_PRODUCT')
+            resolve()
+          }, error => {
+            reject(error)
+          })
+      })
+    },
+
+    /**
+     * @param parameters
+     * @returns {Promise}
+     */
+    patchProduct ({}, parameters) {
+      return new Promise((resolve, reject) => {
+        Vue.http
+          .patch('/api/user/product/patch', {
+            id: parameters.id,
+            title: parameters.title,
+            price: parameters.price,
+            description: parameters.description
+          })
+          .then(() => {
             resolve()
           }, error => {
             reject(error)

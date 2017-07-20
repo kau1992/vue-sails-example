@@ -100,6 +100,9 @@
               name: 'Products'
             })
           })
+          .catch(() => {
+            // Error message
+          })
       }
     }
   }

@@ -113,18 +113,9 @@
        * @param id
        */
       remove (id) {
-        this.$http
-          .delete('/api/user/product/remove', {
-            params: {
-              id
-            }
-          })
+        this.$store.dispatch('removeProduct', id)
           .then(() => {
-            // Success message
-
             this.$store.dispatch('getProductsByUser', this.user)
-          }, () => {
-           // Error message
           })
       }
     }

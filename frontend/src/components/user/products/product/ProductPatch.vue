@@ -67,22 +67,16 @@
     },
 
     created () {
-      let id = this.id
+      this.$store.dispatch('getProduct', this.id)
+        .then(product => {
+          this.$root.$emit('show::modal', 'patch-product')
 
-      this.$http.get('/api/user/product/get', {
-        params: {
-          id
-        }
-      }).then((response) => {
-        this.$root.$emit('show::modal', 'patch-product')
-        let product = response.body
-
-        this.$store.commit('SET_PRODUCT_TITLE', product.title)
-        this.$store.commit('SET_PRODUCT_DESCRIPTION', product.description)
-        this.$store.commit('SET_PRODUCT_PRICE', product.price)
-      }, () => {
-        // Error message
-      })
+          this.$store.commit('SET_PRODUCT_TITLE', product.title)
+          this.$store.commit('SET_PRODUCT_DESCRIPTION', product.description)
+          this.$store.commit('SET_PRODUCT_PRICE', product.price)
+        }, () => {
+          // Error message
+        })
     },
 
     computed: {
@@ -147,13 +141,12 @@
 
     methods: {
       patchProduct () {
-        this.$http
-          .patch('/api/user/product/patch', {
-            id: this.id,
-            title: this.title,
-            price: this.price,
-            description: this.description
-          })
+        this.$store.dispatch('patchProduct', {
+          id: this.id,
+          title: this.title,
+          price: this.price,
+          description: this.description
+        })
           .then(() => {
             // Success message
 

@@ -14,7 +14,7 @@
             </div>
             <p>
               <span class="float-left">{{ $t('span.first') }}</span>
-                <span class="float-right">
+              <span class="float-right">
                   <b>${{ totalPrice }}</b>
                 </span>
             </p>
@@ -75,6 +75,10 @@
       checkout () {
         this.$store.dispatch('checkout', this.basket)
           .then(() => {
+            // Success message
+          })
+          .catch(() => {
+            // Error message
           })
       },
 
