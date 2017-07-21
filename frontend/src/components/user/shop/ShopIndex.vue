@@ -30,8 +30,8 @@
 <script>
   export default {
     async created () {
-      await this.$store.dispatch('getShopProducts', this.currentPage)
       await this.$store.dispatch('getUser')
+      await this.$store.dispatch('getShopProducts', this.currentPage)
     },
 
     data () {

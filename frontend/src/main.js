@@ -23,7 +23,7 @@ Vue.http.interceptors.push((request, next) => {
     request.headers.set('token', token)
   }
 
-  next((response) => {
+  next(response => {
     if ((response.status === 404) || (response.status === 504)) {
       router.push({
         name: 'Home'
