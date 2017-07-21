@@ -13,30 +13,7 @@ Vue.use(VueI18n)
 Vue.use(Vuex)
 
 describe('Home', () => {
-  it('should call method to get all products at created hook', async() => {
-    const state = {
-      products: {
-        products: []
-      }
-    }
-
-    const actions = {
-      getProducts: sinon.stub()
-    }
-
-    const store = new Vuex.Store({
-      state,
-      actions
-    })
-
-    mount(Home, {
-      store
-    })
-
-    expect(actions.getProducts.calledOnce).to.equal(true)
-  })
-
-  it('should call method to get product by page if current page changes', async() => {
+  it('should call method to get all products at created hook', async () => {
     const state = {
       products: {
         products: []
@@ -55,6 +32,33 @@ describe('Home', () => {
     const wrapper = mount(Home, {
       store
     })
+
+    wrapper.vm.$t = sinon.stub()
+
+    expect(actions.getProducts.calledOnce).to.equal(true)
+  })
+
+  it('should call method to get products by page if current page changes', async () => {
+    const state = {
+      products: {
+        products: []
+      }
+    }
+
+    const actions = {
+      getProducts: sinon.stub()
+    }
+
+    const store = new Vuex.Store({
+      state,
+      actions
+    })
+
+    const wrapper = mount(Home, {
+      store
+    })
+
+    wrapper.vm.$t = sinon.stub()
 
     wrapper.vm.currentPage = 2
     wrapper.vm.$nextTick(() => {

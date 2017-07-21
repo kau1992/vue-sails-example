@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import VueResource from 'vue-resource'
 import {
-  mount
+  mount,
+  shallow
 } from 'avoriaz'
 import sinon from 'sinon'
 import BootstrapVue from 'bootstrap-vue'
@@ -12,7 +12,6 @@ import ProductsGet from '@/components/user/products/ProductsGet'
 Vue.use(BootstrapVue)
 Vue.use(VueI18n)
 Vue.use(Vuex)
-Vue.use(VueResource)
 
 describe('ProductsGet', () => {
   it('should call method to get all products by user at created hook', async () => {
@@ -34,9 +33,11 @@ describe('ProductsGet', () => {
       actions
     })
 
-    mount(ProductsGet, {
+    const wrapper = mount(ProductsGet, {
       store
     })
+
+    wrapper.vm.$t = sinon.stub()
 
     expect(actions.getProductsByUser.calledOnce).to.equal(true)
   })
@@ -70,9 +71,11 @@ describe('ProductsGet', () => {
       mutations,
     })
 
-    const wrapper = mount(ProductsGet, {
+    const wrapper = shallow(ProductsGet, {
       store
     })
+
+    wrapper.vm.$t = sinon.stub()
 
     const button = wrapper.find('button')[0]
     button.trigger('click')

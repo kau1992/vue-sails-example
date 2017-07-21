@@ -40,6 +40,8 @@ describe('Login', () => {
       store
     })
 
+    wrapper.vm.$t = sinon.stub()
+
     let name = 'Hans'
     let password = '123'
 
@@ -78,6 +80,8 @@ describe('Login', () => {
     const wrapper = mount(Login, {
       store
     })
+
+    wrapper.vm.$t = sinon.stub()
 
     const button = wrapper.find('button')[0]
     button.trigger('click')

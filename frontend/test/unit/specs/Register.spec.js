@@ -35,33 +35,11 @@ describe('Register', () => {
       mutations
     })
 
-    const messages = {
-      en: {
-        'description.first': 'Enter a name',
-        'label.first': 'Name *',
-        'description.second': 'Enter a password',
-        'label.second': 'Password *',
-        'button.first': 'Create'
-      },
-      de: {
-        'description.first': 'Gebe einen Namen ein',
-        'label.first': 'Name *',
-        'description.second': 'Gebe ein Passwort ein',
-        'label.second': 'Passwort *',
-        'figcaption.first': 'Du kannst einen dieser Nutzer wählen, um dich einzuloggen.',
-        'button.first': 'Erstellen'
-      }
-    }
-
-    const i18n = new VueI18n({
-      locale: 'en',
-      messages
-    })
-
     const wrapper = mount(Register, {
-      store,
-      i18n
+      store
     })
+
+    wrapper.vm.$t = sinon.stub()
 
     let name = 'Hans'
     let password = '123'
@@ -101,6 +79,8 @@ describe('Register', () => {
     const wrapper = mount(Register, {
       store
     })
+
+    wrapper.vm.$t = sinon.stub()
 
     const button = wrapper.find('button')[0]
     button.trigger('click')
