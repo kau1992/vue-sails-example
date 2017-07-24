@@ -6,7 +6,7 @@ module.exports = {
    */
 
   post: (req, res) => {
-    let standardErrorMessage = 'The username and password that you entered did not match our records.'
+    const standardErrorMessage = 'The username and password that you entered did not match our records.'
 
     let {
       name,
