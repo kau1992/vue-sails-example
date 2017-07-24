@@ -37,8 +37,6 @@ describe('ProductsGet', () => {
       store
     })
 
-    wrapper.vm.$t = sinon.stub()
-
     expect(actions.getProductsByUser.calledOnce).to.equal(true)
   })
 
@@ -74,8 +72,6 @@ describe('ProductsGet', () => {
     const wrapper = shallow(ProductsGet, {
       store
     })
-
-    wrapper.vm.$t = sinon.stub()
 
     const button = wrapper.find('button')[0]
     button.trigger('click')

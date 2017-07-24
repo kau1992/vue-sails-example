@@ -3,10 +3,10 @@ import Vuex from 'vuex'
 import {
   mount
 } from 'avoriaz'
-import sinon from 'sinon'
 import BootstrapVue from 'bootstrap-vue'
+import faker from 'faker'
 import VueI18n from 'vue-i18n'
-import cloneDeep from 'lodash/cloneDeep'
+import toFinite from 'lodash/toFinite'
 import BasketIndex from '@/components/user/shop/BasketIndex'
 
 Vue.use(BootstrapVue)
@@ -15,16 +15,39 @@ Vue.use(Vuex)
 
 describe('BasketIndex', () => {
   it('should return correct total price', () => {
+    const firstPrice = toFinite(faker.random.number({
+      min: 1,
+      max: 1000
+    }))
+    const secondPrice = toFinite(faker.random.number({
+      min: 1,
+      max: 1000
+    }))
+    const thirdPrice = toFinite(faker.random.number({
+      min: 1,
+      max: 1000
+    }))
+
     const state = {
-      products: {
+      basket: {
         products: [{
-          price: 99.95
+          price: firstPrice
         }, {
-          price: 10.00
+          price: secondPrice
         }, {
-          price: 5.50
+          price: thirdPrice
         }]
       }
     }
+
+    const store = new Vuex.Store({
+      state
+    })
+
+    const wrapper = mount(BasketIndex, {
+      store
+    })
+
+    assert.equal(wrapper.vm.totalPrice, firstPrice + secondPrice + thirdPrice)
   })
 })

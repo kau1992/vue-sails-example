@@ -33,8 +33,6 @@ describe('Home', () => {
       store
     })
 
-    wrapper.vm.$t = sinon.stub()
-
     expect(actions.getProducts.calledOnce).to.equal(true)
   })
 
@@ -57,8 +55,6 @@ describe('Home', () => {
     const wrapper = mount(Home, {
       store
     })
-
-    wrapper.vm.$t = sinon.stub()
 
     wrapper.vm.currentPage = 2
     wrapper.vm.$nextTick(() => {

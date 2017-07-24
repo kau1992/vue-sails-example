@@ -2,8 +2,9 @@
   "name": "frontend",
   "version": "0.0.0",
   "description": "Product paradise",
-  "author": "",
-  "private": true,
+  "author": "Julian Claus",
+  "license": "MIT",
+  "private": false,
   "scripts": {
     "dev": "node build/dev-server.js",
     "start": "node build/dev-server.js",
@@ -13,6 +14,7 @@
   },
   "dependencies": {
     "bootstrap-vue": "^0.18.0",
+    "faker": "^4.1.0",
     "lodash": "^4.17.4",
     "vue": "^2.2.2",
     "vue-i18n": "^7.0.5",
