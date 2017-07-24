@@ -3,7 +3,6 @@ const chai = require('chai')
 const faker = require('faker')
 
 describe('Products', function() {
-
   describe('get', function() {
     it('should return a non empty JSON with products', function(done) {
       request(sails.hooks.http.app)
