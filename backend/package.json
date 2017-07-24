@@ -1,11 +1,13 @@
 {
   "name": "backend",
-  "private": true,
+  "private": false,
   "version": "0.0.0",
   "description": "Product paradise",
-  "keywords": [],
   "dependencies": {
+    "bcryptjs ": "~2.3.0",
+    "chai": "^4.1.0",
     "crypto": "0.0.3",
+    "faker": "^4.1.0",
     "grunt": "1.0.1",
     "grunt-contrib-clean": "1.0.0",
     "grunt-contrib-coffee": "1.0.0",
@@ -20,17 +22,20 @@
     "grunt-sync": "0.5.2",
     "include-all": "^1.0.0",
     "jsonwebtoken": "^7.3.0",
+    "mocha": "^3.4.2",
     "rc": "1.0.1",
     "sails": "github:lifespent/sails#hastings-fix",
     "sails-disk": "~0.10.9",
-	  "bcryptjs ": "~2.3.0"
+    "sinon": "^2.3.8",
+    "supertest": "^3.0.0"
   },
   "scripts": {
     "debug": "node debug app.js",
-    "start": "node app.js"
+    "start": "node app.js",
+    "unit": "NODE_ENV=test node ./node_modules/mocha/bin/mocha test/bootstrap.test.js test/**/*.spec.js"
   },
   "main": "app.js",
-  "author": "vagrant",
-  "license": "",
+  "author": "Julian Claus",
+  "license": "MIT",
   "devDependencies": {}
 }
