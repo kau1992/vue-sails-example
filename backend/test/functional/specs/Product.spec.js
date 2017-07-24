@@ -5,7 +5,6 @@ const sinon = require('sinon')
 const faker = require('faker')
 
 describe('Product', function () {
-
   describe('get', function () {
     it('should return a non empty JSON with the product', function (done) {
       sails.services.cryptographyservice.decrypt = () => 1
