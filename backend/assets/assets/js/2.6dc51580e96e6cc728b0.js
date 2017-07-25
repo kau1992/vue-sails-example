@@ -23,11 +23,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
           switch (_context.prev = _context.next) {
             case 0:
               _context.next = 2;
-              return _this.$store.dispatch('getShopProducts', _this.currentPage);
+              return _this.$store.dispatch('getUser');
 
             case 2:
               _context.next = 4;
-              return _this.$store.dispatch('getUser');
+              return _this.$store.dispatch('getShopProducts', _this.currentPage);
 
             case 4:
             case 'end':
@@ -1008,4 +1008,4 @@ module.exports = Component.exports
 /***/ })
 
 });
-//# sourceMappingURL=2.ad1102ea491d4b18b226.js.map
+//# sourceMappingURL=2.6dc51580e96e6cc728b0.js.map
