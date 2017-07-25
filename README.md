@@ -31,8 +31,50 @@ First, you have to build up your Vue.js components and merge them with Sails.js.
 ### Development
 `cd backend && sails lift` and then `cd ../frontend && npm run dev`. After that open [localhost:8080](http://localhost:8080) in your browser.
 
-## Components used
-The following components are used in this project.
+## Commands
+
+### Backend
+
+
+#### Start
+Run the Sails application in the current directory (if `node_modules/sails` exists, it will be used instead of the 
+globally installed Sails) at `localhost:1337`.
+
+```bash
+$ sails lift
+```
+
+#### Run tests
+Run all available tests like unit or functional tests.
+
+```bash
+$ npm run test
+```
+### Frontend
+
+#### Start
+Start the development server at `localhost:8080`.
+
+```bash
+$ npm run dev
+```
+
+#### Make production ready
+Minfiy, uglify and merge the application with Sails.js.
+
+```bash
+$ npm run build
+```
+
+#### Run tests
+Run all available tests like unit or functional tests.
+
+```bash
+$ npm run test
+```
+
+## Essential components used
+The following components are used in this project. There a plenty more, though, check the `package.json` files.
 
 ### [Sails.js](https://github.com/balderdashy/sails)
 This is the backend and data provider.
@@ -53,11 +95,9 @@ HTTP client for Vue.js.
 Router for the frontend.
 
 ## To do
-- More tests
-- more multilingualism
-- file uploads
+- File uploads
 - upgrading to Sails.js 1.0
-- mobile version
+- independent mobile version
 - finalize checkout
 - use modules for Vuex
 
