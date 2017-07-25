@@ -16,6 +16,7 @@
     "bootstrap-vue": "^0.18.0",
     "faker": "^4.1.0",
     "lodash": "^4.17.4",
+    "mint-ui": "^2.2.7",
     "vue": "^2.2.2",
     "vue-i18n": "^7.0.5",
     "vue-resource": "^1.2.1",
