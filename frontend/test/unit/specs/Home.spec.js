@@ -15,8 +15,10 @@ Vue.use(Vuex)
 describe('Home', () => {
   it('should call method to get all products at created hook', async () => {
     const state = {
-      products: {
-        products: []
+      Products: {
+        products: {
+          products: []
+        }
       }
     }
 
@@ -29,17 +31,17 @@ describe('Home', () => {
       actions
     })
 
-    const wrapper = mount(Home, {
-      store
-    })
+    mount(Home, {store})
 
     expect(actions.getProducts.calledOnce).to.equal(true)
   })
 
   it('should call method to get products by page if current page changes', async () => {
     const state = {
-      products: {
-        products: []
+      Products: {
+        products: {
+          products: []
+        }
       }
     }
 

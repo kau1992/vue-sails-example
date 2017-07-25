@@ -16,11 +16,22 @@ Vue.use(Vuex)
 describe('ProductsGet', () => {
   it('should call method to get all products by user at created hook', async () => {
     const state = {
-      product: {
-        meta: sinon.stub()
+      User: {
+        user: {
+          id: '',
+          name: '',
+          password: ''
+        }
       },
-      products: {
-        products: []
+      Product: {
+        product: {
+          meta: sinon.stub()
+        }
+      },
+      Products: {
+        products: {
+          products: []
+        }
       }
     }
 
@@ -33,23 +44,32 @@ describe('ProductsGet', () => {
       actions
     })
 
-    const wrapper = mount(ProductsGet, {
-      store
-    })
+    mount(ProductsGet, {store})
 
     expect(actions.getProductsByUser.calledOnce).to.equal(true)
   })
 
   it('should show product patch modal when button is clicked', () => {
     const state = {
-      product: {
-        meta: {
-          isEditProductVisible: false
+      User: {
+        user: {
+          id: '',
+          name: '',
+          password: ''
         }
       },
-      products: [{
-        id: 1
-      }]
+      Product: {
+        product: {
+          meta: {
+            isEditProductVisible: false
+          }
+        }
+      },
+      Products: {
+        products: [{
+          id: 1
+        }]
+      }
     }
 
     const actions = {
@@ -59,7 +79,7 @@ describe('ProductsGet', () => {
 
     const mutations = {
       SET_IS_EDIT_PRODUCT_VISIBLE (state, isEditProductVisible) {
-        state.product.meta.isEditProductVisible = isEditProductVisible
+        state.Product.product.meta.isEditProductVisible = isEditProductVisible
       }
     }
 
@@ -76,6 +96,6 @@ describe('ProductsGet', () => {
     const button = wrapper.find('button')[0]
     button.trigger('click')
 
-    expect(wrapper.vm.$store.state.product.meta.isEditProductVisible).to.equal(true)
+    expect(wrapper.vm.$store.state.Product.product.meta.isEditProductVisible).to.equal(true)
   })
 })

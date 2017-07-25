@@ -76,19 +76,19 @@
 
       products: {
         get () {
-          return this.$store.state.products
+          return this.$store.state.Products.products
         }
       },
 
       user: {
         get () {
-          return this.$store.state.user
+          return this.$store.state.User.user
         }
       },
 
       isEditProductVisible: {
         get () {
-          return this.$store.state.product.meta.isEditProductVisible
+          return this.$store.state.Product.product.meta.isEditProductVisible
         },
 
         /**

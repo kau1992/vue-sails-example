@@ -43,13 +43,13 @@
     computed: {
       user: {
         get () {
-          return this.$store.state.user
+          return this.$store.state.User.user
         }
       },
 
       name: {
         get () {
-          return this.$store.state.user.name
+          return this.$store.state.User.user.name
         },
 
         /**
@@ -62,7 +62,7 @@
 
       password: {
         get () {
-          return this.$store.state.user.password
+          return this.$store.state.User.user.password
         },
 
         /**

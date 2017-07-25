@@ -11,7 +11,7 @@
                 show-footer>
           <p>{{ product.description }}</p>
           <b-button v-bind:disabled="product.user.name === user.name"
-                    @click="pushToBasket(product)"
+                    @click.native="pushToBasket(product)"
                     variant="outline-success"
                     size="sm">{{ $t('button.first') }}
           </b-button>
@@ -28,6 +28,8 @@
 </template>
 
 <script>
+  import { mapMutations } from 'vuex'
+
   export default {
     async created () {
       await this.$store.dispatch('getUser')
@@ -64,30 +66,27 @@
     computed: {
       products: {
         get () {
-          return this.$store.state.products.products
+          return this.$store.state.Products.products.products
         }
       },
 
       amountOfProducts: {
         get () {
-          return this.$store.state.products.amountOfProducts
+          return this.$store.state.Products.products.amountOfProducts
         }
       },
 
       user: {
         get () {
-          return this.$store.state.user
+          return this.$store.state.User.user
         }
       }
     },
 
     methods: {
-      /**
-       * @param product
-       */
-      pushToBasket (product) {
-        this.$store.commit('PUSH_TO_BASKET', product)
-      }
+      ...mapMutations({
+        pushToBasket: 'PUSH_TO_BASKET'
+      })
     }
   }
 </script>

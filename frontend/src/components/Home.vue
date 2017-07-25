@@ -79,13 +79,13 @@
     computed: {
       products: {
         get () {
-          return this.$store.state.products.products
+          return this.$store.state.Products.products.products
         }
       },
 
       amountOfProducts: {
         get () {
-          return this.$store.state.products.amountOfProducts
+          return this.$store.state.Products.products.amountOfProducts
         }
       }
     }

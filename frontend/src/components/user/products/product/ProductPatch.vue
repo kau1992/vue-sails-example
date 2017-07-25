@@ -82,13 +82,13 @@
     computed: {
       user: {
         get () {
-          return this.$store.state.user
+          return this.$store.state.User.user
         }
       },
 
       title: {
         get () {
-          return this.$store.state.product.title
+          return this.$store.state.Product.product.title
         },
 
         /**
@@ -101,7 +101,7 @@
 
       description: {
         get () {
-          return this.$store.state.product.description
+          return this.$store.state.Product.product.description
         },
 
         /**
@@ -114,7 +114,7 @@
 
       price: {
         get () {
-          return this.$store.state.product.price
+          return this.$store.state.Product.product.price
         },
 
         /**

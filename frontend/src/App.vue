@@ -68,7 +68,7 @@
 
       basket: {
         get () {
-          return this.$store.state.basket
+          return this.$store.state.Basket.basket
         }
       }
     },

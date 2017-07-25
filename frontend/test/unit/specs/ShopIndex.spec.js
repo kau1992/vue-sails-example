@@ -8,6 +8,7 @@ import BootstrapVue from 'bootstrap-vue'
 import VueI18n from 'vue-i18n'
 import cloneDeep from 'lodash/cloneDeep'
 import ShopIndex from '@/components/user/shop/ShopIndex'
+import faker from 'faker'
 
 Vue.use(BootstrapVue)
 Vue.use(VueI18n)
@@ -16,16 +17,22 @@ Vue.use(Vuex)
 describe('ShopIndex', () => {
 
   it('should call method to get user at created hook', () => {
+    const name = faker.name.findName()
+
     const state = {
-      user: {
-        name: 'a'
+      User: {
+        user: {
+          name
+        }
       },
-      products: {
-        products: [{
-          user: {
-            name: 'a'
-          }
-        }]
+      Products: {
+        products: {
+          products: [{
+            user: {
+              name
+            }
+          }]
+        }
       }
     }
 
@@ -50,8 +57,10 @@ describe('ShopIndex', () => {
 
   it('should call method to get shop products at created hook', async () => {
     const state = {
-      products: {
-        products: []
+      Products: {
+        products: {
+          products: []
+        }
       }
     }
 
@@ -76,16 +85,27 @@ describe('ShopIndex', () => {
   })
 
   it('should call the push to basket method if button is clicked', () => {
+    const name = faker.name.findName()
+
     const state = {
-      user: {
-        name: 'a'
+      User: {
+        user: {
+          name
+        }
       },
-      products: {
-        products: [{
-          user: {
-            name: 'b'
-          }
-        }]
+      Products: {
+        products: {
+          products: [{
+            user: {
+              name
+            }
+          }]
+        }
+      },
+      Basket: {
+        basket: {
+          products: []
+        }
       }
     }
 
@@ -97,7 +117,7 @@ describe('ShopIndex', () => {
       getShopProducts: sinon.stub(),
       getUser () {
         return {
-          name: 'a'
+          name
         }
       }
     }
@@ -112,7 +132,6 @@ describe('ShopIndex', () => {
     mockShopIndex.create = sinon.stub()
 
     const wrapper = mount(mockShopIndex, {store})
-    wrapper.vm.$t = sinon.stub()
 
     const button = wrapper.find('button')[0]
     button.trigger('click')
@@ -122,11 +141,15 @@ describe('ShopIndex', () => {
 
   it('should have initial current page set to 1', () => {
     const state = {
-      user: {
-        name: ''
+      User: {
+        user: {
+          name: ''
+        }
       },
-      products: {
-        products: []
+      Products: {
+        products: {
+          products: []
+        }
       }
     }
 
@@ -151,8 +174,10 @@ describe('ShopIndex', () => {
 
   it('should call method to get product by page if current page changes', (done) => {
     const state = {
-      products: {
-        products: []
+      Products: {
+        products: {
+          products: []
+        }
       }
     }
 

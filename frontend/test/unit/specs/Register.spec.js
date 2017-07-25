@@ -7,6 +7,7 @@ import sinon from 'sinon'
 import BootstrapVue from 'bootstrap-vue'
 import VueI18n from 'vue-i18n'
 import Register from '@/components/Register'
+import faker from 'faker'
 
 Vue.use(BootstrapVue)
 Vue.use(VueI18n)
@@ -15,19 +16,21 @@ Vue.use(Vuex)
 describe('Register', () => {
   it('should accept inputs', async () => {
     const state = {
-      user: {
-        name: '',
-        password: ''
+      User: {
+        user: {
+          name: '',
+          password: ''
+        }
       }
     }
 
     const mutations = {
       SET_USER_NAME (state, name) {
-        state.user.name = name
+        state.User.user.name = name
       },
 
       SET_USER_PASSWORD (state, password) {
-        state.user.password = password
+        state.User.user.password = password
       }
     }
 
@@ -36,11 +39,7 @@ describe('Register', () => {
       mutations
     })
 
-    const wrapper = mount(Register, {
-      store
-    })
-
-    wrapper.vm.$t = sinon.stub()
+    const wrapper = mount(Register, {store})
 
     let name = 'Hans'
     let password = '123'
@@ -54,15 +53,17 @@ describe('Register', () => {
     nameInput.trigger('input')
     passwordInput.trigger('input')
 
-    expect(wrapper.vm.$store.state.user.name).to.equal(name)
-    expect(wrapper.vm.$store.state.user.password).to.equal(password)
+    expect(wrapper.vm.$store.state.User.user.name).to.equal(name)
+    expect(wrapper.vm.$store.state.User.user.password).to.equal(password)
   })
 
   it('should call create method if button is clicked', async () => {
     const state = {
-      user: {
-        name: 'Hans',
-        password: '123'
+      User: {
+        user: {
+          name: faker.name.findName(),
+          password: faker.internet.password()
+        }
       }
     }
 
@@ -77,11 +78,7 @@ describe('Register', () => {
 
     let create = sinon.stub(Register.methods, 'create')
 
-    const wrapper = mount(Register, {
-      store
-    })
-
-    wrapper.vm.$t = sinon.stub()
+    const wrapper = mount(Register, {store})
 
     const button = wrapper.find('button')[0]
     button.trigger('click')

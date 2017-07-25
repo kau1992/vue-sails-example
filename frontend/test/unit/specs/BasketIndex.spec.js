@@ -29,14 +29,16 @@ describe('BasketIndex', () => {
     }))
 
     const state = {
-      basket: {
-        products: [{
-          price: firstPrice
-        }, {
-          price: secondPrice
-        }, {
-          price: thirdPrice
-        }]
+      Basket: {
+        basket: {
+          products: [{
+            price: firstPrice
+          }, {
+            price: secondPrice
+          }, {
+            price: thirdPrice
+          }]
+        }
       }
     }
 
