@@ -1,9 +1,15 @@
 # Vue.js with Sails.js backend example project
-This project is for those who are new to [single-page applications](https://en.wikipedia.org/wiki/Single-page_application) and want to learn through a real example. Besides that, it should cover most of the features from Sails.js and Vue.js.
+This project is for those who are new to 
+[single-page applications](https://en.wikipedia.org/wiki/Single-page_application) and want to learn through a real 
+example. Besides that, it should cover most of the features from Sails.js and Vue.js. You should be aware of 
+[JavaScript ES6 features](http://es6-features.org).
 
 ## Getting started
 ### Prerequisites
-I created a [Vagrant box](https://github.com/ndabAP/Vagrant-box-with-Sails.js-Vue.js-and-MongoDB) with MongoDB, Node.js, Sails.js and Vue.js and also a [Docker file](https://github.com/ndabAP/Docker-image-with-Sails.js-vue-cli-Node.js-and-MongoDB). Or manually install Node.js and Sails.js.
+I created a [Vagrant box](https://github.com/ndabAP/Vagrant-box-with-Sails.js-Vue.js-and-MongoDB) with MongoDB, Node.js, 
+Sails.js and Vue.js and also a 
+[Docker file](https://github.com/ndabAP/Docker-image-with-Sails.js-vue-cli-Node.js-and-MongoDB). Or manually install 
+Node.js and Sails.js.
 
 #### Get Node.js
 
@@ -26,10 +32,13 @@ $ cd ../backend && npm install
 ```
 
 ### Production
-First, you have to build up your Vue.js components and merge them with Sails.js. This can be done with `cd frontend && npm run build`. Now do `cd ../backend && sails lift` and then open your browser and go to [localhost:1337](http://localhost:1337).
+First, you have to build up your Vue.js components and merge them with Sails.js. This can be done with 
+`cd frontend && npm run build`. Now do `cd ../backend && sails lift` and then open your browser and go to 
+[localhost:1337](http://localhost:1337).
 
 ### Development
-`cd backend && sails lift` and then `cd ../frontend && npm run dev`. After that open [localhost:8080](http://localhost:8080) in your browser.
+`cd backend && sails lift` and then `cd ../frontend && npm run dev`. After that open 
+[localhost:8080](http://localhost:8080) in your browser. Make sure that you start both servers.
 
 ## Commands
 
