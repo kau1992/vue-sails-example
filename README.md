@@ -108,7 +108,6 @@ Router for the frontend.
 - upgrading to Sails.js 1.0
 - independent mobile version
 - finalize checkout
-- use modules for Vuex
 
 ## Code style
 This project fulfils the [JavaScript Standard Style](https://standardjs.com/).
