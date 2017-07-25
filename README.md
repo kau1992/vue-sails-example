@@ -47,7 +47,7 @@ First, you have to build up your Vue.js components and merge them with Sails.js.
 
 #### Start
 Run the Sails application in the current directory (if `node_modules/sails` exists, it will be used instead of the 
-globally installed Sails) at `localhost:1337`.
+globally installed Sails) at [localhost:1337](http://localhost:1337).
 
 ```bash
 $ sails lift
@@ -62,7 +62,7 @@ $ npm run test
 ### Frontend
 
 #### Start
-Start the development server at `localhost:8080`.
+Start the development server at [localhost:8080](http://localhost:8080).
 
 ```bash
 $ npm run dev
