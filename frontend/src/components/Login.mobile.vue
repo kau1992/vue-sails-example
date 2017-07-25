@@ -1,9 +1,11 @@
 <template>
-<div>
-  <mt-field :label="$t('label.first')" v-model="name"></mt-field>
-  <mt-field :label="$t('label.second')" v-model="password"></mt-field>
+  <div>
+    <mt-field :label="$t('label.first')" v-model="name"></mt-field>
+    <mt-field :label="$t('label.second')" v-model="password"></mt-field>
 
-  <mt-cell title=""><mt-button size="small" type="primary" @click="login" plain>{{ $t('button.first') }}</mt-button></mt-cell>
+    <mt-cell title="">
+      <mt-button size="small" type="primary" @click="login" plain>{{ $t('button.first') }}</mt-button>
+    </mt-cell>
   </div>
 </template>
 
