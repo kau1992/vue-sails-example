@@ -8,20 +8,25 @@ module.exports = {
       type: 'string',
       required: true
     },
-
     password: {
       type: 'string',
       required: true
     },
-
     products: {
       collection: 'product',
       via: 'user'
     },
-
     baskets: {
       collection: 'basket',
       via: 'user'
+    },
+
+    toJSON () {
+      let user = this.toObject()
+      
+      delete user.password
+
+      return user
     }
   },
 
