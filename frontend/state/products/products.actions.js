@@ -5,7 +5,7 @@ const actions = {
    * @param context
    * @param page
    */
-  getProducts(context, page) {
+  getProducts (context, page) {
     Vue.http
       .get('/api/products/get', {
         params: {

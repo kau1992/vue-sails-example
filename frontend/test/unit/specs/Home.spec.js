@@ -6,14 +6,14 @@ import {
 import sinon from 'sinon'
 import BootstrapVue from 'bootstrap-vue'
 import VueI18n from 'vue-i18n'
-import Home from '@/components/Home'
+import HomeMixin from '@/components/Home.mixin'
 
 Vue.use(BootstrapVue)
 Vue.use(VueI18n)
 Vue.use(Vuex)
 
 describe('Home', () => {
-  it('should call method to get all products at created hook', async () => {
+  it('should call method to get all products at created hook', () => {
     const state = {
       Products: {
         products: {
@@ -31,12 +31,12 @@ describe('Home', () => {
       actions
     })
 
-    mount(Home, {store})
+    mount(new Vue(), {store, mixins: [HomeMixin]})
 
     expect(actions.getProducts.calledOnce).to.equal(true)
   })
 
-  it('should call method to get products by page if current page changes', async () => {
+  it('should call method to get products by page if current page changes', () => {
     const state = {
       Products: {
         products: {
@@ -54,8 +54,9 @@ describe('Home', () => {
       actions
     })
 
-    const wrapper = mount(Home, {
-      store
+    const wrapper = mount(new Vue(), {
+      store,
+      mixins: [HomeMixin]
     })
 
     wrapper.vm.currentPage = 2

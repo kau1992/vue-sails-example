@@ -6,7 +6,7 @@ import {
 import sinon from 'sinon'
 import BootstrapVue from 'bootstrap-vue'
 import VueI18n from 'vue-i18n'
-import Register from '@/components/Register'
+import Register from '@/components/Register.desktop'
 import faker from 'faker'
 
 Vue.use(BootstrapVue)
@@ -76,9 +76,9 @@ describe('Register', () => {
       actions
     })
 
-    let create = sinon.stub(Register.methods, 'create')
-
     const wrapper = mount(Register, {store})
+
+    let create = sinon.stub(wrapper.vm, 'create')
 
     const button = wrapper.find('button')[0]
     button.trigger('click')

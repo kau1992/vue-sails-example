@@ -6,7 +6,7 @@ import {
 import sinon from 'sinon'
 import BootstrapVue from 'bootstrap-vue'
 import VueI18n from 'vue-i18n'
-import Login from '@/components/Login'
+import Login from '@/components/Login.desktop'
 import faker from 'faker'
 
 Vue.use(BootstrapVue)
@@ -43,8 +43,8 @@ describe('Login', () => {
       store
     })
 
-    let name = 'Hans'
-    let password = '123'
+    let name = faker.name.firstName()
+    let password = faker.internet.password()
 
     let nameInput = wrapper.find('input')[0]
     let passwordInput = wrapper.find('input')[1]
@@ -59,7 +59,7 @@ describe('Login', () => {
     expect(wrapper.vm.$store.state.User.user.password).to.equal(password)
   })
 
-  it('should call login action if button is clicked', async () => {
+  it('should call login action if button is clicked', () => {
     const state = {
       User: {
         user: {
@@ -78,11 +78,11 @@ describe('Login', () => {
       actions
     })
 
-    let login = sinon.stub(Login.methods, 'login')
-
     const wrapper = mount(Login, {
       store
     })
+
+    let login = sinon.stub(wrapper.vm, 'login')
 
     const button = wrapper.find('button')[0]
     button.trigger('click')

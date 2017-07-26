@@ -15,6 +15,10 @@
     <mt-cell v-for="product in products" :key="product.id" :title="product.title">
       <mt-button size="small" @click="makeProductVisible(product)">View</mt-button>
     </mt-cell>
+
+    <mt-cell title="">
+      <mt-button :disabled="isNextButtonDisabled" size="small" type="primary" @click="currentPage++">Next</mt-button>
+    </mt-cell>
   </div>
 </template>
 
@@ -26,6 +30,13 @@
 
   export default {
     mixins: [HomeMixin],
+
+    computed: {
+      isNextButtonDisabled () {
+        if (this.currentPage === Math.ceil(this.amountOfProducts / 6)) return true
+        return false
+      }
+    },
 
     methods: {
       makeProductVisible (product) {

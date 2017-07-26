@@ -7,14 +7,14 @@ import {
 import sinon from 'sinon'
 import BootstrapVue from 'bootstrap-vue'
 import VueI18n from 'vue-i18n'
-import ProductsGet from '@/components/user/products/ProductsGet'
+import ProductsGet from '@/components/user/products/ProductsGet.desktop'
 
 Vue.use(BootstrapVue)
 Vue.use(VueI18n)
 Vue.use(Vuex)
 
 describe('ProductsGet', () => {
-  it('should call method to get all products by user at created hook', async () => {
+  it('should call method to get all products by user at created hook', () => {
     const state = {
       User: {
         user: {

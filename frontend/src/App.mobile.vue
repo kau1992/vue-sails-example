@@ -21,30 +21,12 @@
 </template>
 
 <script>
+  import AppMixin from './App.mixin'
+  import {
+    Toast
+  } from 'mint-ui'
+
   export default {
-    name: 'app',
-
-    i18n: {
-      messages: {
-        en: {
-          'home': 'Home',
-          'register': 'Register',
-          'login': 'Login',
-          'shop': 'Shop',
-          'basket': 'Basket',
-          'products': 'Manage products'
-        },
-        de: {
-          'home': 'Startseite',
-          'register': 'Registrierung',
-          'login': 'Login',
-          'shop': 'Shop',
-          'basket': 'Warenkorb',
-          'products': 'Produktverwaltung'
-        }
-      }
-    },
-
     data () {
       return {
         actions: [],
@@ -84,6 +66,15 @@
         })
 
         actions.push({
+          name: 'Basket',
+          method: () => {
+            this.$router.push({
+              name: 'Basket'
+            })
+          }
+        })
+
+        actions.push({
           name: 'Products',
           method: () => {
             this.$router.push({
@@ -100,35 +91,18 @@
 
           if (locale === 'en') this.setLanguage('de')
           if (locale === 'de') this.setLanguage('en')
+
+          Toast({
+            message: 'Language changed',
+            position: 'bottom',
+            duration: 3000
+          })
         }
       })
 
       this.$set(this, 'actions', actions)
     },
-
-    computed: {
-      isUserAuthenticated: {
-        get () {
-          return this.$store.state.isUserAuthenticated
-        }
-      },
-
-      basket: {
-        get () {
-          return this.$store.state.Basket.basket
-        }
-      }
-    },
-
-    methods: {
-
-      /**
-       * @param language
-       */
-      setLanguage (language) {
-        this.$store.commit('SET_LOCALE', language)
-      }
-    }
+    mixins: [AppMixin]
   }
 </script>
 

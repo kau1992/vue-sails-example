@@ -7,7 +7,7 @@ import BootstrapVue from 'bootstrap-vue'
 import faker from 'faker'
 import VueI18n from 'vue-i18n'
 import toFinite from 'lodash/toFinite'
-import BasketIndex from '@/components/user/shop/BasketIndex'
+import BasketIndex from '@/components/user/shop/BasketIndex.desktop'
 
 Vue.use(BootstrapVue)
 Vue.use(VueI18n)

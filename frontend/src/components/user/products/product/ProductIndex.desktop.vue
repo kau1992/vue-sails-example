@@ -16,22 +16,12 @@
 </template>
 
 <script>
-  import ProductCreate from './ProductCreate'
-  import ProductsGet from '../ProductsGet'
+  import ProductIndexMixin from './ProductIndex.mixin'
+  import ProductCreate from './ProductCreate.desktop'
+  import ProductsGet from '../ProductsGet.desktop'
 
   export default {
-    i18n: {
-      messages: {
-        en: {
-          'tab.first': 'Get products',
-          'tab.second': 'Create product'
-        },
-        de: {
-          'tab.first': 'Hole Produkte',
-          'tab.second': 'Erstelle Produkt'
-        }
-      }
-    },
+    mixins: [ProductIndexMixin],
 
     components: {
       ProductCreate,

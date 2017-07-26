@@ -1,6 +1,8 @@
+import {mapActions} from 'vuex'
+
 const HomeMixin = {
   created () {
-    this.$store.dispatch('getProducts', this.currentPage)
+    this.getProducts(this.currentPage)
   },
 
   data () {
@@ -11,7 +13,7 @@ const HomeMixin = {
 
   watch: {
     currentPage () {
-      this.$store.dispatch('getProducts', this.currentPage)
+      this.getProducts(this.currentPage)
     }
   },
 
@@ -50,6 +52,12 @@ const HomeMixin = {
         return this.$store.state.Products.products.amountOfProducts
       }
     }
+  },
+
+  methods: {
+    ...mapActions({
+      getProducts: 'getProducts'
+    })
   }
 }
 

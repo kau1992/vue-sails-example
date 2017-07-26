@@ -7,7 +7,7 @@ import sinon from 'sinon'
 import BootstrapVue from 'bootstrap-vue'
 import VueI18n from 'vue-i18n'
 import cloneDeep from 'lodash/cloneDeep'
-import ShopIndex from '@/components/user/shop/ShopIndex'
+import ShopIndex from '@/components/user/shop/ShopIndex.desktop'
 import faker from 'faker'
 
 Vue.use(BootstrapVue)
@@ -46,11 +46,9 @@ describe('ShopIndex', () => {
       actions
     })
 
-    const wrapper = mount(ShopIndex, {
+    mount(ShopIndex, {
       store
     })
-
-    wrapper.vm.$t = sinon.stub()
 
     expect(actions.getUser.calledOnce).to.equal(true)
   })
@@ -167,7 +165,6 @@ describe('ShopIndex', () => {
     mockShopIndex.create = sinon.stub()
 
     const wrapper = mount(mockShopIndex, {store})
-    wrapper.vm.$t = sinon.stub()
 
     expect(wrapper.vm.currentPage).to.equal(1)
   })
