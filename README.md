@@ -106,7 +106,6 @@ Router for the frontend.
 ## To do
 - File uploads
 - upgrading to Sails.js 1.0
-- independent mobile version
 - finalize checkout
 
 ## Code style
