@@ -33,6 +33,14 @@ export default new Vuex.Store({
 
     /**
      * @param state
+     * @param isUserAuthenticated
+     */
+    SET_IS_USER_AUTHENTICATED (state, isUserAuthenticated) {
+      state.isUserAuthenticated = isUserAuthenticated
+    },
+
+    /**
+     * @param state
      * @param locale
      * @constructor
      */
