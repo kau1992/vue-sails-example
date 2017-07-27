@@ -1,3 +1,5 @@
+import {mapMutations} from 'vuex'
+
 const AppMixin = {
   name: 'app',
 
@@ -9,7 +11,9 @@ const AppMixin = {
         'login': 'Login',
         'shop': 'Shop',
         'basket': 'Basket',
-        'products': 'Manage products'
+        'products': 'Manage products',
+        'language.changed': 'Language changed',
+        'cancelText': 'Cancel'
 
       },
       de: {
@@ -18,8 +22,9 @@ const AppMixin = {
         'login': 'Login',
         'shop': 'Shop',
         'basket': 'Warenkorb',
-        'products': 'Produktverwaltung'
-
+        'products': 'Produktverwaltung',
+        'language.changed': 'Sprache geändert',
+        'cancelText': 'Abbrechen'
       }
     }
   },
@@ -39,13 +44,9 @@ const AppMixin = {
   },
 
   methods: {
-
-    /**
-     * @param language
-     */
-    setLanguage (language) {
-      this.$store.commit('SET_LOCALE', language)
-    }
+    ...mapMutations({
+      setLocale: 'SET_LOCALE'
+    })
   }
 }
 

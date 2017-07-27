@@ -1,3 +1,5 @@
+import {mapMutations} from 'vuex'
+
 const LoginMixin = {
   i18n: {
     messages: {
@@ -59,6 +61,8 @@ const LoginMixin = {
       this.$store.dispatch('loginUser', this.user)
         .then(token => {
           window.localStorage.setItem('token', token.token)
+          this.setIsUserAuthenticated(true)
+          this.$emit('userLoggedIn')
 
           // Success message
 
@@ -69,7 +73,11 @@ const LoginMixin = {
         .catch(() => {
           // Error message
         })
-    }
+    },
+
+    ...mapMutations({
+      setIsUserAuthenticated: 'SET_IS_USER_AUTHENTICATED'
+    })
   }
 }
 
