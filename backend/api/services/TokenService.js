@@ -17,7 +17,5 @@ module.exports = {
    * @param token
    * @return {*}
    */
-  verify: token => {
-    return jwt.verify(token, tokenSecret)
-  }
+  verify: token => jwt.verify(token, tokenSecret)
 }
