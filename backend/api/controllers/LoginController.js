@@ -5,8 +5,6 @@ module.exports = {
    * @param res
    */
   post: (req, res) => {
-    const standardErrorMessage = 'The username and password that you entered did not match our records.'
-
     let {
       name,
       password
@@ -21,7 +19,7 @@ module.exports = {
         if (!user) return res.forbidden()
 
         User
-          .checkIfValidPassword(password, user, (error, isValid) => {
+          .checkIfPasswordIsValid(password, user, (error, isValid) => {
             if (error) return res.serverError(error)
             if (!isValid) return res.forbidden()
 
