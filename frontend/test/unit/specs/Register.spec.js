@@ -14,7 +14,7 @@ Vue.use(VueI18n)
 Vue.use(Vuex)
 
 describe('Register', () => {
-  it('should accept inputs', async () => {
+  it('should accept inputs', () => {
     const state = {
       User: {
         user: {
@@ -41,8 +41,8 @@ describe('Register', () => {
 
     const wrapper = mount(Register, {store})
 
-    let name = 'Hans'
-    let password = '123'
+    let name = faker.name.firstName()
+    let password = faker.internet.password()
 
     let nameInput = wrapper.find('input')[0]
     let passwordInput = wrapper.find('input')[1]
