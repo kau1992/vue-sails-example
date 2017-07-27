@@ -24,6 +24,12 @@ $ sudo apt-get install -y nodejs
 $ sudo npm install sails -g
 ```
 
+If you don't want to install Sails.js globally run `npm install` inside the backend directory and then enter:
+
+```bash
+./node_modules/sails/bin/sails.js lift
+```
+
 #### Install modules
 
 ```bash
