@@ -20,8 +20,8 @@
           </b-nav-item>
           <b-nav-item v-if="isUserAuthenticated" :to="{ name: 'Products'}">{{ $t('products') }}</b-nav-item>
           <b-nav-item-dropdown text="Language" right-alignment>
-            <b-dropdown-item @click="setLanguage('en')">English</b-dropdown-item>
-            <b-dropdown-item @click="setLanguage('de')">Deutsch</b-dropdown-item>
+            <b-dropdown-item @click="setLocale('en')">English</b-dropdown-item>
+            <b-dropdown-item @click="setLocale('de')">Deutsch</b-dropdown-item>
           </b-nav-item-dropdown>
         </b-nav>
       </b-collapse>
