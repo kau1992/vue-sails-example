@@ -8,7 +8,8 @@ const ProductCreateMixin = {
         'label.second': 'Price',
         'description.third': 'Define a description',
         'label.third': 'Description',
-        'button.first': 'Create'
+        'button.first': 'Create',
+        'product.created': 'Product created'
       },
       de: {
         'description.first': 'Definiere einen Titel',
@@ -17,7 +18,8 @@ const ProductCreateMixin = {
         'label.second': 'Preis',
         'description.third': 'Definiere eine Beschreibung',
         'label.third': 'Beschreibung',
-        'button.first': 'Erstellen'
+        'button.first': 'Erstellen',
+        'product.created': 'Produkt erstellt'
       }
     }
   },

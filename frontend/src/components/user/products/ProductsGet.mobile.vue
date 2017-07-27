@@ -32,7 +32,7 @@ export default {
       this.$store.dispatch('removeProduct', id)
         .then(() => {
           Toast({
-            message: 'Product added to basket',
+            message: this.$t('product.removed'),
             position: 'bottom',
             duration: 3000
           })

@@ -12,7 +12,8 @@ const ProductPatchMixin = {
         'description.third': 'Define a description',
         'label.third': 'Description',
         'button.first': 'Cancel',
-        'button.second': 'Patch'
+        'button.second': 'Patch',
+        'product.patched': 'Product patched'
       },
       de: {
         'template.first.title': 'Bearbeite Produkt',
@@ -23,7 +24,8 @@ const ProductPatchMixin = {
         'description.third': 'Definiere eine Beschreibung',
         'label.third': 'Beschreibung',
         'button.first': 'Abbrechen',
-        'button.second': 'Speichern'
+        'button.second': 'Speichern',
+        'product.patched': 'Produkt bearbeitet'
       }
     }
   },
