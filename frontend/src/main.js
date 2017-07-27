@@ -1,5 +1,3 @@
-if (window.innerWidth >= 576) {
+if (window.innerWidth >= 768) {
   require('./bootstrap.desktop')
-} else {
-  require('./bootstrap.mobile')
-}
+} else require('./bootstrap.mobile')
