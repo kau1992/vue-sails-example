@@ -17,7 +17,8 @@ const ProductsGetMixin = {
         'field.third': 'Price',
         'field.fourth': 'Actions',
         'button.first': 'Edit',
-        'button.second': 'Remove'
+        'button.second': 'Remove',
+        'product.removed': 'Product removed'
       },
       de: {
         'field.first': 'Titel',
@@ -25,7 +26,8 @@ const ProductsGetMixin = {
         'field.third': 'Preis',
         'field.fourth': 'Aktionen',
         'button.first': 'Bearbeiten',
-        'button.second': 'Entfernen'
+        'button.second': 'Entfernen',
+        'product.removed': 'Produkt entfernt'
       }
     }
   },

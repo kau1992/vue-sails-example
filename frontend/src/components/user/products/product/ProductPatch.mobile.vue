@@ -42,7 +42,7 @@
         })
           .then(() => {
             Toast({
-              message: 'Product patched',
+              message: this.$t('product.patched'),
               position: 'bottom',
               duration: 3000
             })

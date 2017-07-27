@@ -27,7 +27,7 @@
         })
           .then(() => {
             Toast({
-              message: 'Product created',
+              message: this.$t('product.created'),
               position: 'bottom',
               duration: 3000
             })

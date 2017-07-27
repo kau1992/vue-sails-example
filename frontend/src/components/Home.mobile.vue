@@ -13,11 +13,17 @@
     </mt-swipe>
 
     <mt-cell v-for="product in products" :key="product.id" :title="product.title">
-      <mt-button size="small" @click="makeProductVisible(product)">View</mt-button>
+      <mt-button size="small" @click="makeProductVisible(product)">{{ $t('button.first') }}</mt-button>
     </mt-cell>
 
     <mt-cell title="">
-      <mt-button :disabled="isNextButtonDisabled" size="small" type="primary" @click="currentPage++">Next</mt-button>
+      <mt-button
+      :disabled="isNextButtonDisabled"
+      size="small"
+      type="primary"
+      @click="currentPage++">
+      {{ $t('button.second') }}
+    </mt-button>
     </mt-cell>
   </div>
 </template>

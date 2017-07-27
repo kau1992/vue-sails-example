@@ -26,7 +26,9 @@ const HomeMixin = {
         'p.first': 'Our users offer many products.',
         'p.second': 'The products here are very cheap.',
         'p.third': 'Buy fast and easy here.',
-        'span.first': 'by'
+        'span.first': 'by',
+        'button.first': 'View',
+        'button.second': 'Next'
       },
       de: {
         'h3.first': 'Viele Produkte',
@@ -35,7 +37,9 @@ const HomeMixin = {
         'p.first': 'Unsere Kunden bieten viele Produkte.',
         'p.second': 'Die Produkte sind sehr günstig hier.',
         'p.third': 'Kaufe hier schnell und einfach.',
-        'span.first': 'von'
+        'span.first': 'von',
+        'button.first': 'Angucken',
+        'button.second': 'Nächste'
       }
     }
   },
