@@ -5,97 +5,71 @@ import {
   shallow
 } from 'avoriaz'
 import sinon from 'sinon'
+import sinonTestFactory from 'sinon-test'
 import BootstrapVue from 'bootstrap-vue'
 import VueI18n from 'vue-i18n'
-import ProductsGet from '@/components/user/products/ProductsGet.desktop'
+import ProductsGetMixin from '@/components/user/products/ProductsGet.mixin'
+import ProductsGetDesktop from '@/components/user/products/ProductsGet.desktop'
 
 Vue.use(BootstrapVue)
 Vue.use(VueI18n)
 Vue.use(Vuex)
 
+let sinonTest = sinonTestFactory(sinon)
+
 describe('ProductsGet', () => {
-  it('should call method to get all products by user at created hook', () => {
-    const state = {
-      User: {
-        user: {
-          id: '',
-          name: '',
-          password: ''
-        }
-      },
-      Product: {
-        product: {
-          meta: sinon.stub()
-        }
-      },
-      Products: {
-        products: {
-          products: []
-        }
-      }
-    }
-
-    const actions = {
-      getProductsByUser: sinon.stub()
-    }
-
-    const store = new Vuex.Store({
-      state,
-      actions
-    })
-
-    mount(ProductsGet, {store})
-
-    expect(actions.getProductsByUser.calledOnce).to.equal(true)
-  })
-
-  it('should show product patch modal when button is clicked', () => {
-    const state = {
-      User: {
-        user: {
-          id: '',
-          name: '',
-          password: ''
-        }
-      },
-      Product: {
-        product: {
-          meta: {
-            isEditProductVisible: false
+    describe('Desktop', () => {
+    it('should show product patch modal when button is clicked', sinonTest(async function() {
+      const state = {
+        User: {
+          user: {
+            id: '',
+            name: '',
+            password: ''
           }
+        },
+        Product: {
+          product: {
+            meta: {
+              isEditProductVisible: false
+            }
+          }
+        },
+        Products: {
+          products: [{
+            id: 1
+          }]
         }
-      },
-      Products: {
-        products: [{
-          id: 1
-        }]
       }
-    }
 
-    const actions = {
-      getProduct: sinon.stub(),
-      getProductsByUser: sinon.stub()
-    }
-
-    const mutations = {
-      SET_IS_EDIT_PRODUCT_VISIBLE (state, isEditProductVisible) {
-        state.Product.product.meta.isEditProductVisible = isEditProductVisible
+      const actions = {
+        getProduct: sinon.stub(),
+        getProductsByUser: sinon.stub()
       }
-    }
 
-    const store = new Vuex.Store({
-      state,
-      actions,
-      mutations,
-    })
+      const mutations = {
+        SET_IS_EDIT_PRODUCT_VISIBLE(state, isEditProductVisible) {
+          state.Product.product.meta.isEditProductVisible = isEditProductVisible
+        }
+      }
 
-    const wrapper = shallow(ProductsGet, {
-      store
-    })
+      const store = new Vuex.Store({
+        state,
+        actions,
+        mutations,
+      })
 
-    const button = wrapper.find('button')[0]
-    button.trigger('click')
+      ProductsGetDesktop.components = sinon.stub()
 
-    expect(wrapper.vm.$store.state.Product.product.meta.isEditProductVisible).to.equal(true)
+      const Ctor = Vue.extend(ProductsGetDesktop)
+      const vm = new Ctor({
+        store
+      }).$mount()
+
+      const button = vm.$el.querySelectorAll('button')[0]
+      button.click()
+
+      expect(vm.$store.state.Product.product.meta.isEditProductVisible).to.equal(true)
+    }))
   })
 })
