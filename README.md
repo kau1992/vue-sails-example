@@ -90,6 +90,7 @@ $ npm run build
 ```
 
 #### Run tests
+
 Run all available tests like unit or functional tests.
 
 ```bash
