@@ -66,16 +66,4 @@
     color: #000;
     line-height: 100px;
   }
-
-  .slide1 {
-
-  }
-
-  .slide2 {
-
-  }
-
-  .slide3 {
-
-  }
 </style>

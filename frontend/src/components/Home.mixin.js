@@ -59,9 +59,7 @@ const HomeMixin = {
   },
 
   methods: {
-    ...mapActions({
-      getProducts: 'getProducts'
-    })
+    ...mapActions(['getProducts'])
   }
 }
 
