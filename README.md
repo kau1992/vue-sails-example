@@ -130,7 +130,7 @@ Router for the frontend.
 - File uploads
 - upgrading to Sails.js 1.0
 - finalize checkout
-- real time and server validation
+- real time frontend and backend validation
 
 ## Code style
 
