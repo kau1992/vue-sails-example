@@ -9,7 +9,7 @@ module.exports = {
    */
   issue: payload => {
     return jwt.sign(payload, tokenSecret, {
-      expiresIn: 60 * 60 * 24
+      expiresIn: '7d'
     })
   },
 

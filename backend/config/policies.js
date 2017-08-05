@@ -61,7 +61,19 @@ module.exports.policies = {
     '*': 'isAuthorized'
   },
 
+  'user/ProductsController': {
+    '*': 'isAuthorized'
+  },
+
+  'user/ProductController': {
+    '*': 'isAuthorized' 
+  },
+
   'ProductsController': {
     '*': true
+  },
+
+  'user/BasketController': {
+    '*': 'isAuthorized'
   }
 };
