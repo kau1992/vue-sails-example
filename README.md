@@ -5,7 +5,9 @@ example. Besides that, it should cover most of the features from Sails.js and Vu
 [JavaScript ES6 features](http://es6-features.org).
 
 ## Getting started
+
 ### Prerequisites
+
 I created a [Vagrant box](https://github.com/ndabAP/Vagrant-box-with-Sails.js-Vue.js-and-MongoDB) with MongoDB, Node.js, 
 Sails.js and Vue.js and also a 
 [Docker file](https://github.com/ndabAP/Docker-image-with-Sails.js-vue-cli-Node.js-and-MongoDB). Or manually install 
@@ -24,6 +26,12 @@ $ sudo apt-get install -y nodejs
 $ sudo npm install sails -g
 ```
 
+If you don't want to install Sails.js globally run `npm install` inside the backend directory and then enter:
+
+```bash
+./node_modules/sails/bin/sails.js lift
+```
+
 #### Install modules
 
 ```bash
@@ -32,11 +40,13 @@ $ cd ../backend && npm install
 ```
 
 ### Production
+
 First, you have to build up your Vue.js components and merge them with Sails.js. This can be done with 
 `cd frontend && npm run build`. Now do `cd ../backend && sails lift` and then open your browser and go to 
 [localhost:1337](http://localhost:1337).
 
 ### Development
+
 `cd backend && sails lift` and then `cd ../frontend && npm run dev`. After that open 
 [localhost:8080](http://localhost:8080) in your browser. Make sure that you start both servers.
 
@@ -44,8 +54,8 @@ First, you have to build up your Vue.js components and merge them with Sails.js.
 
 ### Backend
 
-
 #### Start
+
 Run the Sails application in the current directory (if `node_modules/sails` exists, it will be used instead of the 
 globally installed Sails) at [localhost:1337](http://localhost:1337).
 
@@ -54,14 +64,17 @@ $ sails lift
 ```
 
 #### Run tests
+
 Run all available tests like unit or functional tests.
 
 ```bash
 $ npm run test
 ```
+
 ### Frontend
 
 #### Start
+
 Start the development server at [localhost:8080](http://localhost:8080).
 
 ```bash
@@ -69,6 +82,7 @@ $ npm run dev
 ```
 
 #### Make production ready
+
 Minfiy, uglify and merge the application with Sails.js.
 
 ```bash
@@ -76,6 +90,7 @@ $ npm run build
 ```
 
 #### Run tests
+
 Run all available tests like unit or functional tests.
 
 ```bash
@@ -83,30 +98,40 @@ $ npm run test
 ```
 
 ## Essential components used
+
 The following components are used in this project. There a plenty more, though, check the `package.json` files.
 
 ### [Sails.js](https://github.com/balderdashy/sails)
+
 This is the backend and data provider.
 
 ### [Vue.js](https://github.com/vuejs/vue)
+
 Handle frontend data with a [MVVM](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93viewmodel).
 
 ### [Vuex](https://github.com/vuejs/vuex)
+
 A [state pattern](https://en.wikipedia.org/wiki/State_pattern).
 
 ### [BootstrapVue](https://github.com/bootstrap-vue/bootstrap-vue)
+
 Frontend framework. The design part.
 
 ### [vue-resource](https://github.com/pagekit/vue-resource)
+
 HTTP client for Vue.js.
 
 ### [vue-router](https://github.com/vuejs/vue-router)
+
 Router for the frontend.
 
 ## To do
+
 - File uploads
 - upgrading to Sails.js 1.0
 - finalize checkout
+- real time and server validation
 
 ## Code style
+
 This project fulfils the [JavaScript Standard Style](https://standardjs.com/).

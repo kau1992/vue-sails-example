@@ -17,15 +17,13 @@
 
 <script>
   import ProductIndexMixin from './ProductIndex.mixin'
-  import ProductCreate from './ProductCreate.desktop'
-  import ProductsGet from '../ProductsGet.desktop'
 
   export default {
     mixins: [ProductIndexMixin],
 
     components: {
-      ProductCreate,
-      ProductsGet
+      ProductCreate: () => import('./ProductCreate.desktop'),
+      ProductsGet: () => import('../ProductsGet.desktop')
     }
   }
 </script>

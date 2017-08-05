@@ -23,7 +23,7 @@ module.exports = {
 
     toJSON () {
       let user = this.toObject()
-      
+
       delete user.password
 
       return user
@@ -52,7 +52,7 @@ module.exports = {
    * @param user
    * @param callback
    */
-  checkIfValidPassword: (password, user, callback) => {
+  checkIfPasswordIsValid: (password, user, callback) => {
     bcrypt.compare(password, user.password, (error, isMatch) => {
       if (error) callback(error)
 
