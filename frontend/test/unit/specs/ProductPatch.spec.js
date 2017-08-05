@@ -1,13 +1,9 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import {
-  mount
-} from 'avoriaz'
 import sinon from 'sinon'
 import sinonTestFactory from 'sinon-test'
 import BootstrapVue from 'bootstrap-vue'
 import VueI18n from 'vue-i18n'
-import ProductPatchMixin from '@/components/user/products/product/ProductPatch.mixin'
 import ProductPatchDesktop from '@/components/user/products/product/ProductPatch.desktop'
 import faker from 'faker'
 

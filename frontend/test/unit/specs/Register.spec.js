@@ -1,14 +1,10 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import {
-  mount
-} from 'avoriaz'
 import sinon from 'sinon'
 import sinonTestFactory from 'sinon-test'
 import BootstrapVue from 'bootstrap-vue'
 import VueI18n from 'vue-i18n'
 import RegisterMixin from '@/components/Register.mixin'
-import RegisterDesktop from '@/components/Register.desktop'
 import faker from 'faker'
 
 Vue.use(BootstrapVue)

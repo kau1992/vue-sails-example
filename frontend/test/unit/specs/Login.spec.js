@@ -1,16 +1,11 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import {
-  mount
-} from 'avoriaz'
 import sinon from 'sinon'
 import sinonTestFactory from 'sinon-test'
 import BootstrapVue from 'bootstrap-vue'
 import VueI18n from 'vue-i18n'
 import LoginMixin from '@/components/Login.mixin'
-import LoginDesktop from '@/components/Login.desktop'
 import faker from 'faker'
-import cloneDeep from 'lodash/cloneDeep'
 
 Vue.use(BootstrapVue)
 Vue.use(VueI18n)
