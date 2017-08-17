@@ -10,7 +10,6 @@ describe('Login', function() {
         name: 'Joe',
         password: 'toasty'
       })
-      .expect('Content-Type', /json/)
       .expect(200)
       .end((error, response) => {
         if (error) return done(error)

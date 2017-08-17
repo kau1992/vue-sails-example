@@ -10,13 +10,14 @@ const actions = {
   checkout (context, basket) {
     return new Promise((resolve, reject) => {
       Vue.http
-        .post('/api/user/basket/post', {
+        .post('/api/user/shop/basket/post', {
           products: basket.products
         })
         .then(() => {
           context.commit('RESET_BASKET')
           resolve()
-        }, error => reject(error))
+        })
+        .catch(error => reject(error))
     })
   }
 }

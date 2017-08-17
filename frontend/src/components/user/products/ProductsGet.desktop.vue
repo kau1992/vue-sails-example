@@ -9,7 +9,7 @@
       <template slot="actions" scope="item">
         <b-button size="sm" variant="outline-primary" @click="showPatchForm(item.item.id)">{{ $t('button.first') }}
         </b-button>
-        <b-button size="sm" variant="outline-warning" @click="removeProduct(item.item.id)">{{ $t('button.second') }}</b-button>
+        <b-button size="sm" variant="outline-warning" @click="deleteProduct(item.item.id)">{{ $t('button.second') }}</b-button>
       </template>
     </b-table>
 
@@ -39,8 +39,8 @@
       /**
        * @param id
        */
-      removeProduct (id) {
-        this.$store.dispatch('removeProduct', id)
+      deleteProduct (id) {
+        this.$store.dispatch('deleteProduct', id)
           .then(() => {
             this.$store.dispatch('getProductsByUser', this.user)
           })

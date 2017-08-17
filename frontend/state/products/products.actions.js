@@ -6,16 +6,18 @@ const actions = {
    * @param page
    */
   getProducts (context, page) {
-    Vue.http
-      .get('/api/products/get', {
-        params: {
-          page
-        }
-      })
-      .then(response => {
-        context.commit('SET_PRODUCTS', response.body)
-      }, error => {
-        console.error(error)
+    return new Promise((resolve, reject) => {
+      Vue.http
+        .get('/api/products/get', {
+          params: {
+            page
+          }
+        })
+        .then(response => {
+          context.commit('SET_PRODUCTS', response.body)
+          resolve()
+        })
+        .catch(error => reject(error))
       })
   },
 
@@ -34,9 +36,8 @@ const actions = {
         .then(response => {
           context.commit('SET_PRODUCTS', response.body)
           resolve()
-        }, error => {
-          reject(error)
         })
+        .catch(error => reject(error))
     })
   },
 
@@ -44,13 +45,15 @@ const actions = {
    * @param context
    */
   getProductsByUser (context) {
-    Vue.http
-      .get('/api/user/products/getByUser')
-      .then(response => {
-        context.commit('SET_PRODUCTS', response.body)
-      }, error => {
-        console.error(error)
-      })
+    return new Promise((resolve, reject) => {
+      Vue.http
+        .get('/api/user/products/getProductsByUser')
+        .then(response => {
+          context.commit('SET_PRODUCTS', response.body)
+          resolve()
+        })
+        .catch(error => reject(error))
+    })
   }
 }
 

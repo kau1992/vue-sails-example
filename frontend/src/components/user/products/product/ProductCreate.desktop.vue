@@ -39,7 +39,7 @@
 
     methods: {
       create () {
-        this.$store.dispatch('saveProduct', {
+        this.$store.dispatch('postProduct', {
           product: this.product,
           user: this.user
         })

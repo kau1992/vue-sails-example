@@ -15,7 +15,7 @@ module.exports = {
         Product
           .find()
           .populate('user')
-          .paginate({page: page, limit: 6})
+          .paginate({page, limit: 6})
           .exec((error, products) => {
             if (error) return res.serverError(error)
 
