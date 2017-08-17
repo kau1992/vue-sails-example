@@ -1,8 +1,5 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import {
-  mount
-} from 'avoriaz'
 import sinon from 'sinon'
 import sinonTestFactory from 'sinon-test'
 import BootstrapVue from 'bootstrap-vue'
@@ -10,7 +7,6 @@ import faker from 'faker'
 import VueI18n from 'vue-i18n'
 import toFinite from 'lodash/toFinite'
 import BasketIndexMixin from '@/components/user/shop/BasketIndex.mixin'
-import BasketIndexDesktop from '@/components/user/shop/BasketIndex.desktop'
 
 Vue.use(BootstrapVue)
 Vue.use(VueI18n)

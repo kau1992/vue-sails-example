@@ -1,8 +1,5 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import {
-  mount
-} from 'avoriaz'
 import sinon from 'sinon'
 import sinonTestFactory from 'sinon-test'
 import BootstrapVue from 'bootstrap-vue'

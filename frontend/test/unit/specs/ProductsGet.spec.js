@@ -1,14 +1,9 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import {
-  mount,
-  shallow
-} from 'avoriaz'
 import sinon from 'sinon'
 import sinonTestFactory from 'sinon-test'
 import BootstrapVue from 'bootstrap-vue'
 import VueI18n from 'vue-i18n'
-import ProductsGetMixin from '@/components/user/products/ProductsGet.mixin'
 import ProductsGetDesktop from '@/components/user/products/ProductsGet.desktop'
 
 Vue.use(BootstrapVue)

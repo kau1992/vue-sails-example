@@ -1,5 +1,5 @@
 <template>
-  <div>
+<div>
   <mt-cell v-for="product in products" :key="product.id" :title="product.title">
     <mt-button size="small" @click="makeProductVisible(product)">{{ $t('button.second')}}</mt-button>
   </mt-cell>
@@ -22,8 +22,7 @@ export default {
 
   computed: {
     isNextButtonDisabled () {
-      if (this.currentPage === Math.ceil(this.amountOfProducts / 6)) return true
-      return false
+      return this.currentPage === Math.ceil(this.amountOfProducts / 6)
     }
   },
 

@@ -10,3 +10,5 @@ contribution. Just make sure you fulfill the following points.
 - Run tests with `npm run test` against Vue.js and Sails.js before commiting
 - Add appropriate tests when adding new features
 - Ideally run `npm run build` if you change Vue.js related things
+
+For Vue.js frontend tasks, consult the [Vue.js Component Style Guide](https://github.com/pablohpsilva/vuejs-component-style-guide).

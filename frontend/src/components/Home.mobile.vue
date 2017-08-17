@@ -39,8 +39,7 @@
 
     computed: {
       isNextButtonDisabled () {
-        if (this.currentPage === Math.ceil(this.amountOfProducts / 6)) return true
-        return false
+        return this.currentPage === Math.ceil(this.amountOfProducts / 6)
       }
     },
 

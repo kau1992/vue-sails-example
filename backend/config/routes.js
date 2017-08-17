@@ -45,21 +45,21 @@ module.exports.routes = {
 
   'get /api/user/get': 'user/UserController.get',
 
-  'get /api/products/get': 'ProductsController.get',
+  'get /api/products/get': 'ProductsController.getProducts',
 
-  'post /api/user/product/post': 'user/ProductController.post',
+  'post /api/user/product/post': 'user/ProductController.postProduct',
 
-  'get /api/user/product/get': 'user/ProductController.get',
+  'get /api/user/product/get': 'user/ProductController.getProduct',
 
-  'patch /api/user/product/patch': 'user/ProductController.patch',
+  'patch /api/user/product/patch': 'user/ProductController.patchProduct',
 
-  'delete /api/user/product/remove': 'user/ProductController.remove',
+  'delete /api/user/product/remove': 'user/ProductController.removeProduct',
 
   'get /api/user/products/getByUser': 'user/ProductsController.getByUser',
 
-  'get /api/user/products/get': 'user/ProductsController.get',
+  'get /api/user/products/get': 'user/ProductsController.getProducts',
 
-  'post /api/user/basket/post': 'user/BasketController.post'
+  'post /api/user/basket/post': 'user/BasketController.postBasket'
 
   /***************************************************************************
    *                                                                          *

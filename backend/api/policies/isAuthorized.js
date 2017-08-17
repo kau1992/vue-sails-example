@@ -1,5 +1,4 @@
-module.exports = {
-  isAuthorized (req, res, next) {
+module.exports = function isAuthorized (req, res, next) {
     let token = req.headers.token
 
     if ('undefined' === token) return res.forbidden()
@@ -15,4 +14,3 @@ module.exports = {
         if (user) return next()
       })
   }
-}

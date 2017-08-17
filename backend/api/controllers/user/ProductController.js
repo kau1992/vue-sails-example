@@ -4,7 +4,7 @@ module.exports = {
    * @param req
    * @param res
    */
-  post: (req, res) => {
+  postProduct: (req, res) => {
     let {
       title,
       price,
@@ -32,7 +32,7 @@ module.exports = {
    * @param req
    * @param res
    */
-  get: (req, res) => {
+  getProduct: (req, res) => {
     let id = req.param('id')
     let user = CryptographyService.decrypt(req.cookies.user)
 
@@ -51,7 +51,7 @@ module.exports = {
    * @param req
    * @param res
    */
-  patch: (req, res) => {
+  patchProduct: (req, res) => {
     let {
       id,
       title,
@@ -82,7 +82,7 @@ module.exports = {
    * @param req
    * @param res
    */
-  remove: (req, res) => {
+  removeProduct: (req, res) => {
     let id = req.param('id')
     let user = CryptographyService.decrypt(req.cookies.user)
 
