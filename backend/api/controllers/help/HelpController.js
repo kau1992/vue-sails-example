@@ -8,6 +8,6 @@ module.exports = {
     var socket = req.socket;
     var io = sails.io;
     console.log('test')
-    return res.ok()
+    return res.json({test: 'test'})
   }
 }

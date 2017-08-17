@@ -1,6 +1,5 @@
 <template>
 <div>
-  <b-btn @click="setIsHelpVisible(true)">Launch demo modal</b-btn>
   <help-index v-if="isHelpVisible"></help-index>
 
   <b-navbar toggleable type="inverse" variant="primary">
@@ -30,6 +29,7 @@
     </b-collapse>
   </b-navbar>
   <div class="container">
+    test
     <router-view class="mt-4"></router-view>
   </div>
 </div>

@@ -60,8 +60,7 @@ export default {
 
   methods: {
     postMessage () {
-      let message = this.message
-      io.socket.post('/api/help', function (message, jwres) {
+      io.socket.post('/api/help', {test: 'test'}, function (resData, jwres) {
         console.log(jwres)
       })
     }
