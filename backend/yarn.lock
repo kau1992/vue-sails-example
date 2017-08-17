@@ -284,8 +284,7 @@ bcrypt-pbkdf@^1.0.0:
   dependencies:
     tweetnacl "^0.14.3"
 
-"bcryptjs @~2.3.0":
-  name bcryptjs
+bcryptjs@~2.3.0:
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/bcryptjs/-/bcryptjs-2.3.0.tgz#5826900cfef7abaf3425c72e4d464de509b8c2ec"
 
@@ -2878,6 +2877,12 @@ sails.io.js-dist@^0.13.3:
 sails.io.js-dist@^0.14.0:
   version "0.14.0"
   resolved "https://registry.yarnpkg.com/sails.io.js-dist/-/sails.io.js-dist-0.14.0.tgz#d026d3ee14b549d73f6ec21aad8a6f0210037011"
+
+sails.io.js@^1.1.12:
+  version "1.1.12"
+  resolved "https://registry.yarnpkg.com/sails.io.js/-/sails.io.js-1.1.12.tgz#88adef7df380632adcd1f9b9a0da8a5f6d46ad8b"
+  dependencies:
+    socket.io-client "1.7.3"
 
 "sails@github:lifespent/sails#hastings-fix":
   version "0.12.13"

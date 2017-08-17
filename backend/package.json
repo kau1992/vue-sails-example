@@ -26,6 +26,7 @@
     "rc": "1.0.1",
     "sails": "github:lifespent/sails#hastings-fix",
     "sails-disk": "~0.10.9",
+    "sails.io.js": "^1.1.12",
     "sinon": "^2.3.8",
     "supertest": "^3.0.0"
   },

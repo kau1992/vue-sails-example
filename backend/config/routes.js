@@ -39,6 +39,8 @@ module.exports.routes = {
     skipRegex: /^\/api\/.*$/
   },
 
+  'post /api/help': 'help/Help.postHelp',
+
   'post /api/register/post': 'Register.post',
 
   'post /api/login/post': 'LoginController.post',
