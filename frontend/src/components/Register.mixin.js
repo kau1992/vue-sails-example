@@ -55,7 +55,7 @@ const RegisterMixin = {
 
   methods: {
     create () {
-      this.$store.dispatch('saveUser', this.user)
+      this.$store.dispatch('postUser', this.user)
     }
   }
 }

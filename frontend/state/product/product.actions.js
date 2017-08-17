@@ -8,17 +8,13 @@ const actions = {
   getProduct ({}, id) {
     return new Promise((resolve, reject) => {
       Vue.http
-        .get('/api/user/product/get', {
+        .get('/api/user/products/product/get', {
           params: {
             id
           }
         })
-        .then(response => {
-          resolve(response.body)
-        })
-        .catch(error => {
-          reject(error)
-        })
+        .then(response => resolve(response.body))
+        .catch(error => reject(error))
     })
   },
 
@@ -26,19 +22,16 @@ const actions = {
    * @param id
    * @returns {Promise}
    */
-  removeProduct ({}, id) {
+  deleteProduct ({}, id) {
     return new Promise((resolve, reject) => {
       Vue.http
-        .delete('/api/user/product/remove', {
+        .delete('/api/user/products/product/delete', {
           params: {
             id
           }
         })
-        .then(() => {
-          resolve()
-        }, error => {
-          reject(error)
-        })
+        .then(() => resolve())
+        .catch(error => reject(error))
     })
   },
 
@@ -46,10 +39,10 @@ const actions = {
    * @param context
    * @param parameters
    */
-  saveProduct (context, parameters) {
+  postProduct (context, parameters) {
     return new Promise((resolve, reject) => {
       Vue.http
-        .post('/api/user/product/post', {
+        .post('/api/user/products/product/post', {
           title: parameters.product.title,
           description: parameters.product.description,
           price: parameters.product.price
@@ -57,9 +50,8 @@ const actions = {
         .then(() => {
           context.commit('RESET_PRODUCT')
           resolve()
-        }, error => {
-          reject(error)
         })
+        .catch(error => reject(error))
     })
   },
 
@@ -70,7 +62,7 @@ const actions = {
   patchProduct ({}, parameters) {
     return new Promise((resolve, reject) => {
       Vue.http
-        .patch('/api/user/product/patch', {
+        .patch('/api/user/products/product/patch', {
           id: parameters.id,
           title: parameters.title,
           price: parameters.price,
@@ -78,9 +70,8 @@ const actions = {
         })
         .then(() => {
           resolve()
-        }, error => {
-          reject(error)
         })
+        .catch(error => reject(error))
     })
   }
 }

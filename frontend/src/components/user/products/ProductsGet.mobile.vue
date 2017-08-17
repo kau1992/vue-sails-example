@@ -4,7 +4,7 @@
 
   <mt-cell v-for="product in products" :key="product.id" :title="product.title">
     <mt-button size="small" @click="showPatchForm(product.id)" type="default">{{ $t('button.first') }}</mt-button>
-    <mt-button size="small" @click="removeProduct(product.id)" type="danger">{{ $t('button.second') }}</mt-button>
+    <mt-button size="small" @click="deleteProduct(product.id)" type="danger">{{ $t('button.second') }}</mt-button>
   </mt-cell>
 </div>
 </template>
@@ -28,16 +28,14 @@ export default {
       this.$store.commit('SET_IS_EDIT_PRODUCT_VISIBLE', true)
     },
 
-    removeProduct (id) {
-      this.$store.dispatch('removeProduct', id)
-        .then(() => {
-          Toast({
-            message: this.$t('product.removed'),
-            position: 'bottom',
-            duration: 3000
-          })
-          this.$store.dispatch('getProductsByUser', this.user)
-        })
+    async deleteProduct (id) {
+      await this.$store.dispatch('deleteProduct', id)
+      Toast({
+        message: this.$t('product.removed'),
+        position: 'bottom',
+        duration: 3000
+      })
+      this.$store.dispatch('getProductsByUser', this.user)
     }
   }
 }

@@ -24,9 +24,7 @@ describe('Register', function() {
             chai.assert.isDefined(user)
             done()
           })
-          .catch(error => {
-            done(error)
-          })
+          .catch(error => done(error))
       })
   })
 

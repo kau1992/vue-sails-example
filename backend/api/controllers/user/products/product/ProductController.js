@@ -82,7 +82,7 @@ module.exports = {
    * @param req
    * @param res
    */
-  removeProduct: (req, res) => {
+  deleteProduct: (req, res) => {
     let id = req.param('id')
     let user = CryptographyService.decrypt(req.cookies.user)
 
