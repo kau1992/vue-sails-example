@@ -32,6 +32,7 @@
   },
   "scripts": {
     "debug": "node debug app.js",
+    "dev": "NODE_ENV=development ./node_modules/sails/bin/sails.js lift",
     "start": "node app.js",
     "test": "NODE_ENV=test node ./node_modules/mocha/bin/mocha test/bootstrap.test.js test/**/*.spec.js"
   },
