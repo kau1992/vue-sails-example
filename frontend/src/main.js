@@ -1,6 +1,6 @@
 /**
-* @see {@link https://stackoverflow.com/questions/1038727/how-to-get-browser-width-using-javascript-code#1038781}
-*/
+ * @see {@link https://stackoverflow.com/questions/1038727/how-to-get-browser-width-using-javascript-code#1038781}
+ */
 const browserWidth = Math.max(
   document.body.scrollWidth,
   document.documentElement.scrollWidth,

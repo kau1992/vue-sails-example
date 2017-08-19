@@ -1,4 +1,4 @@
-import {mapMutations} from 'vuex'
+import { mapMutations } from 'vuex'
 
 const AppMixin = {
   name: 'app',
