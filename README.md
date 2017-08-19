@@ -133,12 +133,6 @@ HTTP client for Vue.js.
 
 Router for the frontend.
 
-## To do
-
-- File uploads
-- upgrading to Sails.js 1.0
-- real time frontend and backend validation
-
 ## Code style
 
 This project fulfils the [JavaScript Standard Style](https://standardjs.com/).
