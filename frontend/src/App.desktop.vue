@@ -17,6 +17,7 @@
         <b-nav-item v-if="isUserAuthenticated" :to="{ name: 'Shop'}">{{ $t('shop') }}</b-nav-item>
       </b-nav>
       <b-nav is-nav-bar class="ml-auto">
+        <b-nav-item @click="setIsHelpVisible(true)">{{ $t('help') }}</b-nav-item>
         <b-nav-item :disabled="!basket.products.length" v-if="isUserAuthenticated" :to="{ name: 'Basket'}">
           {{ $t('basket') }} ({{ basket.products.length }})
         </b-nav-item>
@@ -29,7 +30,6 @@
     </b-collapse>
   </b-navbar>
   <div class="container">
-    test
     <router-view class="mt-4"></router-view>
   </div>
 </div>
@@ -38,17 +38,12 @@
 <script>
 import { mapMutations } from 'vuex'
 import AppMixin from './App.mixin'
-import HelpIndex from './components/help/HelpIndex.desktop'
+const HelpIndex = () => import('./components/help/HelpIndex.desktop')
 
 export default {
   mixins: [AppMixin],
   components: {
     HelpIndex
-  },
-
-  /** @todo Remove this! **/
-  created () {
-    this.setIsHelpVisible(true)
   },
 
   computed: {

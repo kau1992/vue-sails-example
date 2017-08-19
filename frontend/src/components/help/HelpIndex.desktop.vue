@@ -1,5 +1,12 @@
 <template>
-<b-modal id="modal" title="Help" size="lg">
+<b-modal
+:no-close-on-backdrop="true"
+:no-close-on-esc="true"
+:hide-header-close="true"
+:ok-only="true"
+id="help"
+title="Help"
+size="lg">
   <div class="card mb-2">
     <div class="card-block">
       <div v-for="message in messages">
@@ -10,11 +17,18 @@
       </div>
     </div>
   </div>
-  <b-form-input type="text" @keyup.enter="postMessage" v-model="message" placeholder="How can we help you?"></b-form-input>
+  <b-form-input type="text" @keyup.enter="postMessage" v-model="message"
+  ></b-form-input>
+  <template slot="modal-footer">
+    <b-button @click="setIsHelpVisible(false)" size="sm" variant="secondary">
+      Close
+    </b-button>
+  </template>
 </b-modal>
 </template>
 
 <script>
+import { mapMutations } from 'vuex'
 import * as socketIoClient from 'socket.io-client'
 import * as sailsIo from 'sails.io.js'
 
@@ -27,26 +41,13 @@ io.sails.useCORSRouteToGetCookie = false
 export default {
   data () {
     return {
+      assistant: '',
       message: '',
       messages: [{
         message: {
           assistant: {
-            name: 'Mr Bean',
-            message: 'Hey, how can I help you?'
-          }
-        },
-        time: new Date().toString()
-      }, {
-        message: {
-          user: {
-            message: 'You can\'t'
-          }
-        },
-        time: new Date().toString()
-      }, {
-        message: {
-          user: {
-            message: 'Really!'
+            name: 'System',
+            message: 'Hey, how can we help you?'
           }
         },
         time: new Date().toString()
@@ -55,22 +56,83 @@ export default {
   },
 
   mounted () {
-    this.$root.$emit('show::modal', 'modal')
+    this.$root.$emit('show::modal', 'help')
+  },
+
+  created () {
+    this.setRandomAssistantName()
+  },
+
+  computed: {
+    isHelpVisible: {
+      get () {
+        return this.$store.state.isHelpVisible
+      },
+
+      set (isHelpVisible) {
+        this.store.commit('SET_IS_HELP_VISIBLE', isHelpVisible)
+      }
+    }
+  },
+
+  updated () {
+    let card = this.$el.querySelector('.card')
+    card.scrollTop = card.scrollHeight
   },
 
   methods: {
     postMessage () {
-      io.socket.post('/api/help', {test: 'test'}, function (resData, jwres) {
-        console.log(jwres)
+      this.messages.push({
+        message: {
+          user: {
+            message: this.message
+          }
+        },
+        time: new Date().toString()
       })
-    }
+
+      io.socket.post('/api/help', {}, message => {
+        this.messages.push({
+          message: {
+            assistant: {
+              name: this.assistant,
+              message: message.answer
+            }
+          },
+          time: new Date().toString()
+        })
+      })
+
+      this.$set(this, 'message', '')
+    },
+
+    setRandomAssistantName () {
+      const assistants = [
+        'Irvin Case',
+        'Juliette Cooper',
+        'Sheldon James'
+      ]
+
+      let assistant = assistants[Math.floor(Math.random() * assistants.length)]
+
+      this.$set(this, 'assistant', assistant)
+    },
+
+    ...mapMutations({
+      setIsHelpVisible: 'SET_IS_HELP_VISIBLE'
+    })
+  },
+
+  destroyed () {
+    io.socket.disconnect()
   }
 }
 </script>
 
-<style>
+<style scoped>
 .card {
-  max-height: 250px;
+  max-height: 350px;
+  min-height: 200px;
   overflow-y: scroll;
 }
 </style>

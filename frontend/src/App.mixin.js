@@ -7,6 +7,7 @@ const AppMixin = {
     messages: {
       en: {
         'home': 'Home',
+        'help': 'Help',
         'register': 'Register',
         'login': 'Login',
         'shop': 'Shop',
@@ -18,6 +19,7 @@ const AppMixin = {
       },
       de: {
         'home': 'Startseite',
+        'help': 'Hilfe',
         'register': 'Registrierung',
         'login': 'Login',
         'shop': 'Shop',
