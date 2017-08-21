@@ -31,6 +31,7 @@
     "supertest": "^3.0.0"
   },
   "scripts": {
+    "checkout": "NODE_PATH=. node ./node_modules/git-checkout.js/src/index.js",
     "debug": "node debug app.js",
     "dev": "NODE_ENV=development ./node_modules/sails/bin/sails.js lift",
     "start": "node app.js",
@@ -39,5 +40,7 @@
   "main": "app.js",
   "author": "Julian Claus",
   "license": "MIT",
-  "devDependencies": {}
+  "devDependencies": {
+    "git-checkout.js": "^0.1.15"
+  }
 }
