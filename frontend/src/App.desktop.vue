@@ -1,6 +1,10 @@
 <template>
   <div>
-    <help-index v-if="isHelpVisible"></help-index>
+    <help-index
+    v-if="isHelpVisible"
+    :io="io"
+    @helpMounted="setIo">
+  </help-index>
 
     <b-navbar toggleable type="inverse" variant="primary">
       <b-nav-toggle target="nav_collapse"></b-nav-toggle>
@@ -36,6 +40,8 @@
 </template>
 
 <script>
+  import * as socketIoClient from 'socket.io-client'
+  import * as sailsIo from 'sails.io.js'
   import { mapMutations } from 'vuex'
   import AppMixin from './App.mixin'
 
@@ -45,6 +51,12 @@
     mixins: [AppMixin],
     components: {
       HelpIndex
+    },
+
+    data () {
+      return {
+        io: null
+      }
     },
 
     computed: {
@@ -59,7 +71,26 @@
       }
     },
 
+    watch: {
+      isHelpVisible () {
+        if (!this.isHelpVisible) this.io.socket.disconnect()
+        if (this.isHelpVisible && this.io) this.io.socket.reconnect()
+      }
+    },
+
     methods: {
+      setIo () {
+        if (!this.io) {
+          let io = sailsIo(socketIoClient)
+
+          io.sails.url = 'http://localhost:1337'
+          io.sails.environment = process.env.NODE_ENV || 'development'
+          io.sails.useCORSRouteToGetCookie = false
+
+          this.$set(this, 'io', io)
+        }
+      },
+
       ...mapMutations({
         setIsHelpVisible: 'SET_IS_HELP_VISIBLE'
       })

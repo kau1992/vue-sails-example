@@ -35,13 +35,12 @@
 
 <script>
   import { mapMutations } from 'vuex'
-  import * as socketIoClient from 'socket.io-client'
-  import * as sailsIo from 'sails.io.js'
 
   export default {
+    props: ['io'],
+
     data () {
       return {
-        io: null,
         assistant: '',
         message: '',
         messages: [{
@@ -58,14 +57,7 @@
 
     mounted () {
       this.$root.$emit('show::modal', 'help')
-
-      const io = sailsIo(socketIoClient)
-
-      io.sails.url = 'http://localhost:1337'
-      io.sails.environment = process.env.NODE_ENV || 'development'
-      io.sails.useCORSRouteToGetCookie = false
-
-      this.$set(this, 'io', io)
+      this.$emit('helpMounted')
     },
 
     created () {
@@ -130,11 +122,6 @@
       ...mapMutations({
         setIsHelpVisible: 'SET_IS_HELP_VISIBLE'
       })
-    },
-
-    destroyed () {
-      this.io.socket.disconnect()
-      this.$set(this, 'io', null)
     }
   }
 </script>
