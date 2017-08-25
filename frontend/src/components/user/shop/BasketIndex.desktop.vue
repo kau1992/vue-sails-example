@@ -28,7 +28,7 @@
           :disabled="basket.products.length === 0"
           size="sm"
           variant="outline-success float-right"
-          @click="checkout">{{ $t('button.second') }}
+          @click.native="checkout">{{ $t('button.second') }}
         </b-button>
       </div>
     </div>

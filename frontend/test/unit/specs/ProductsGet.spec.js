@@ -14,7 +14,7 @@ let sinonTest = sinonTestFactory(sinon)
 
 describe('ProductsGet', () => {
     describe('Desktop', () => {
-    it('should show product patch modal when button is clicked', sinonTest(async function() {
+    it('should show product patch modal when button is clicked', sinonTest(function() {
       const state = {
         User: {
           user: {

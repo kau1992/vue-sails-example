@@ -61,7 +61,7 @@ describe('ProductPatch', () => {
     }))
 
 
-    it('should patch product if button has been clicked', sinonTest(function() {
+    it('should patch product if button has been clicked', sinonTest(async function() {
       const state = {
         User: {
           user: {
@@ -83,7 +83,7 @@ describe('ProductPatch', () => {
       }
 
       const actions = {
-        patchProduct: sinon.stub(),
+        patchProduct: sinon.stub().resolves(),
         getProductsByUser: sinon.stub()
       }
 
