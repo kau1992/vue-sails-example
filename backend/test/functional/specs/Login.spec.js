@@ -4,18 +4,31 @@ const faker = require('faker')
 
 describe('Login', function() {
   it('should send a non empty JSON response', function(done) {
+    let name = 'Joe'
+    let password = 'toasty'
+
     request(sails.hooks.http.app)
-      .post('/api/login/post')
+      .post('/api/register/post')
       .send({
-        name: 'Joe',
-        password: 'toasty'
+        name,
+        password
       })
       .expect(200)
-      .end((error, response) => {
-        if (error) return done(error)
+      .then(() => {
 
-        chai.assert.isNotEmpty(response.body.token)
-        done()
+        request(sails.hooks.http.app)
+          .post('/api/login/post')
+          .send({
+            name,
+            password
+          })
+          .expect(200)
+          .end((error, response) => {
+            if (error) return done(error)
+
+            chai.assert.isNotEmpty(response.body.token)
+            done()
+          })
       })
   })
 
