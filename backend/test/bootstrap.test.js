@@ -2,7 +2,7 @@ const sails = require('sails')
 const fs = require('fs')
 
 before(function (done) {
-  this.timeout(5000)
+  this.timeout(10000)
 
   sails.lift({}, error => {
     if (error) return done(error)

@@ -1,10 +1,14 @@
 const request = require('supertest')
 const chai = require('chai')
+const sinon = require('sinon')
 const faker = require('faker')
 
 describe('Products', function() {
 
   it('should return a non empty JSON with products', function(done) {
+    sails.hooks.policies.middleware.isauthorized = sinon.stub()
+    sails.services.cryptographyservice.decrypt = sinon.stub().returns(1)
+
     request(sails.hooks.http.app)
       .get('/api/products/get')
       .query({
@@ -21,6 +25,9 @@ describe('Products', function() {
   })
 
   it('should find products by given user', function(done) {
+    sails.hooks.policies.middleware.isauthorized = sinon.stub()
+    sails.services.cryptographyservice.decrypt = sinon.stub().returns(1)
+
     let name = 'Joe'
     let password = 'toasty'
     let product = {

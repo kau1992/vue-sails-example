@@ -1,8 +1,6 @@
 const bcrypt = require('bcryptjs')
 
 module.exports = {
-  connection: 'localDiskDb',
-
   attributes: {
     name: {
       type: 'string',
@@ -19,15 +17,15 @@ module.exports = {
     baskets: {
       collection: 'basket',
       via: 'user'
-    },
-
-    toJSON () {
-      let user = this.toObject()
-
-      delete user.password
-
-      return user
     }
+  },
+
+  customToJSON () {
+    let user = this.toObject()
+
+    delete user.password
+
+    return user
   },
 
   /**

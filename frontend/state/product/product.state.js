@@ -2,7 +2,7 @@ const state = {
   product: {
     title: '',
     description: '',
-    price: '',
+    price: 0,
     meta: {
       isEditProductVisible: false
     }

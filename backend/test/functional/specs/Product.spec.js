@@ -6,6 +6,7 @@ const faker = require('faker')
 
 describe('Product', function() {
   it('should return a non empty JSON with the product', function(done) {
+    sails.hooks.policies.middleware.isauthorized = sinon.stub()
     sails.services.cryptographyservice.decrypt = sinon.stub().returns(1)
 
     request(sails.hooks.http.app)
@@ -13,17 +14,18 @@ describe('Product', function() {
       .query({
         id: 1
       })
-      .expect('Content-Type', /json/)
       .expect(200)
       .end((error, response) => {
         if (error) return done(error)
-
         chai.assert.isNotEmpty(response.body)
         done()
       })
   })
 
   it('should post data', function(done) {
+    sails.hooks.policies.middleware.isauthorized = sinon.stub()
+    sails.services.cryptographyservice.decrypt = sinon.stub().returns(1)
+    
     const title = faker.commerce.productName()
     const description = faker.commerce.productAdjective()
     const price = faker.commerce.price()

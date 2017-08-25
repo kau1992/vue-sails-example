@@ -1,9 +1,7 @@
 module.exports = {
-  connection: 'localDiskDb',
-
   attributes: {
     products: {
-      type: 'array',
+      type: 'json',
       required: true
     },
 

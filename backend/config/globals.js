@@ -18,7 +18,7 @@ module.exports.globals = {
   *                                                                           *
   ****************************************************************************/
 
-	// _: true,
+	_: false,
 
   /****************************************************************************
   *                                                                           *
@@ -28,7 +28,7 @@ module.exports.globals = {
   *                                                                           *
   ****************************************************************************/
 
-	// async: true,
+	async: false,
 
   /****************************************************************************
   *                                                                           *
@@ -37,18 +37,7 @@ module.exports.globals = {
   *                                                                           *
   ****************************************************************************/
 
-	// sails: true,
-
-  /****************************************************************************
-  *                                                                           *
-  * Expose each of your app's services as global variables (using their       *
-  * "globalId"). E.g. a service defined in api/models/NaturalLanguage.js      *
-  * would have a globalId of NaturalLanguage by default. If this is disabled, *
-  * you can still access your services via sails.services.*                   *
-  *                                                                           *
-  ****************************************************************************/
-
-	// services: true,
+	sails: true,
 
   /****************************************************************************
   *                                                                           *
@@ -59,5 +48,5 @@ module.exports.globals = {
   *                                                                           *
   ****************************************************************************/
 
-	// models: true
+	models: true
 };
