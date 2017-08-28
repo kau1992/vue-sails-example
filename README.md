@@ -107,7 +107,7 @@ a reference book. These notable elements are covered.
 
 ## Essential components used
 
-The following components are used in this project. There a plenty more, though, check the `package.json` files.
+The following components are used in this project. There are plenty more, though, check the `package.json` files.
 
 ### [Sails.js](https://github.com/balderdashy/sails)
 
