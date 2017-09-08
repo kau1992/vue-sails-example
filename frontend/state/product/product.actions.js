@@ -68,9 +68,7 @@ const actions = {
           price: parameters.price,
           description: parameters.description
         })
-        .then(() => {
-          resolve()
-        })
+        .then(() => resolve())
         .catch(error => reject(error))
     })
   }
