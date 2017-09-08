@@ -48,7 +48,12 @@ export default new Vuex.Store({
     SET_LOCALE (state, locale) {
       state.locale = locale
     },
-
+    
+    /**
+     * @param state
+     * @param isHelpVisible
+     * @constructor
+     */
     SET_IS_HELP_VISIBLE (state, isHelpVisible) {
       state.isHelpVisible = isHelpVisible
     }
