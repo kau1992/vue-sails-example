@@ -1,19 +1,10 @@
-import Vue from 'vue'
-import VueResource from 'vue-resource'
+import { Vue, store, i18n, LocaleMixin } from './bootstrap.mixin'
 import App from './App.mobile'
 import router from './router/router.mobile'
-import store from './../state/index'
-import VueI18n from 'vue-i18n'
 import MintUI from 'mint-ui'
 import 'mint-ui/lib/style.css'
 
-Vue.use(VueI18n)
 Vue.use(MintUI)
-Vue.use(VueResource)
-
-const i18n = new VueI18n({
-  locale: 'en'
-})
 
 Vue.http.interceptors.push((request, next) => {
   if (request.url !== '/api/login/post') {
@@ -51,20 +42,6 @@ router.beforeEach((to, from, next) => {
     }
   } else next()
 })
-
-const LocaleMixin = {
-  computed: {
-    locale () {
-      return this.$store.state.locale
-    }
-  },
-
-  watch: {
-    locale () {
-      this.$i18n.locale = this.locale
-    }
-  }
-}
 
 /* eslint-disable no-new */
 new Vue({
