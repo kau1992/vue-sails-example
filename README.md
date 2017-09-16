@@ -104,6 +104,7 @@ a reference book. These notable elements are covered.
 - Unit and functional tests
 - Dedicated mobile version
 - Socket.IO usage
+- Local storage plus cookie authentication
 
 ## Essential components used
 
