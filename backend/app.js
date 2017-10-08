@@ -61,10 +61,13 @@ sails.lift(rc('sails'))
 
 setInterval(function () {
   sails.lower(function (err) {
+      const fs = require('fs')
+      fs.unlinkSync(__dirname + '/.tmp/localDiskDb.db')
+
       if (err) return console.error('Error occurred lowering Sails app: ', err)
       console.info('Sails app lowered successfully!')
       sails = new SailsApp()
       sails.lift(rc('sails'))
     }
   )
-}, 86400)
+}, 86400000)
