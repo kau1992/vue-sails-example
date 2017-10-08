@@ -1,0 +1,20 @@
+{
+  "name": "vue-sails-example",
+  "version": "1.0.0",
+  "description": "Vue.js with Sails.js backend example project.",
+  "main": "backend/app.js",
+  "scripts": {
+    "push": "git push && git subtree push --prefix backend heroku master",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ndabAP/Vue.js-with-Sails.js-backend-example-project.git"
+  },
+  "author": "dhjd9m <kontakt@julian-claus.de>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ndabAP/Vue.js-with-Sails.js-backend-example-project/issues"
+  },
+  "homepage": "https://github.com/ndabAP/Vue.js-with-Sails.js-backend-example-project#readme"
+}
