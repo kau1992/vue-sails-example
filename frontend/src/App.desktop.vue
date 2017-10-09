@@ -55,6 +55,7 @@
 
   export default {
     mixins: [AppMixin],
+
     components: {
       HelpIndex
     },
@@ -93,11 +94,13 @@
           let io = sailsIo(socketIoClient)
 
           let isProductionEnvironment = (process.env.NODE_ENV === 'production')
-          let port = 1337
+          let url
 
-          if (isProductionEnvironment) port = 80
+          if (isProductionEnvironment) {
+            url = `${location.protocol}//${location.hostname}${location.port ? ':' + location.port : ''}`
+          } else url = 'http://localhost:1337'
 
-          io.sails.url = `http://localhost:${port}`
+          io.sails.url = url
           io.sails.environment = process.env.NODE_ENV || 'development'
           io.sails.useCORSRouteToGetCookie = false
 
