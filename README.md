@@ -1,4 +1,5 @@
 # Vue.js with Sails.js backend example project
+
 This project is for those who are new to 
 [single-page applications](https://en.wikipedia.org/wiki/Single-page_application) and want to learn through a real 
 example. Besides that, it should cover most of the features from Sails.js and Vue.js, like a reference book. For a better understanding, you should be aware of [JavaScript ES6 features](http://es6-features.org).
@@ -137,3 +138,12 @@ Router for the frontend.
 ## Code style
 
 This project fulfils the [JavaScript Standard Style](https://standardjs.com/).
+
+## Preview
+
+To see this project in action, visit the heroku application:
+
+[https://vue-sails-example.herokuapp.com](https://vue-sails-example.herokuapp.com/)
+
+**Warning**: Since free heroku applications sleep after 30 minutes of inactivity (no web request occurred) the 
+application may need to wake up first, which can take some seconds.
