@@ -65,6 +65,9 @@
           return this.$store.state.isHelpVisible
         },
 
+        /**
+         * @param isHelpVisible
+         */
         set (isHelpVisible) {
           this.store.commit('SET_IS_HELP_VISIBLE', isHelpVisible)
         }
@@ -83,7 +86,12 @@
         if (!this.io) {
           let io = sailsIo(socketIoClient)
 
-          io.sails.url = 'http://localhost:1337'
+          let isProductionEnvironment = (process.env.NODE_ENV === 'production')
+          let port = 1337
+
+          if (isProductionEnvironment) port = 80
+
+          io.sails.url = `http://localhost:${port}`
           io.sails.environment = process.env.NODE_ENV || 'development'
           io.sails.useCORSRouteToGetCookie = false
 
