@@ -11,6 +11,10 @@
 
     <router-view @userLoggedIn="setActions"></router-view>
 
+    <footer class="mt-3 text-center">
+      <span class="text-muted"><small>This shop is not real and only for demonstration purposes</small></span>
+    </footer>
+
     <mt-actionsheet
       :cancelText="$t('cancelText')"
       size="large"
@@ -125,5 +129,21 @@
 
   button {
     margin-left: 5px !important;
+  }
+
+  .mt-3 {
+    margin-top: 1rem !important;
+  }
+
+  .text-muted {
+    color: #636c72 !important;
+  }
+
+  footer {
+    padding: 0 10px;
+  }
+
+  .text-center {
+    text-align: center !important;
   }
 </style>

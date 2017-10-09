@@ -1,10 +1,10 @@
 <template>
   <div>
     <help-index
-    v-if="isHelpVisible"
-    :io="io"
-    @helpMounted="setIo">
-  </help-index>
+      v-if="isHelpVisible"
+      :io="io"
+      @helpMounted="setIo">
+    </help-index>
 
     <b-navbar toggleable type="inverse" variant="primary">
       <b-nav-toggle target="nav_collapse"></b-nav-toggle>
@@ -36,6 +36,12 @@
     <div class="container">
       <router-view class="mt-4"></router-view>
     </div>
+
+    <footer class="mt-3 text-center">
+      <div class="container">
+        <span class="text-muted"><small>This shop is not real and only for demonstration purposes</small></span>
+      </div>
+    </footer>
   </div>
 </template>
 
