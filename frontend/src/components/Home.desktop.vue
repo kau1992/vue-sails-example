@@ -20,7 +20,7 @@
     </div>
 
     <div class="row">
-      <div class="col-4" v-for="product in products">
+      <div class="col-4" v-for="product in products" :key="product.id">
         <b-card :key="product.id" :header="product.title" class="mb-4" show-footer>
           <p>{{ product.description }}</p>
           <small slot="footer" class="text-muted">
