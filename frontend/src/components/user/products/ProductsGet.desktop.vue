@@ -3,10 +3,10 @@
     <product-patch v-if="isEditProductVisible" v-bind:id="id"></product-patch>
 
     <b-table :items="products" :fields="fields" v-if="products.length > 0">
-      <template slot="price" scope="item">
+      <template slot="price" slot-scope="item">
         ${{ item.item.price }}
       </template>
-      <template slot="actions" scope="item">
+      <template slot="actions" slot-scope="item">
         <b-button size="sm" variant="outline-primary" @click="showPatchForm(item.item.id)">{{ $t('button.first') }}
         </b-button>
         <b-button size="sm" variant="outline-warning" @click="deleteProduct(item.item.id)">{{ $t('button.second') }}</b-button>
