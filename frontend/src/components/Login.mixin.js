@@ -59,8 +59,9 @@ const LoginMixin = {
   methods: {
     login () {
       this.$store.dispatch('loginUser', this.user)
-        .then(token => {
-          window.localStorage.setItem('token', token.token)
+        .then(({token, cookie}) => {
+          window.localStorage.setItem('token', token)
+          this.setCookie('user', cookie, 3600 * 24 * 7)
           this.setIsUserAuthenticated(true)
           this.$emit('userLoggedIn')
 
@@ -73,6 +74,17 @@ const LoginMixin = {
         .catch(() => {
           // Error message
         })
+    },
+
+    /**
+     * @param {*} name
+     * @param {*} value
+     * @param {*} seconds
+     * @see {@url https://stackoverflow.com/questions/4825683/how-do-i-create-and-read-a-value-from-cookie#answer-33518823}
+     */
+    setCookie (name, value, seconds) {
+      const expires = seconds ? '; expires=' + new Date(new Date().getTime() + seconds * 1000).toGMTString() : ''
+      document.cookie = name + '=' + encodeURIComponent(value) + expires + '; path=/'
     },
 
     ...mapMutations({

@@ -26,12 +26,13 @@ module.exports = {
             sails.log.info('User logged in', user)
 
             let encryptedId = CryptographyService.encrypt(user.id)
-            res.cookie('user', encryptedId)
 
             return res.json({
               token: TokenService.issue({
                 id: user.id
-              })
+              }),
+
+              cookie: encryptedId
             })
           })
       })
