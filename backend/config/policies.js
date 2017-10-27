@@ -66,14 +66,14 @@ module.exports.policies = {
   },
 
   'user/ProductController': {
-    '*': 'isAuthorized' 
+    '*': 'isAuthorized'
   },
 
   'ProductsController': {
     '*': true
   },
 
-  'user/BasketController': {
+  'user/shop/BasketController': {
     '*': 'isAuthorized'
   }
 };
