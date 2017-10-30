@@ -1,4 +1,4 @@
-# Vue.js with Sails.js backend example project
+# Vue.js with Sails.js example project
 
 <p align="center">
   <a href="https://github.com/standard/standard">
