@@ -14,13 +14,13 @@
       </b-link>
 
       <b-collapse is-nav id="nav_collapse">
-        <b-nav is-nav-bar>
+        <b-navbar-nav>
           <b-nav-item :to="{ name: 'Home'}">{{ $t('home') }}</b-nav-item>
           <b-nav-item v-if="!isUserAuthenticated" :to="{ name: 'Register'}">{{ $t('register') }}</b-nav-item>
           <b-nav-item v-if="!isUserAuthenticated" :to="{ name: 'Login'}">{{ $t('login') }}</b-nav-item>
           <b-nav-item v-if="isUserAuthenticated" :to="{ name: 'Shop'}">{{ $t('shop') }}</b-nav-item>
-        </b-nav>
-        <b-nav is-nav-bar class="ml-auto">
+        </b-navbar-nav>
+        <b-navbar-nav class="ml-auto">
           <b-nav-item @click="setIsHelpVisible(true)">{{ $t('help') }}</b-nav-item>
           <b-nav-item :disabled="!basket.products.length" v-if="isUserAuthenticated" :to="{ name: 'Basket'}">
             {{ $t('basket') }} ({{ basket.products.length }})
@@ -30,7 +30,7 @@
             <b-dropdown-item @click="setLocale('en')">English</b-dropdown-item>
             <b-dropdown-item @click="setLocale('de')">Deutsch</b-dropdown-item>
           </b-nav-item-dropdown>
-        </b-nav>
+        </b-navbar-nav>
       </b-collapse>
     </b-navbar>
     <div class="container">
