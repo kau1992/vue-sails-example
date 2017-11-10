@@ -13,7 +13,7 @@
       </template>
     </b-table>
 
-    <p v-else>No products yet, you should create one.</p>
+    <p v-else>{{ $t('p.first') }}</p>
   </div>
 </template>
 
@@ -23,6 +23,7 @@
 
   export default {
     mixins: [ProductsGetMixin],
+
     components: {
       ProductPatch
     },
@@ -43,6 +44,9 @@
         this.$store.dispatch('deleteProduct', id)
           .then(() => {
             this.$store.dispatch('getProductsByUser', this.user)
+          })
+          .catch(error => {
+            // Error message
           })
       }
     }
