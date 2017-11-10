@@ -6,7 +6,10 @@
           :description="$t('description.first')"
           :label="$t('label.first')"
           :label-size="1">
-          <b-form-input v-model="title"></b-form-input>
+          <b-form-input v-model="title" :state="isTitleValid"></b-form-input>
+          <b-form-feedback v-for="(name, index) in errors.title" :key="index">
+            {{ name }}
+          </b-form-feedback>
         </b-form-fieldset>
       </div>
 
@@ -15,7 +18,10 @@
           :description="$t('description.second')"
           :label="$t('label.second')"
           :label-size="1">
-          <b-form-input v-model="price"></b-form-input>
+          <b-form-input v-model="price" :state="isPriceValid"></b-form-input>
+          <b-form-feedback v-for="(name, index) in errors.price" :key="index">
+            {{ name }}
+          </b-form-feedback>
         </b-form-fieldset>
       </div>
     </div>
@@ -24,7 +30,10 @@
       :description="$t('description.third')"
       :label="$t('label.third')"
       :label-size="1">
-      <b-form-input textarea v-model="description"></b-form-input>
+      <b-form-input textarea v-model="description" :state="isDescriptionValid"></b-form-input>
+      <b-form-feedback v-for="(name, index) in errors.description" :key="index">
+        {{ name }}
+      </b-form-feedback>
     </b-form-fieldset>
 
     <b-button size="sm" variant="outline-success" @click="create">{{ $t('button.first') }}</b-button>
@@ -33,9 +42,10 @@
 
 <script>
   import ProductCreateMixin from './ProductCreate.mixin'
+  import ProductValidation from './ProductValidation.mixin'
 
   export default {
-    mixins: [ProductCreateMixin],
+    mixins: [ProductCreateMixin, ProductValidation],
 
     methods: {
       create () {

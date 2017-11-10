@@ -32,12 +32,18 @@ const ProductPatchMixin = {
 
   computed: {
     user: {
+      /**
+       * @returns {user|{name, password}|{id, name, password}|{name}}
+       */
       get () {
         return this.$store.state.User.user
       }
     },
 
     title: {
+      /**
+       * @returns {*}
+       */
       get () {
         return this.$store.state.Product.product.title
       },
@@ -51,6 +57,9 @@ const ProductPatchMixin = {
     },
 
     description: {
+      /**
+       * @returns {*}
+       */
       get () {
         return this.$store.state.Product.product.description
       },
@@ -64,6 +73,9 @@ const ProductPatchMixin = {
     },
 
     price: {
+      /**
+       * @returns {*}
+       */
       get () {
         return this.$store.state.Product.product.price
       },
@@ -77,6 +89,9 @@ const ProductPatchMixin = {
     },
 
     isEditProductVisible: {
+      /**
+       * @returns {boolean}
+       */
       get () {
         return this.$store.state.Product.product.meta.isEditProductVisible
       },
