@@ -23,7 +23,7 @@
         </div>
       </div>
     </div>
-    <b-form-input type="text" @keyup.enter="postMessage" v-model="message"></b-form-input>
+    <b-form-input type="text" @keyup.enter.native="postMessage" v-model="message"></b-form-input>
     <template slot="modal-footer">
       <b-button @click="setIsHelpVisible(false)" size="sm" variant="secondary">
         Close
