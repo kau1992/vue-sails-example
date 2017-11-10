@@ -8,7 +8,7 @@
     title="Help"
     size="lg">
     <div class="card mb-2">
-      <div class="card-block">
+      <div class="card-body">
         <div v-for="message in messages">
           <p v-if="message.message.assistant" class="mb-0"><b class="mr-2">{{ message.message.assistant.name}}</b>
             {{ message.message.assistant.message }}</p>
@@ -23,8 +23,7 @@
         </div>
       </div>
     </div>
-    <b-form-input type="text" @keyup.enter="postMessage" v-model="message"
-    ></b-form-input>
+    <b-form-input type="text" @keyup.enter="postMessage" v-model="message"></b-form-input>
     <template slot="modal-footer">
       <b-button @click="setIsHelpVisible(false)" size="sm" variant="secondary">
         Close
@@ -56,7 +55,7 @@
     },
 
     mounted () {
-      this.$root.$emit('show::modal', 'help')
+      this.$root.$emit('bv::show::modal', 'help')
       this.$emit('helpMounted')
     },
 

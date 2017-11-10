@@ -1,7 +1,7 @@
 <template>
   <div class="row">
     <div class="col">
-      <b-card no-block>
+      <b-card no-body>
         <b-tabs card ref="tabs">
           <b-tab :title="$t('tab.first')">
             <products-get keep-alive></products-get>

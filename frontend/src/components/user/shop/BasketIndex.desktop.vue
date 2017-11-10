@@ -3,7 +3,7 @@
     <div class="row justify-content-md-center">
       <div class="col-6">
         <div class="card mb-2">
-          <div class="card-block">
+          <div class="card-body">
             <div v-for="(product, index) in basket.products">
               <p><b>{{ product.title }}</b> <span class="float-right"><small class="text-muted">${{ product.price
                 }}</small></span></p>
@@ -28,7 +28,7 @@
           :disabled="basket.products.length === 0"
           size="sm"
           variant="outline-success float-right"
-          @click.native="checkout">{{ $t('button.second') }}
+          @click="checkout">{{ $t('button.second') }}
         </b-button>
       </div>
     </div>

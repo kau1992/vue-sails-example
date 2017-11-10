@@ -22,7 +22,7 @@
     <div class="row">
       <div class="col-4" v-for="product in products" :key="product.id">
         <b-card :key="product.id" :header="product.title" class="mb-4" show-footer>
-          <p>{{ product.description }}</p>
+          <p class="card-text">{{ product.description }}</p>
           <small slot="footer" class="text-muted">
             <span class="float-left">${{ product.price }}</span>
             <span class="float-right">{{ $t('span.first') }} {{ product.user.name }}</span>

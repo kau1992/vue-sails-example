@@ -10,8 +10,8 @@
                 class="mb-4"
                 show-footer>
           <p>{{ product.description }}</p>
-          <b-button v-bind:disabled="product.user.name === user.name"
-                    @click.native="pushToBasket(product)"
+          <b-button :disabled="product.user.name === user.name"
+                    @click="pushToBasket(product)"
                     variant="outline-success"
                     size="sm">{{ $t('button.first') }}
           </b-button>

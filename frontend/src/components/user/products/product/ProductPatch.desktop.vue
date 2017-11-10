@@ -44,7 +44,7 @@
     created () {
       this.$store.dispatch('getProduct', this.id)
         .then(product => {
-          this.$root.$emit('show::modal', 'patch-product')
+          this.$root.$emit('bv::show::modal', 'patch-product')
 
           this.$store.commit('SET_PRODUCT_TITLE', product.title)
           this.$store.commit('SET_PRODUCT_DESCRIPTION', product.description)
@@ -75,12 +75,12 @@
 
       cancel () {
         this.$store.commit('SET_IS_EDIT_PRODUCT_VISIBLE', false)
-        this.$root.$emit('hide::modal', 'patch-product')
+        this.$root.$emit('bv::hide::modal', 'patch-product')
       }
     },
 
     destroyed () {
-      this.$root.$emit('hide::modal', 'patch-product')
+      this.$root.$emit('bv::hide::modal', 'patch-product')
       this.$store.commit('RESET_PRODUCT')
     }
   }

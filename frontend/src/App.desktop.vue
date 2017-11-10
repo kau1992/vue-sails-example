@@ -6,12 +6,12 @@
       @helpMounted="setIo">
     </help-index>
 
-    <b-navbar toggleable type="inverse" variant="primary">
+    <b-navbar toggleable="md" type="dark" variant="primary">
       <b-nav-toggle target="nav_collapse"></b-nav-toggle>
 
-      <b-link class="navbar-brand" :to="{ name: 'Home'}">
+      <b-navbar-brand :to="{ name: 'Home'}">
         <span>Product paradise</span>
-      </b-link>
+      </b-navbar-brand>
 
       <b-collapse is-nav id="nav_collapse">
         <b-navbar-nav>
