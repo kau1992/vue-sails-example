@@ -114,6 +114,7 @@ a reference book. These notable elements are covered.
 - Dedicated mobile version
 - Socket.IO usage
 - Local storage plus cookie authentication
+- User input validation
 
 ## Essential components used
 
