@@ -1,7 +1,7 @@
 <template>
   <div>
-    <mt-field :label="$t('label.first')" v-model="name"></mt-field>
-    <mt-field :label="$t('label.second')" v-model="password" type="password"></mt-field>
+    <mt-field :label="$t('label.first')" :state="isNameValidMobile" v-model="name"></mt-field>
+    <mt-field :label="$t('label.second')" :state="isPasswordValidMobile" v-model="password" type="password"></mt-field>
 
     <mt-cell title="">
       <mt-button size="small" type="primary" @click="create" plain>{{ $t('button.first') }}</mt-button>
@@ -11,8 +11,27 @@
 
 <script>
   import RegisterMixin from './Register.mixin'
+  import UserValidation from './UserValidation'
 
   export default {
-    mixins: [RegisterMixin]
+    mixins: [RegisterMixin, UserValidation],
+
+    computed: {
+      isNameValidMobile: {
+        get () {
+          if (this.isNameValid) return 'success'
+
+          return 'error'
+        }
+      },
+
+      isPasswordValidMobile: {
+        get () {
+          if (this.isPasswordValid) return 'success'
+
+          return 'error'
+        }
+      }
+    }
   }
 </script>
