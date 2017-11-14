@@ -11,7 +11,7 @@
 
 <script>
   import RegisterMixin from './Register.mixin'
-  import UserValidation from './UserValidation'
+  import UserValidation from './User.validation'
 
   export default {
     mixins: [RegisterMixin, UserValidation],
