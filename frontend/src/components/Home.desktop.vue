@@ -1,19 +1,24 @@
 <template>
   <div>
     <div class="d-flex justify-content-center">
-      <b-carousel :interval="3000" background="transparent">
-        <b-carousel-slide background="transparent" height="100px">
+      <b-carousel
+        class="mb-4"
+        background="transparent"
+        :interval="3000"
+        img-width="1100"
+        img-height="200">
+        <b-carousel-slide img-blank>
           <h3 class="text-info">{{ $t('h3.first') }}</h3>
           <p class="text-muted">{{ $t('p.first') }}</p>
         </b-carousel-slide>
 
-        <b-carousel-slide background="transparent" height="100px">
-          <h3 class="text-success">{{ $t('h3.second') }}</h3>
+        <b-carousel-slide img-blank>
+          <h3 class="text-info">{{ $t('h3.second') }}</h3>
           <p class="text-muted">{{ $t('p.second') }}</p>
         </b-carousel-slide>
 
-        <b-carousel-slide background="transparent" height="100px">
-          <h3 class="text-primary">{{ $t('h3.third') }}</h3>
+        <b-carousel-slide img-blank>
+          <h3 class="text-info">{{ $t('h3.third') }}</h3>
           <p class="text-muted">{{ $t('p.third') }}</p>
         </b-carousel-slide>
       </b-carousel>
