@@ -38,7 +38,7 @@ const mutations = {
   RESET_PRODUCT (state) {
     state.product.title = ''
     state.product.description = ''
-    state.product.price = ''
+    state.product.price = null
   }
 }
 

@@ -37,7 +37,7 @@ export default {
 
     isPriceValid: {
       get () {
-        if (isEmpty(this.price)) return null
+        if (this.price === null) return null
 
         let validation = validate.single(this.price, {
           presence: true,
@@ -45,10 +45,6 @@ export default {
             notValid: 'Price must be number',
             greaterThan: 0,
             notGreaterThan: 'Price must be greater than zero'
-          },
-          format: {
-            pattern: '^\\d+(.\\d{1,2})?$',
-            message: 'Price must be a valid price'
           }
         })
 
