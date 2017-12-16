@@ -5,8 +5,7 @@
       <div class="col-8">
         <b-form-fieldset
           :description="$t('description.first')"
-          :label="$t('label.first')"
-          :label-size="1">
+          :label="$t('label.first')">
           <b-form-input v-model="title" :state="isTitleValid"></b-form-input>
           <b-form-feedback v-for="(name, index) in errors.title" :key="index">
             {{ name }}
@@ -17,8 +16,7 @@
       <div class="col-4">
         <b-form-fieldset
           :description="$t('description.second')"
-          :label="$t('label.second')"
-          :label-size="1">
+          :label="$t('label.second')">
           <b-form-input v-model="price" :state="isPriceValid"></b-form-input>
           <b-form-feedback v-for="(name, index) in errors.price" :key="index">
             {{ name }}
@@ -29,8 +27,7 @@
 
     <b-form-fieldset
       :description="$t('description.third')"
-      :label="$t('label.third')"
-      :label-size="1">
+      :label="$t('label.third')">
       <b-form-input textarea v-model="description" :state="isDescriptionValid"></b-form-input>
       <b-form-feedback v-for="(name, index) in errors.description" :key="index">
         {{ name }}

@@ -3,8 +3,7 @@
     <div class="col-6">
       <b-form-fieldset
         :description="$t('description.first')"
-        :label="$t('label.first')"
-        :label-size="1">
+        :label="$t('label.first')">
         <b-form-input v-model="name" :state="isNameValid"></b-form-input>
         <b-form-feedback v-for="(name, index) in errors.name" :key="index">
           {{ name }}
@@ -12,8 +11,7 @@
       </b-form-fieldset>
       <b-form-fieldset
         :description="$t('description.second')"
-        :label="$t('label.second')"
-        :label-size="1">
+        :label="$t('label.second')">
         <b-form-input v-model="password" :state="isPasswordValid" type="password"></b-form-input>
         <b-form-feedback v-for="(password, index) in errors.password" :key="index">
           {{ password }}

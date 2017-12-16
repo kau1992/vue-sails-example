@@ -1,6 +1,6 @@
 <template>
   <div>
-    <product-patch v-if="isEditProductVisible" v-bind:id="id"></product-patch>
+    <product-patch v-if="isEditProductVisible" :id="id"></product-patch>
 
     <b-table :items="products" :fields="fields" v-if="products.length > 0">
       <template slot="price" slot-scope="item">
@@ -19,7 +19,8 @@
 
 <script>
   import ProductsGetMixin from './ProductsGet.mixin'
-  import ProductPatch from './product/ProductPatch.desktop'
+
+  const ProductPatch = () => import('./product/ProductPatch.desktop')
 
   export default {
     mixins: [ProductsGetMixin],
