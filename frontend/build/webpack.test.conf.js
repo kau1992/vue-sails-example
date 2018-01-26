@@ -10,7 +10,8 @@ var webpackConfig = merge(baseConfig, {
   module: {
     rules: utils.styleLoaders()
   },
-  devtool: '#inline-source-map',
+  externals: [require('webpack-node-externals')()],
+  devtool: 'inline-cheap-module-source-map',
   plugins: [
     new webpack.DefinePlugin({
       'process.env': require('../config/prod.env') // https://github.com/kazupon/vue-i18n/issues/198
