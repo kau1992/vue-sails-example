@@ -31,7 +31,7 @@ export default new Router({
       path: '/user/products/index',
       name: 'Products',
       component: resolve => {
-        require(['../components/user/products/product/ProductIndex.desktop.vue'], resolve)
+        require(['../components/user/products/ProductsIndex.desktop.vue'], resolve)
       },
       meta: {
         userOnly: true

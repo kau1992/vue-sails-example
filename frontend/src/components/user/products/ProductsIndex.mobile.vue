@@ -19,8 +19,8 @@
 <script>
   export default {
     components: {
-      ProductPost: () => import('./ProductPost.mobile'),
-      ProductsGet: () => import('../ProductsGet.mobile')
+      ProductPost: () => import('./product/ProductPost.mobile'),
+      ProductsGet: () => import('./ProductsGet.mobile')
     },
 
     data: () => ({

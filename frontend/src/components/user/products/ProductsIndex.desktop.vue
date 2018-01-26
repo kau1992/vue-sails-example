@@ -18,8 +18,8 @@
 <script>
   export default {
     components: {
-      ProductPost: () => import('./ProductPost.desktop'),
-      ProductsGet: () => import('../ProductsGet.desktop')
+      ProductPost: () => import('./product/ProductPost.desktop'),
+      ProductsGet: () => import('./ProductsGet.desktop')
     }
   }
 </script>
