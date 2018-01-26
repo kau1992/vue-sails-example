@@ -5,7 +5,7 @@
     :hide-header-close="true"
     :ok-only="true"
     id="help"
-    title="Help"
+    :title="t('help.desktop.modal.title')"
     size="lg">
     <div class="card mb-2">
       <div class="card-body">
@@ -26,7 +26,7 @@
     <b-form-input type="text" @keyup.enter.native="postMessage" v-model="message"></b-form-input>
     <template slot="modal-footer">
       <b-button @click="setIsHelpVisible(false)" size="sm" variant="secondary">
-        Close
+        {{ t('help.desktop.button.first')}}
       </b-button>
     </template>
   </b-modal>
