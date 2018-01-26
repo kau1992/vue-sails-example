@@ -1,4 +1,4 @@
-const RegisterMixin = {
+export default {
   i18n: {
     messages: {
       en: {
@@ -8,6 +8,7 @@ const RegisterMixin = {
         'label.second': 'Password *',
         'button.first': 'Create'
       },
+
       de: {
         'description.first': 'Gebe einen Namen ein',
         'label.first': 'Name *',
@@ -31,9 +32,6 @@ const RegisterMixin = {
         return this.$store.state.User.user.name
       },
 
-      /**
-       * @param name
-       */
       set (name) {
         this.$store.commit('SET_USER_NAME', name)
       }
@@ -44,9 +42,6 @@ const RegisterMixin = {
         return this.$store.state.User.user.password
       },
 
-      /**
-       * @param password
-       */
       set (password) {
         this.$store.commit('SET_USER_PASSWORD', password)
       }
@@ -59,5 +54,3 @@ const RegisterMixin = {
     }
   }
 }
-
-export default RegisterMixin

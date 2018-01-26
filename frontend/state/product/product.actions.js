@@ -1,10 +1,6 @@
 import Vue from 'vue'
 
-const actions = {
-  /**
-   * @param id
-   * @returns {Promise}
-   */
+export default {
   getProduct ({}, id) {
     return new Promise((resolve, reject) => {
       Vue.http
@@ -18,35 +14,19 @@ const actions = {
     })
   },
 
-  /**
-   * @param id
-   * @returns {Promise}
-   */
   deleteProduct ({}, id) {
     return new Promise((resolve, reject) => {
       Vue.http
-        .delete('/api/user/products/product/delete', {
-          params: {
-            id
-          }
-        })
+        .delete('/api/user/products/product/delete', {params: {id}})
         .then(() => resolve())
         .catch(error => reject(error))
     })
   },
 
-  /**
-   * @param context
-   * @param parameters
-   */
-  postProduct (context, parameters) {
+  postProduct (context, {product: {title, description, price}}) {
     return new Promise((resolve, reject) => {
       Vue.http
-        .post('/api/user/products/product/post', {
-          title: parameters.product.title,
-          description: parameters.product.description,
-          price: parameters.product.price
-        })
+        .post('/api/user/products/product/post', {title, description, price})
         .then(() => {
           context.commit('RESET_PRODUCT')
           resolve()
@@ -55,23 +35,17 @@ const actions = {
     })
   },
 
-  /**
-   * @param parameters
-   * @returns {Promise}
-   */
-  patchProduct ({}, parameters) {
+  patchProduct ({}, {id, title, description, price}) {
     return new Promise((resolve, reject) => {
       Vue.http
         .patch('/api/user/products/product/patch', {
-          id: parameters.id,
-          title: parameters.title,
-          price: parameters.price,
-          description: parameters.description
+          id,
+          title,
+          price,
+          description
         })
         .then(() => resolve())
         .catch(error => reject(error))
     })
   }
 }
-
-export default actions

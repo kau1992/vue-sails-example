@@ -12,12 +12,11 @@
 <script>
 import ProductsGetMixin from './ProductsGet.mixin'
 import ProductPatch from './product/ProductPatch.mobile'
-import {
-  Toast
-} from 'mint-ui'
+import { Toast } from 'mint-ui'
 
 export default {
   mixins: [ProductsGetMixin],
+
   components: {
     ProductPatch
   },
@@ -35,6 +34,7 @@ export default {
         position: 'bottom',
         duration: 3000
       })
+
       this.$store.dispatch('getProductsByUser', this.user)
     }
   }

@@ -48,36 +48,27 @@
   export default {
     mixins: [ProductPatchMixin, ProductValidation],
 
-    created () {
-      this.$store.dispatch('getProduct', this.id)
-        .then(product => {
-          this.$root.$emit('bv::show::modal', 'patch-product')
+    async created () {
+      let product = await this.$store.dispatch('getProduct', this.id)
+      this.$root.$emit('bv::show::modal', 'patch-product')
 
-          this.$store.commit('SET_PRODUCT_TITLE', product.title)
-          this.$store.commit('SET_PRODUCT_DESCRIPTION', product.description)
-          this.$store.commit('SET_PRODUCT_PRICE', product.price)
-        }, () => {
-          // Error message
-        })
+      this.$store.commit('SET_PRODUCT_TITLE', product.title)
+      this.$store.commit('SET_PRODUCT_DESCRIPTION', product.description)
+      this.$store.commit('SET_PRODUCT_PRICE', product.price)
     },
 
     methods: {
-      patchProduct () {
-        this.$store.dispatch('patchProduct', {
+      async patchProduct () {
+        await this.$store.dispatch('patchProduct', {
           id: this.id,
           title: this.title,
           price: this.price,
           description: this.description
         })
-          .then(() => {
-            // Success message
 
-            this.$store.dispatch('getProductsByUser', this.user)
-            this.$store.commit('SET_IS_EDIT_PRODUCT_VISIBLE', false)
-            this.$store.commit('RESET_PRODUCT')
-          }, () => {
-            // Error message
-          })
+        this.$store.dispatch('getProductsByUser', this.user)
+        this.$store.commit('SET_IS_EDIT_PRODUCT_VISIBLE', false)
+        this.$store.commit('RESET_PRODUCT')
       },
 
       cancel () {

@@ -1,8 +1,5 @@
 const crypto = require('crypto')
 
-/**
- * @type {{encrypt: module.exports.encrypt, decrypt: module.exports.decrypt}}
- */
 module.exports = {
 
   /**

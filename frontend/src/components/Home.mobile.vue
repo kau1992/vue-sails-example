@@ -30,9 +30,7 @@
 
 <script>
   import HomeMixin from './Home.mixin'
-  import {
-    MessageBox
-  } from 'mint-ui'
+  import { MessageBox } from 'mint-ui'
 
   export default {
     mixins: [HomeMixin],

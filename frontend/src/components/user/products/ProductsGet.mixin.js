@@ -1,9 +1,7 @@
-const ProductsGetMixin = {
-  data () {
-    return {
-      id: ''
-    }
-  },
+export default {
+  data: () => ({
+    id: ''
+  }),
 
   created () {
     this.$store.dispatch('getProductsByUser', this.user)
@@ -21,6 +19,7 @@ const ProductsGetMixin = {
         'product.removed': 'Product removed',
         'p.first': 'No products yet, you should create one.'
       },
+
       de: {
         'field.first': 'Titel',
         'field.second': 'Beschreibung',
@@ -35,19 +34,24 @@ const ProductsGetMixin = {
   },
 
   computed: {
-    fields () {
-      return {
-        title: {
-          label: this.$t('field.first')
-        },
-        description: {
-          label: this.$t('field.second')
-        },
-        price: {
-          label: this.$t('field.third')
-        },
-        actions: {
-          label: this.$t('field.fourth')
+    fields: {
+      get () {
+        return {
+          title: {
+            label: this.$t('field.first')
+          },
+
+          description: {
+            label: this.$t('field.second')
+          },
+
+          price: {
+            label: this.$t('field.third')
+          },
+
+          actions: {
+            label: this.$t('field.fourth')
+          }
         }
       }
     },
@@ -69,14 +73,9 @@ const ProductsGetMixin = {
         return this.$store.state.Product.product.meta.isEditProductVisible
       },
 
-      /**
-       * @param isEditProductVisible
-       */
       set (isEditProductVisible) {
         this.$store.commit('SET_IS_EDIT_PRODUCT_VISIBLE', isEditProductVisible)
       }
     }
   }
 }
-
-export default ProductsGetMixin

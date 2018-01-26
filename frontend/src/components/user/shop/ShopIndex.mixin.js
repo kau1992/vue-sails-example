@@ -1,16 +1,14 @@
 import { mapMutations } from 'vuex'
 
-const ShopIndexMixin = {
+export default {
   async created () {
     await this.$store.dispatch('getUser')
     await this.$store.dispatch('getShopProducts', this.currentPage)
   },
 
-  data () {
-    return {
-      currentPage: 1
-    }
-  },
+  data: () => ({
+    currentPage: 1
+  }),
 
   i18n: {
     messages: {
@@ -24,6 +22,7 @@ const ShopIndexMixin = {
         'confirmButtonText': 'Buy for',
         'product.added': 'Product added to basket'
       },
+
       de: {
         'alert.first': 'Bitte nehme zur Kenntnis, dass deine eigenen Produkte nicht kaufbar sind.',
         'span.first': 'von',
@@ -69,5 +68,3 @@ const ShopIndexMixin = {
     })
   }
 }
-
-export default ShopIndexMixin

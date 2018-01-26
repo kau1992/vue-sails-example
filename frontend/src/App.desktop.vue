@@ -60,11 +60,9 @@
       HelpIndex
     },
 
-    data () {
-      return {
-        io: null
-      }
-    },
+    data: () => ({
+      io: null
+    }),
 
     computed: {
       isHelpVisible: {

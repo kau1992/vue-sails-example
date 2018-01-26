@@ -1,7 +1,5 @@
-const state = {
+export default {
   basket: {
     products: []
   }
 }
-
-export default state

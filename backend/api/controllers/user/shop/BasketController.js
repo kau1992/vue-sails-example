@@ -8,9 +8,7 @@ module.exports = {
     let products = req.param('products')
 
     Basket
-      .create({
-        products
-      })
+      .create({products})
       .exec((error, basket) => {
         if (error) return res.serverError(error)
 

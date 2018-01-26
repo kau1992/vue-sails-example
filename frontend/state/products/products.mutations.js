@@ -1,11 +1,5 @@
-const mutations = {
-  /**
-   * @param state
-   * @param products
-   */
+export default {
   SET_PRODUCTS(state, products) {
     state.products = products
   }
 }
-
-export default mutations

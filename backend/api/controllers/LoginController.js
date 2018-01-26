@@ -5,15 +5,10 @@ module.exports = {
    * @param res
    */
   post: (req, res) => {
-    let {
-      name,
-      password
-    } = req.allParams()
+    let { name, password } = req.allParams()
 
     User
-      .findOne({
-        name
-      })
+      .findOne({name})
       .exec((error, user) => {
         if (error) return res.serverError(error)
         if (!user) return res.forbidden()
@@ -28,10 +23,7 @@ module.exports = {
             let encryptedId = CryptographyService.encrypt(user.id)
 
             return res.json({
-              token: TokenService.issue({
-                id: user.id
-              }),
-
+              token: TokenService.issue({id: user.id}),
               cookie: encryptedId
             })
           })

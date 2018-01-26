@@ -30,25 +30,14 @@
     },
 
     methods: {
-      /**
-       * @productId
-       */
       showPatchForm (id) {
         this.$set(this, 'id', id)
         this.$store.commit('SET_IS_EDIT_PRODUCT_VISIBLE', true)
       },
 
-      /**
-       * @param id
-       */
-      deleteProduct (id) {
-        this.$store.dispatch('deleteProduct', id)
-          .then(() => {
-            this.$store.dispatch('getProductsByUser', this.user)
-          })
-          .catch(error => {
-            // Error message
-          })
+      async deleteProduct (id) {
+        await this.$store.dispatch('deleteProduct', id)
+        this.$store.dispatch('getProductsByUser', this.user)
       }
     }
   }

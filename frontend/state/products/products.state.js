@@ -1,5 +1,3 @@
-const state = {
+export default {
   products: {}
 }
-
-export default state

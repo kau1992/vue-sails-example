@@ -1,15 +1,13 @@
-import {mapActions} from 'vuex'
+import { mapActions } from 'vuex'
 
-const HomeMixin = {
+export default {
   created () {
     this.getProducts(this.currentPage)
   },
 
-  data () {
-    return {
-      currentPage: 1
-    }
-  },
+  data: () => ({
+    currentPage: 1
+  }),
 
   watch: {
     currentPage () {
@@ -30,6 +28,7 @@ const HomeMixin = {
         'button.first': 'View',
         'button.second': 'Next'
       },
+
       de: {
         'h3.first': 'Viele Produkte',
         'h3.second': 'Günstige Produkte',
@@ -62,5 +61,3 @@ const HomeMixin = {
     ...mapActions(['getProducts'])
   }
 }
-
-export default HomeMixin

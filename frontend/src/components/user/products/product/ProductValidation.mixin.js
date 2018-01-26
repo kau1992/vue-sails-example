@@ -2,15 +2,13 @@ import isEmpty from 'lodash/isEmpty'
 import validate from 'validate.js'
 
 export default {
-  data () {
-    return {
-      errors: {
-        title: [],
-        price: [],
-        description: []
-      }
+  data: () => ({
+    errors: {
+      title: [],
+      price: [],
+      description: []
     }
-  },
+  }),
 
   computed: {
     isTitleValid: {

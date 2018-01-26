@@ -5,20 +5,11 @@ module.exports = {
    * @param res
    */
   postProduct: (req, res) => {
-    let {
-      title,
-      price,
-      description
-    } = req.allParams()
+    let { title, price, description } = req.allParams()
     let user = CryptographyService.decrypt(req.cookies.user)
 
     Product
-      .create({
-        title,
-        description,
-        price,
-        user
-      })
+      .create({title, description, price, user})
       .exec((error, product) => {
         if (error) return res.serverError(error)
 
@@ -37,10 +28,7 @@ module.exports = {
     let user = CryptographyService.decrypt(req.cookies.user)
 
     Product
-      .findOne({
-        id,
-        user
-      })
+      .findOne({id, user})
       .exec((error, product) => {
         if (error) return res.serverError(error)
         if (product) return res.json(product)
@@ -52,12 +40,7 @@ module.exports = {
    * @param res
    */
   patchProduct: (req, res) => {
-    let {
-      id,
-      title,
-      price,
-      description
-    } = req.allParams()
+    let {id, title, price, description} = req.allParams()
     let user = CryptographyService.decrypt(req.cookies.user)
 
     Product
@@ -87,10 +70,7 @@ module.exports = {
     let user = CryptographyService.decrypt(req.cookies.user)
 
     Product
-      .destroy({
-        id,
-        user
-      })
+      .destroy({id, user})
       .exec(error => {
         if (error) return res.serverError(error)
 

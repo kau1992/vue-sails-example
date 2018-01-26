@@ -7,11 +7,6 @@ import basket from './basket/basket.module'
 
 Vue.use(Vuex)
 
-/**
- * @see {@link https://stackoverflow.com/questions/10730362/get-cookie-by-name#answer-40786371}
- * @param name
- * @returns {string}
- */
 const getCookie = name => {
   let a = `; ${document.cookie}`.match(`;\\s*${name}=([^;]+)`)
   return a ? a[1] : ''
@@ -24,6 +19,7 @@ export default new Vuex.Store({
     Products: products,
     Basket: basket
   },
+
   state: {
     locale: 'en',
     isUserAuthenticated: !!(getCookie('user')),
@@ -31,29 +27,14 @@ export default new Vuex.Store({
   },
 
   mutations: {
-
-    /**
-     * @param state
-     * @param isUserAuthenticated
-     */
     SET_IS_USER_AUTHENTICATED (state, isUserAuthenticated) {
       state.isUserAuthenticated = isUserAuthenticated
     },
 
-    /**
-     * @param state
-     * @param locale
-     * @constructor
-     */
     SET_LOCALE (state, locale) {
       state.locale = locale
     },
-    
-    /**
-     * @param state
-     * @param isHelpVisible
-     * @constructor
-     */
+
     SET_IS_HELP_VISIBLE (state, isHelpVisible) {
       state.isHelpVisible = isHelpVisible
     }

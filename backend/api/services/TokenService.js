@@ -5,17 +5,11 @@ module.exports = {
 
   /**
    * @param payload
-   * @returns {*}
    */
-  issue: payload => {
-    return jwt.sign(payload, tokenSecret, {
-      expiresIn: '7d'
-    })
-  },
+  issue: payload => jwt.sign(payload, tokenSecret, {expiresIn: '7d'}),
 
   /**
    * @param token
-   * @return {*}
    */
   verify: token => jwt.verify(token, tokenSecret)
 }

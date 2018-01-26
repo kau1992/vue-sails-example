@@ -26,19 +26,15 @@
 
 <script>
   import AppMixin from './App.mixin'
-  import {
-    Toast
-  } from 'mint-ui'
+  import { Toast } from 'mint-ui'
 
   export default {
     mixins: [AppMixin],
 
-    data () {
-      return {
-        actions: [],
-        isNavbarVisible: false
-      }
-    },
+    data: () => ({
+      actions: [],
+      isNavbarVisible: false
+    }),
 
     mounted () {
       this.setActions()
@@ -52,45 +48,35 @@
           actions.push({
             name: this.$t('register'),
             method: () => {
-              this.$router.push({
-                name: 'Register'
-              })
+              this.$router.push({name: 'Register'})
             }
           })
 
           actions.push({
             name: this.$t('login'),
             method: () => {
-              this.$router.push({
-                name: 'Login'
-              })
+              this.$router.push({name: 'Login'})
             }
           })
         } else {
           actions.push({
             name: this.$t('shop'),
             method: () => {
-              this.$router.push({
-                name: 'Shop'
-              })
+              this.$router.push({name: 'Shop'})
             }
           })
 
           actions.push({
             name: this.$t('basket'),
             method: () => {
-              this.$router.push({
-                name: 'Basket'
-              })
+              this.$router.push({name: 'Basket'})
             }
           })
 
           actions.push({
             name: this.$t('products'),
             method: () => {
-              this.$router.push({
-                name: 'Products'
-              })
+              this.$router.push({name: 'Products'})
             }
           })
         }

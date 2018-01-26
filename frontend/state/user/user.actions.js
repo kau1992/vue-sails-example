@@ -1,33 +1,22 @@
 import Vue from 'vue'
 
-const actions = {
-
-  /**
-   * @param context
-   */
+export default {
   getUser (context) {
     return new Promise((resolve, reject) => {
       Vue.http
         .get('/api/user/get')
-        .then(response => {
-          context.commit('SET_USER', response.body)
+        .then(({body}) => {
+          context.commit('SET_USER', body)
           resolve()
         })
         .catch(error => reject(error))
     })
   },
 
-  /**
-   * @param context
-   * @param user
-   */
-  postUser (context, user) {
+  postUser (context, {name, password}) {
     return new Promise((resolve, reject) => {
       Vue.http
-        .post('/api/register/post', {
-          name: user.name,
-          password: user.password
-        })
+        .post('/api/register/post', {name, password})
         .then(() => {
           context.commit('RESET_USER')
           resolve()
@@ -36,16 +25,12 @@ const actions = {
     })
   },
 
-  /**
-   * @param context
-   * @param user
-   */
-  loginUser (context, user) {
+  loginUser (context, {name, password}) {
     return new Promise((resolve, reject) => {
       Vue.http
         .post('/api/login/post', {
-          name: user.name,
-          password: user.password
+          name,
+          password
         })
         .then(response => {
           context.commit('SET_IS_USER_AUTHENTICATED', true)
@@ -55,5 +40,3 @@ const actions = {
     })
   }
 }
-
-export default actions

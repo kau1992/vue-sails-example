@@ -2,14 +2,12 @@ import isEmpty from 'lodash/isEmpty'
 import validate from 'validate.js'
 
 export default {
-  data () {
-    return {
-      errors: {
-        name: [],
-        password: []
-      }
+  data: () => ({
+    errors: {
+      name: [],
+      password: []
     }
-  },
+  }),
 
   computed: {
     isNameValid: {
@@ -22,6 +20,7 @@ export default {
             minimum: 3,
             message: 'Name must be at least three characters long'
           },
+
           format: {
             pattern: '^[A-Z](.*)$',
             message: 'Name must start capitalized'

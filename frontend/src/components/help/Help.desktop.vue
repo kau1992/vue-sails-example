@@ -38,21 +38,20 @@
   export default {
     props: ['io'],
 
-    data () {
-      return {
-        assistant: '',
-        message: '',
-        messages: [{
-          message: {
-            assistant: {
-              name: 'System',
-              message: 'Hey, how can we help you?'
-            }
-          },
-          time: new Date().toString()
-        }]
-      }
-    },
+    data: () => ({
+      assistant: '',
+      message: '',
+      messages: [{
+        message: {
+          assistant: {
+            name: 'System',
+            message: 'Hey, how can we help you?'
+          }
+        },
+
+        time: new Date().toString()
+      }]
+    }),
 
     mounted () {
       this.$root.$emit('bv::show::modal', 'help')
@@ -88,6 +87,7 @@
               message: this.message
             }
           },
+
           time: new Date().toString()
         })
 
@@ -99,6 +99,7 @@
                 message: message.answer
               }
             },
+
             time: new Date().toString()
           })
         })
@@ -114,7 +115,6 @@
         ]
 
         let assistant = assistants[Math.floor(Math.random() * assistants.length)]
-
         this.$set(this, 'assistant', assistant)
       },
 

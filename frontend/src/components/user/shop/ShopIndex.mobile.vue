@@ -12,10 +12,7 @@
 
 <script>
 import ShopIndexMixin from './ShopIndex.mixin'
-import {
-  Toast,
-  MessageBox
-} from 'mint-ui'
+import { Toast, MessageBox } from 'mint-ui'
 
 export default {
   mixins: [ShopIndexMixin],
@@ -27,10 +24,6 @@ export default {
   },
 
   methods: {
-
-    /**
-     * @param product
-     */
     makeProductVisible (product) {
       MessageBox({
         title: product.title,
@@ -41,6 +34,7 @@ export default {
       }, action => {
         if (action === 'confirm') {
           this.pushToBasket(product)
+
           Toast({
             message: this.$t('product.added'),
             position: 'bottom',

@@ -1,6 +1,6 @@
 import { mapMutations } from 'vuex'
 
-const AppMixin = {
+export default {
   name: 'app',
 
   i18n: {
@@ -15,8 +15,8 @@ const AppMixin = {
         'products': 'Manage products',
         'language.changed': 'Language changed',
         'cancelText': 'Cancel'
-
       },
+
       de: {
         'home': 'Startseite',
         'help': 'Hilfe',
@@ -51,5 +51,3 @@ const AppMixin = {
     })
   }
 }
-
-export default AppMixin

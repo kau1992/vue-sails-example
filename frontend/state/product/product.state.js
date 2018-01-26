@@ -1,4 +1,4 @@
-const state = {
+export default {
   product: {
     title: '',
     description: '',
@@ -8,5 +8,3 @@ const state = {
     }
   }
 }
-
-export default state

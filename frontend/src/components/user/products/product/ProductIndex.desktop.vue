@@ -7,7 +7,7 @@
             <products-get keep-alive></products-get>
           </b-tab>
           <b-tab :title="$t('tab.second')">
-            <product-create keep-alive></product-create>
+            <product-post keep-alive></product-post>
           </b-tab>
         </b-tabs>
       </b-card>
@@ -22,7 +22,7 @@
     mixins: [ProductIndexMixin],
 
     components: {
-      ProductCreate: () => import('./ProductCreate.desktop'),
+      ProductPost: () => import('./ProductPost.desktop'),
       ProductsGet: () => import('../ProductsGet.desktop')
     }
   }

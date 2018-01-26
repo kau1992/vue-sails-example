@@ -1,9 +1,7 @@
-const state = {
+export default {
   user: {
     id: '',
     name: '',
     password: ''
   }
 }
-
-export default state

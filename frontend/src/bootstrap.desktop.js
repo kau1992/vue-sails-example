@@ -15,16 +15,10 @@ Vue.http.interceptors.push((request, next) => {
 
   next(response => {
     if ((response.status === 404) || (response.status === 504)) {
-      router.push({
-        name: 'Home'
-      })
+      router.push({name: 'Home'})
     }
 
-    if (response.status === 403) {
-      router.push({
-        name: 'Login'
-      })
-    }
+    if (response.status === 403) router.push({name: 'Login'})
   })
 })
 
@@ -42,11 +36,7 @@ router.beforeEach((to, from, next) => {
 
     if (getCookie('user')) {
       next()
-    } else {
-      router.push({
-        name: 'Login'
-      })
-    }
+    } else router.push({name: 'Login'})
   } else next()
 })
 
