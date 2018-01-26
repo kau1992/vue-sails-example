@@ -115,6 +115,7 @@ a reference book. These notable elements are covered.
 - Socket.IO usage
 - Local storage plus cookie authentication
 - User input validation
+- Tests with Cypress.io
 
 ## Essential components used
 
