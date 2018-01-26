@@ -10,7 +10,7 @@ export default {
           resolve()
         })
         .catch(error => reject(error))
-      })
+    })
   },
 
   getShopProducts (context, page) {

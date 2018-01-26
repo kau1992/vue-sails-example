@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import VueResource from 'vue-resource'
 import VueTranslate from 'vue-translate-plugin'
-import store from './../state/index'
+import store from './../src/state/index'
 
 Vue.use(VueResource)
 Vue.use(VueTranslate)
