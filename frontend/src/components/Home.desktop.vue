@@ -8,18 +8,18 @@
         img-width="1100"
         img-height="200">
         <b-carousel-slide img-blank>
-          <h3 class="text-info">{{ $t('h3.first') }}</h3>
-          <p class="text-muted">{{ $t('p.first') }}</p>
+          <h3 class="text-info">{{ t('home.mixin.h3.first') }}</h3>
+          <p class="text-muted">{{ t('home.mixin.p.first') }}</p>
         </b-carousel-slide>
 
         <b-carousel-slide img-blank>
-          <h3 class="text-info">{{ $t('h3.second') }}</h3>
-          <p class="text-muted">{{ $t('p.second') }}</p>
+          <h3 class="text-info">{{ t('home.mixin.h3.second') }}</h3>
+          <p class="text-muted">{{ t('home.mixin.p.second') }}</p>
         </b-carousel-slide>
 
         <b-carousel-slide img-blank>
-          <h3 class="text-info">{{ $t('h3.third') }}</h3>
-          <p class="text-muted">{{ $t('p.third') }}</p>
+          <h3 class="text-info">{{ t('home.mixin.h3.third') }}</h3>
+          <p class="text-muted">{{ t('home.mixin.p.third') }}</p>
         </b-carousel-slide>
       </b-carousel>
     </div>
@@ -30,7 +30,7 @@
           <p class="card-text">{{ product.description }}</p>
           <small slot="footer" class="text-muted">
             <span class="float-left">${{ product.price }}</span>
-            <span class="float-right">{{ $t('span.first') }} {{ product.user.name }}</span>
+            <span class="float-right">{{ t('home.mixin.span.first') }} {{ product.user.name }}</span>
           </small>
         </b-card>
       </div>

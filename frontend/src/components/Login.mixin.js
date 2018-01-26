@@ -1,28 +1,6 @@
-import {mapMutations} from 'vuex'
+import { mapMutations } from 'vuex'
 
 export default {
-  i18n: {
-    messages: {
-      en: {
-        'description.first': 'Enter your name',
-        'label.first': 'Name',
-        'description.second': 'Enter your password',
-        'label.second': 'Password',
-        'figcaption.first': 'You may choose one of these users to login.',
-        'button.first': 'Submit'
-      },
-
-      de: {
-        'description.first': 'Gebe deinen Namen ein',
-        'label.first': 'Name',
-        'description.second': 'Gebe dein Passwort ein',
-        'label.second': 'Passwort',
-        'figcaption.first': 'Du kannst einen dieser Nutzer wählen, um dich einzuloggen.',
-        'button.first': 'Senden'
-      }
-    }
-  },
-
   computed: {
     user: {
       get () {

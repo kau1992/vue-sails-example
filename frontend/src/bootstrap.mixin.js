@@ -1,27 +1,33 @@
 import Vue from 'vue'
 import VueResource from 'vue-resource'
-import VueI18n from 'vue-i18n'
+import VueTranslate from 'vue-translate-plugin'
 import store from './../state/index'
 
-Vue.use(VueI18n)
 Vue.use(VueResource)
-
-const i18n = new VueI18n({
-  locale: 'en'
-})
+Vue.use(VueTranslate)
 
 const LocaleMixin = {
   computed: {
-    locale () {
-      return this.$store.state.locale
+    locale: {
+      get () {
+        return this.$store.state.locale
+      },
+
+      set (locale) {
+        this.$store.commit('SET_LOCALE', locale)
+      }
     }
   },
 
   watch: {
     locale () {
-      this.$i18n.locale = this.locale
+      this.$translate.setLang(this.locale)
     }
   }
 }
 
-export { Vue, store, i18n, LocaleMixin }
+export {
+  Vue,
+  store,
+  LocaleMixin
+}

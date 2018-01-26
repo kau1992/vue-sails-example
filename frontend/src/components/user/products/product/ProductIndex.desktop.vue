@@ -3,11 +3,11 @@
     <div class="col">
       <b-card no-body>
         <b-tabs card ref="tabs">
-          <b-tab :title="$t('tab.first')">
-            <products-get keep-alive></products-get>
+          <b-tab :title="t('productindex.mixin.tab.first')">
+            <products-get></products-get>
           </b-tab>
-          <b-tab :title="$t('tab.second')">
-            <product-post keep-alive></product-post>
+          <b-tab :title="t('productindex.mixin.tab.second')">
+            <product-post></product-post>
           </b-tab>
         </b-tabs>
       </b-card>
@@ -16,11 +16,7 @@
 </template>
 
 <script>
-  import ProductIndexMixin from './ProductIndex.mixin'
-
   export default {
-    mixins: [ProductIndexMixin],
-
     components: {
       ProductPost: () => import('./ProductPost.desktop'),
       ProductsGet: () => import('../ProductsGet.desktop')

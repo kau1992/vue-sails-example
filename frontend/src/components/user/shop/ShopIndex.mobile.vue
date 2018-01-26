@@ -1,11 +1,11 @@
 <template>
 <div>
   <mt-cell v-for="product in products" :key="product.id" :title="product.title">
-    <mt-button size="small" @click="makeProductVisible(product)">{{ $t('button.second')}}</mt-button>
+    <mt-button size="small" @click="makeProductVisible(product)">{{ t('shopindex.mixin.button.second')}}</mt-button>
   </mt-cell>
 
   <mt-cell title="">
-    <mt-button :disabled="isNextButtonDisabled" size="small" type="primary" @click="currentPage++">{{ $t('button.third')}}</mt-button>
+    <mt-button :disabled="isNextButtonDisabled" size="small" type="primary" @click="currentPage++">{{ t('shopindex.mixin.button.third')}}</mt-button>
   </mt-cell>
 </div>
 </template>
@@ -29,14 +29,14 @@ export default {
         title: product.title,
         message: product.description,
         showCancelButton: true,
-        cancelButtonText: this.$t('cancelButtonText'),
-        confirmButtonText: `${this.$t('confirmButtonText')} $${product.price}`
+        cancelButtonText: this.t('shopindex.mixin.cancelButtonText'),
+        confirmButtonText: `${this.t('shopindex.mixin.confirmButtonText')} $${product.price}`
       }, action => {
         if (action === 'confirm') {
           this.pushToBasket(product)
 
           Toast({
-            message: this.$t('product.added'),
+            message: this.t('shopindex.mixin.product.added'),
             position: 'bottom',
             duration: 3000
           })

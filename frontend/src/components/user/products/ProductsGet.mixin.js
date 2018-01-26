@@ -7,50 +7,24 @@ export default {
     this.$store.dispatch('getProductsByUser', this.user)
   },
 
-  i18n: {
-    messages: {
-      en: {
-        'field.first': 'Title',
-        'field.second': 'Description',
-        'field.third': 'Price',
-        'field.fourth': 'Actions',
-        'button.first': 'Edit',
-        'button.second': 'Remove',
-        'product.removed': 'Product removed',
-        'p.first': 'No products yet, you should create one.'
-      },
-
-      de: {
-        'field.first': 'Titel',
-        'field.second': 'Beschreibung',
-        'field.third': 'Preis',
-        'field.fourth': 'Aktionen',
-        'button.first': 'Bearbeiten',
-        'button.second': 'Entfernen',
-        'product.removed': 'Produkt entfernt',
-        'p.first': 'Noch keine Produkte, du solltest eines erstellen.'
-      }
-    }
-  },
-
   computed: {
     fields: {
       get () {
         return {
           title: {
-            label: this.$t('field.first')
+            label: this.t('productsget.mixin.field.first')
           },
 
           description: {
-            label: this.$t('field.second')
+            label: this.t('productsget.mixin.field.second')
           },
 
           price: {
-            label: this.$t('field.third')
+            label: this.t('productsget.mixin.field.third')
           },
 
           actions: {
-            label: this.$t('field.fourth')
+            label: this.t('productsget.mixin.field.fourth')
           }
         }
       }

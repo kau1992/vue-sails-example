@@ -1,4 +1,4 @@
-import { Vue, store, i18n, LocaleMixin } from './bootstrap.mixin'
+import { Vue, store, LocaleMixin } from './bootstrap.mixin'
 import App from './App.desktop'
 import router from './router/router.desktop'
 import BootstrapVue from 'bootstrap-vue'
@@ -45,7 +45,6 @@ new Vue({
   el: '#app',
   store,
   router,
-  i18n,
   template: '<App/>',
   mixins: [LocaleMixin],
   components: {

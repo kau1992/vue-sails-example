@@ -1,13 +1,13 @@
 <template>
   <div class="row justify-content-md-center">
     <div class="col-6">
-      <b-form-fieldset :description="$t('description.first')" :label="$t('label.first')">
+      <b-form-fieldset :description="t('login.mixin.description.first')" :label="t('login.mixin.label.first')">
         <b-form-input v-model="name"></b-form-input>
       </b-form-fieldset>
-      <b-form-fieldset :description="$t('description.second')" :label="$t('label.second')">
+      <b-form-fieldset :description="t('login.mixin.description.second')" :label="t('login.mixin.label.second')">
         <b-form-input v-model="password" type="password"></b-form-input>
       </b-form-fieldset>
-      <b-button variant="outline-success" size="sm" @click="login">{{ $t('button.first') }}</b-button>
+      <b-button variant="outline-success" size="sm" @click="login">{{ t('login.mixin.button.first') }}</b-button>
     </div>
     <div class="col-6">
       <figure class="figure">
@@ -25,7 +25,7 @@
           }
         ]
       </pre>
-        <figcaption class="figure-caption">{{ $t('figcaption.first') }}</figcaption>
+        <figcaption class="figure-caption">You may choose one of these users to login.</figcaption>
       </figure>
     </div>
   </div>

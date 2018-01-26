@@ -15,17 +15,17 @@
 
       <b-collapse is-nav id="nav_collapse">
         <b-navbar-nav>
-          <b-nav-item :to="{ name: 'Home'}">{{ $t('home') }}</b-nav-item>
-          <b-nav-item v-if="!isUserAuthenticated" :to="{ name: 'Register'}">{{ $t('register') }}</b-nav-item>
-          <b-nav-item v-if="!isUserAuthenticated" :to="{ name: 'Login'}">{{ $t('login') }}</b-nav-item>
-          <b-nav-item v-if="isUserAuthenticated" :to="{ name: 'Shop'}">{{ $t('shop') }}</b-nav-item>
+          <b-nav-item :to="{ name: 'Home'}">{{ t('app.mixin.home') }}</b-nav-item>
+          <b-nav-item v-if="!isUserAuthenticated" :to="{ name: 'Register'}">{{ t('app.mixin.register') }}</b-nav-item>
+          <b-nav-item v-if="!isUserAuthenticated" :to="{ name: 'Login'}">{{ t('app.mixin.login') }}</b-nav-item>
+          <b-nav-item v-if="isUserAuthenticated" :to="{ name: 'Shop'}">{{ t('app.mixin.shop') }}</b-nav-item>
         </b-navbar-nav>
         <b-navbar-nav class="ml-auto">
-          <b-nav-item @click="setIsHelpVisible(true)">{{ $t('help') }}</b-nav-item>
+          <b-nav-item @click="setIsHelpVisible(true)">{{ t('app.mixin.help') }}</b-nav-item>
           <b-nav-item :disabled="!basket.products.length" v-if="isUserAuthenticated" :to="{ name: 'Basket'}">
-            {{ $t('basket') }} ({{ basket.products.length }})
+            {{ t('app.mixin.basket') }} ({{ basket.products.length }})
           </b-nav-item>
-          <b-nav-item v-if="isUserAuthenticated" :to="{ name: 'Products'}">{{ $t('products') }}</b-nav-item>
+          <b-nav-item v-if="isUserAuthenticated" :to="{ name: 'Products'}">{{ t('app.mixin.products') }}</b-nav-item>
           <b-nav-item-dropdown text="Language" right-alignment>
             <b-dropdown-item @click="setLocale('en')">English</b-dropdown-item>
             <b-dropdown-item @click="setLocale('de')">Deutsch</b-dropdown-item>
@@ -70,9 +70,6 @@
           return this.$store.state.isHelpVisible
         },
 
-        /**
-         * @param isHelpVisible
-         */
         set (isHelpVisible) {
           this.store.commit('SET_IS_HELP_VISIBLE', isHelpVisible)
         }

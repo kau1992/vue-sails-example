@@ -2,7 +2,7 @@
   <div id="app">
     <mt-header title="Product paradise">
       <router-link :to="{ name: 'Home'}" slot="left">
-        <mt-button>{{ $t('home')}}</mt-button>
+        <mt-button>{{ t('app.mixin.home')}}</mt-button>
       </router-link>
       <span slot="right">
         <mt-button icon="more" @click.native="isNavbarVisible = true"></mt-button>
@@ -16,7 +16,7 @@
     </footer>
 
     <mt-actionsheet
-      :cancelText="$t('cancelText')"
+      :cancelText="t('app.mixin.cancelText')"
       size="large"
       :actions="actions"
       v-model="isNavbarVisible">
@@ -46,35 +46,35 @@
 
         if (!this.isUserAuthenticated) {
           actions.push({
-            name: this.$t('register'),
+            name: this.t('app.mixin.register'),
             method: () => {
               this.$router.push({name: 'Register'})
             }
           })
 
           actions.push({
-            name: this.$t('login'),
+            name: this.t('app.mixin.login'),
             method: () => {
               this.$router.push({name: 'Login'})
             }
           })
         } else {
           actions.push({
-            name: this.$t('shop'),
+            name: this.t('app.mixin.shop'),
             method: () => {
               this.$router.push({name: 'Shop'})
             }
           })
 
           actions.push({
-            name: this.$t('basket'),
+            name: this.t('app.mixin.basket'),
             method: () => {
               this.$router.push({name: 'Basket'})
             }
           })
 
           actions.push({
-            name: this.$t('products'),
+            name: this.t('app.mixin.products'),
             method: () => {
               this.$router.push({name: 'Products'})
             }
@@ -90,7 +90,7 @@
             if (locale === 'de') this.setLocale('en')
 
             Toast({
-              message: this.$t('language.changed'),
+              message: this.t('app.mixin.language.changed'),
               position: 'bottom',
               duration: 3000
             })

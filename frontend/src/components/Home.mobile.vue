@@ -2,18 +2,18 @@
   <div>
     <mt-swipe :show-indicators="false">
       <mt-swipe-item class="slide1">
-        {{ $t('p.first') }}
+        {{ t('home.mixin.p.first') }}
       </mt-swipe-item>
       <mt-swipe-item class="slide2">
-        {{ $t('p.second') }}
+        {{ t('home.mixin.p.second') }}
       </mt-swipe-item>
       <mt-swipe-item class="slide3">
-        {{ $t('p.third') }}
+        {{ t('home.mixin.p.third') }}
       </mt-swipe-item>
     </mt-swipe>
 
     <mt-cell v-for="product in products" :key="product.id" :title="product.title">
-      <mt-button size="small" @click="makeProductVisible(product)">{{ $t('button.first') }}</mt-button>
+      <mt-button size="small" @click="makeProductVisible(product)">{{ t('home.mixin.button.first') }}</mt-button>
     </mt-cell>
 
     <mt-cell title="">
@@ -22,7 +22,7 @@
       size="small"
       type="primary"
       @click="currentPage++">
-      {{ $t('button.second') }}
+      {{ t('home.mixin.button.second') }}
     </mt-button>
     </mt-cell>
   </div>

@@ -1,20 +1,4 @@
 export default {
-  i18n: {
-    messages: {
-      en: {
-        'button.first': 'Remove',
-        'span.first': 'Total',
-        'button.second': 'Checkout'
-      },
-
-      de: {
-        'button.first': 'Entfernen',
-        'span.first': 'Summe',
-        'button.second': 'Kaufen'
-      }
-    }
-  },
-
   computed: {
     basket: {
       get () {

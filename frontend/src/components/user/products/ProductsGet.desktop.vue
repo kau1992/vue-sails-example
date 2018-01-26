@@ -7,13 +7,13 @@
         ${{ item.item.price }}
       </template>
       <template slot="actions" slot-scope="item">
-        <b-button size="sm" variant="outline-primary" @click="showPatchForm(item.item.id)">{{ $t('button.first') }}
+        <b-button size="sm" variant="outline-primary" @click="showPatchForm(item.item.id)">{{ t('productsget.mixin.button.first') }}
         </b-button>
-        <b-button size="sm" variant="outline-warning" @click="deleteProduct(item.item.id)">{{ $t('button.second') }}</b-button>
+        <b-button size="sm" variant="outline-warning" @click="deleteProduct(item.item.id)">{{ t('productsget.mixin.button.second') }}</b-button>
       </template>
     </b-table>
 
-    <p v-else>{{ $t('p.first') }}</p>
+    <p v-else>{{ t('productsget.mixin.p.first') }}</p>
   </div>
 </template>
 

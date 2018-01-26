@@ -3,8 +3,8 @@
     <div class="row">
       <div class="col-8">
         <b-form-fieldset
-          :description="$t('description.first')"
-          :label="$t('label.first')">
+          :description="t('productpost.mixin.description.first')"
+          :label="t('productpost.mixin.label.first')">
           <b-form-input v-model="title" :state="isTitleValid"></b-form-input>
           <b-form-feedback v-for="(name, index) in errors.title" :key="index">
             {{ name }}
@@ -14,8 +14,8 @@
 
       <div class="col-4">
         <b-form-fieldset
-          :description="$t('description.second')"
-          :label="$t('label.second')">
+          :description="t('productpost.mixin.description.second')"
+          :label="t('productpost.mixin.label.second')">
           <b-form-input v-model="price" :state="isPriceValid"></b-form-input>
           <b-form-feedback v-for="(name, index) in errors.price" :key="index">
             {{ name }}
@@ -25,15 +25,15 @@
     </div>
 
     <b-form-fieldset
-      :description="$t('description.third')"
-      :label="$t('label.third')">
+      :description="t('productpost.mixin.description.third')"
+      :label="t('productpost.mixin.label.third')">
       <b-form-input textarea v-model="description" :state="isDescriptionValid"></b-form-input>
       <b-form-feedback v-for="(name, index) in errors.description" :key="index">
         {{ name }}
       </b-form-feedback>
     </b-form-fieldset>
 
-    <b-button size="sm" variant="outline-success" @click="postProduct">{{ $t('button.first') }}</b-button>
+    <b-button size="sm" variant="outline-success" @click="postProduct">{{ t('productpost.mixin.button.first') }}</b-button>
   </div>
 </template>
 

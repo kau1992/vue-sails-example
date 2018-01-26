@@ -1,7 +1,7 @@
 <template>
   <div>
     <b-alert variant="info" show>
-      {{ $t('alert.first') }}
+      {{ t('shopindex.mixin.alert.first') }}
     </b-alert>
     <div class="row">
       <div class="col-4" v-for="product in products">
@@ -13,11 +13,11 @@
           <b-button :disabled="product.user.name === user.name"
                     @click="pushToBasket(product)"
                     variant="outline-success"
-                    size="sm">{{ $t('button.first') }}
+                    size="sm">{{ t('shopindex.mixin.button.first') }}
           </b-button>
           <small slot="footer" class="text-muted">
             <span class="float-left">${{ product.price }}</span>
-            <span class="float-right">{{ $t('span.first') }} {{ product.user.name }}</span>
+            <span class="float-right">{{ t('shopindex.mixin.span.first') }} {{ product.user.name }}</span>
           </small>
         </b-card>
       </div>

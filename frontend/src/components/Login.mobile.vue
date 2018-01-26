@@ -1,10 +1,10 @@
 <template>
   <div>
-    <mt-field :label="$t('label.first')" v-model="name"></mt-field>
-    <mt-field :label="$t('label.second')" v-model="password" type="password"></mt-field>
+    <mt-field :label="t('login.mixin.label.first')" v-model="name"></mt-field>
+    <mt-field :label="t('login.mixin.label.second')" v-model="password" type="password"></mt-field>
 
     <mt-cell title="">
-      <mt-button size="small" type="primary" @click="login" plain>{{ $t('button.first') }}</mt-button>
+      <mt-button size="small" type="primary" @click="login" plain>{{ t('login.mixin.button.first') }}</mt-button>
     </mt-cell>
   </div>
 </template>

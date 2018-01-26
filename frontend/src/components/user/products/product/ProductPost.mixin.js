@@ -1,30 +1,4 @@
 export default {
-  i18n: {
-    messages: {
-      en: {
-        'description.first': 'Define a title',
-        'label.first': 'Title',
-        'description.second': 'Define a price',
-        'label.second': 'Price',
-        'description.third': 'Define a description',
-        'label.third': 'Description',
-        'button.first': 'Create',
-        'product.created': 'Product created'
-      },
-
-      de: {
-        'description.first': 'Definiere einen Titel',
-        'label.first': 'Titel',
-        'description.second': 'Definiere einen Preis',
-        'label.second': 'Preis',
-        'description.third': 'Definiere eine Beschreibung',
-        'label.third': 'Beschreibung',
-        'button.first': 'Erstellen',
-        'product.created': 'Produkt erstellt'
-      }
-    }
-  },
-
   created () {
     this.$store.commit('RESET_PRODUCT')
   },

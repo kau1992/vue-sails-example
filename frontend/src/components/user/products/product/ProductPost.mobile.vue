@@ -1,11 +1,11 @@
 <template>
   <div>
-    <mt-field :label="$t('label.first')" :state="isTitleValidMobile" v-model="title"></mt-field>
-    <mt-field :label="$t('label.third')" :state="isDescriptionValidMobile" v-model="description"></mt-field>
-    <mt-field :label="$t('label.second')" :state="isPriceValidMobile" v-model="price"></mt-field>
+    <mt-field :label="t('productpost.mixin.label.first')" :state="isTitleValidMobile" v-model="title"></mt-field>
+    <mt-field :label="t('productpost.mixin.label.third')" :state="isDescriptionValidMobile" v-model="description"></mt-field>
+    <mt-field :label="t('productpost.mixin.label.second')" :state="isPriceValidMobile" v-model="price"></mt-field>
 
     <mt-cell title="">
-          <mt-button size="small" type="primary" @click="postProduct" plain>{{ $t('button.first') }}</mt-button>
+      <mt-button size="small" type="primary" @click="postProduct" plain>{{ t('productpost.mixin.button.first') }}</mt-button>
     </mt-cell>
   </div>
 </template>
@@ -52,7 +52,7 @@
         })
 
         Toast({
-          message: this.$t('product.created'),
+          message: this.t('product.created'),
           position: 'bottom',
           duration: 3000
         })
