@@ -2,15 +2,14 @@
   "name": "frontend",
   "version": "0.0.0",
   "description": "Product paradise",
-  "author": "Julian Claus",
+  "author": "Julian Claus <kontakt@julian-claus.de>",
   "license": "MIT",
   "private": false,
   "scripts": {
-    "checkout": "NODE_PATH=. node ./node_modules/git-checkout.js/src/index.js",
     "dev": "node build/dev-server.js",
-    "start": "node build/dev-server.js",
     "build": "node build/build.js",
-    "lint": "eslint --ext .js,.vue src test/unit/specs test/e2e/specs"
+    "lint": "eslint --ext .js,.vue src",
+    "test": "pm2 start build/dev-server.js --name vue-sails-example & cypress run --headed && pm2 stop vue-sails-example"
   },
   "dependencies": {
     "bootstrap": "^4.0.0-beta.2",
@@ -18,7 +17,7 @@
     "ejs": "^2.5.7",
     "faker": "^4.1.0",
     "lodash": "^4.17.4",
-    "mint-ui": "^2.2.7",
+    "mint-ui": "^2.2.13",
     "sails.io.js": "^1.1.12",
     "socket.io-client": "^2.0.3",
     "validate.js": "^0.12.0",
@@ -49,6 +48,7 @@
     "cross-env": "^3.1.4",
     "cross-spawn": "^5.0.1",
     "css-loader": "^0.26.1",
+    "cypress": "^1.4.1",
     "eslint": "^3.19.0",
     "eslint-config-standard": "^6.2.1",
     "eslint-friendly-formatter": "^2.0.7",
@@ -69,7 +69,6 @@
     "opn": "^4.0.2",
     "optimize-css-assets-webpack-plugin": "^1.3.0",
     "ora": "^1.1.0",
-    "phantomjs-prebuilt": "^2.1.14",
     "rimraf": "^2.6.0",
     "selenium-server": "^3.0.1",
     "semver": "^5.3.0",
