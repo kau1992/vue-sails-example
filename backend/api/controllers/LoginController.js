@@ -1,11 +1,6 @@
 module.exports = {
-
-  /**
-   * @param req
-   * @param res
-   */
   post: (req, res) => {
-    let { name, password } = req.allParams()
+    const { name, password } = req.allParams()
 
     User
       .findOne({name})
@@ -20,7 +15,7 @@ module.exports = {
 
             sails.log.info('User logged in', user)
 
-            let encryptedId = CryptographyService.encrypt(user.id)
+            const encryptedId = CryptographyService.encrypt(user.id)
 
             return res.json({
               token: TokenService.issue({id: user.id}),

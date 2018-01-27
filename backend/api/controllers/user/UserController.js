@@ -1,11 +1,6 @@
 module.exports = {
-
-  /**
-   * @param req
-   * @param res
-   */
   get: (req, res) => {
-    let user = CryptographyService.decrypt(req.cookies.user)
+    const user = CryptographyService.decrypt(req.cookies.user)
 
     User
       .findOne({id: user})

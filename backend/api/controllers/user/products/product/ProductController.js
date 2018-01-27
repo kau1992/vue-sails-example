@@ -1,12 +1,7 @@
 module.exports = {
-
-  /**
-   * @param req
-   * @param res
-   */
   postProduct: (req, res) => {
-    let { title, price, description } = req.allParams()
-    let user = CryptographyService.decrypt(req.cookies.user)
+    const { title, price, description } = req.allParams()
+    const user = CryptographyService.decrypt(req.cookies.user)
 
     Product
       .create({title, description, price, user})
@@ -19,13 +14,9 @@ module.exports = {
       })
   },
 
-  /**
-   * @param req
-   * @param res
-   */
   getProduct: (req, res) => {
-    let id = req.param('id')
-    let user = CryptographyService.decrypt(req.cookies.user)
+    const id = req.param('id')
+    const user = CryptographyService.decrypt(req.cookies.user)
 
     Product
       .findOne({id, user})
@@ -35,13 +26,9 @@ module.exports = {
       })
   },
 
-  /**
-   * @param req
-   * @param res
-   */
   patchProduct: (req, res) => {
-    let {id, title, price, description} = req.allParams()
-    let user = CryptographyService.decrypt(req.cookies.user)
+    const {id, title, price, description} = req.allParams()
+    const user = CryptographyService.decrypt(req.cookies.user)
 
     Product
       .update({
@@ -61,13 +48,9 @@ module.exports = {
       })
   },
 
-  /**
-   * @param req
-   * @param res
-   */
   deleteProduct: (req, res) => {
-    let id = req.param('id')
-    let user = CryptographyService.decrypt(req.cookies.user)
+    const id = req.param('id')
+    const user = CryptographyService.decrypt(req.cookies.user)
 
     Product
       .destroy({id, user})

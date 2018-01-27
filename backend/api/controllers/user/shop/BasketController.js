@@ -1,11 +1,6 @@
 module.exports = {
-
-  /**
-   * @param req
-   * @param res
-   */
   postBasket: (req, res) => {
-    let products = req.param('products')
+    const products = req.param('products')
 
     Basket
       .create({products})

@@ -1,11 +1,6 @@
 module.exports = {
-
-  /**
-   * @param req
-   * @param res
-   */
   post: (req, res) => {
-    let { name, password } = req.allParams()
+    const { name, password } = req.allParams()
 
     User
       .create({name, password})

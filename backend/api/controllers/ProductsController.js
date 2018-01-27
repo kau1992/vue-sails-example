@@ -1,11 +1,6 @@
 module.exports = {
-
-  /**
-   * @param req
-   * @param res
-   */
   getProducts: (req, res) => {
-    let page = req.param('page')
+    const page = req.param('page')
 
     Product
       .count()

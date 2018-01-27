@@ -1,12 +1,7 @@
 module.exports = {
-
-  /**
-   * @param req
-   * @param res
-   */
   getProducts: (req, res) => {
-    let page = req.param('page')
-    let user = CryptographyService.decrypt(req.cookies.user)
+    const page = req.param('page')
+    const user = CryptographyService.decrypt(req.cookies.user)
 
     Product
       .count()
@@ -30,12 +25,8 @@ module.exports = {
       })
   },
 
-  /**
-   * @param req
-   * @param res
-   */
   getProductsByUser: (req, res) => {
-    let user = CryptographyService.decrypt(req.cookies.user)
+    const user = CryptographyService.decrypt(req.cookies.user)
 
     Product
       .find({user})

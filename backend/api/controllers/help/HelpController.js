@@ -1,9 +1,4 @@
 module.exports = {
-
-  /**
-   * @param req
-   * @param res
-   */
   postHelp: (req, res) => {
     const answers = [
       'I think I didn\'t understand you.',
@@ -11,7 +6,7 @@ module.exports = {
       'What do you mean by that?'
     ]
 
-    let answer = answers[Math.floor(Math.random() * answers.length)]
+    const answer = answers[Math.floor(Math.random() * answers.length)]
 
     setTimeout(() => {
       return res.json({answer})
