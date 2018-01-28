@@ -110,12 +110,11 @@ This project should cover as many features as possible. It should be used as an 
 a reference book. These notable elements are covered.
 
 - Internationalization
-- Unit and functional tests
+- Unit and functional tests (frontend tests with Cypress.io)
 - Dedicated mobile version
 - Socket.IO usage
 - Local storage plus cookie authentication
 - User input validation
-- Tests with Cypress.io
 
 ## Essential components used
 
