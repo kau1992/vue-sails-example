@@ -7,6 +7,7 @@
   "private": false,
   "scripts": {
     "dev": "node build/dev-server.js",
+    "cypress:open": "cypress open --global",
     "build": "node build/build.js",
     "lint": "eslint --ext .js,.vue src",
     "test": "pm2 start build/dev-server.js --name vue-sails-example & cypress run --headed && pm2 stop vue-sails-example"
